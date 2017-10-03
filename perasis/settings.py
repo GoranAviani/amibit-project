@@ -31,14 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #original_apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #our
-    'linkmanager'
+    #my_apps
+    'linkmanager',
+    #added_apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,12 +78,30 @@ WSGI_APPLICATION = 'perasis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+##############
+##################
+#DONT TOUCH FOR DEPLOY HEROKU OR ANYTHING! IT OK --->
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'perasisdb',
+        'USER': 'admin',
+        'PASSWORD': '224466integer',
+        'HOST': '127.0.0.1',
+        'PORT': '',
     }
-}
+ }
+##################
+#import dj_database_url
+# UN COMMENT THIS FOR DEPLOYED HEROKU --->
+#DATABASES['default'] =  dj_database_url.config()
+#######################
 
 
 # Password validation
@@ -107,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Zagreb'
 
 USE_I18N = True
 
