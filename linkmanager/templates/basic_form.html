@@ -1,0 +1,18 @@
+<!doctype html>
+{% extends "base_generic.html" %}
+{% block content %}
+
+
+<div class ='col-sm-6 col-sm-offset-3'>
+  <h2>{{ title }}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+
+
+    <input type = 'sumbit' class='btn btn-default' value='{{ title }}' />
+  </form>
+</div>
+
+{% endblock %}

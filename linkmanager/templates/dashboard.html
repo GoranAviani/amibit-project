@@ -1,0 +1,74 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load staticfiles %}
+{% load static %}
+<head>
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/main.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+ <div class="col-sm-12"
+
+  <label>say</label>
+  <form method="POST">
+    {% csrf_token %}
+        <input type="" name="say" class="form-control" id="" value="">
+
+
+      <button type="submit" class="btn btn-primary">say</button>
+  </form>
+</div>
+<div class="col-sm-9" style="background-color:lightblue;">
+  <div class="col-sm-4" style="background-color:orange;">
+    link
+  </div>
+  <div class="col-sm-4" style="background-color:orange;">
+    link
+  </div>
+  <div class="col-sm-4" style="background-color:orange;">
+    link
+  </div>
+</div>
+<div class="col-sm-9" style="background-color:red;">
+
+    {% if ListNotes %}
+      <ul>
+        {% for y in ListNotes %}
+
+          <li>
+            {{ y.note_title }}
+          </li>
+          <li>
+            {{ y.note_text }}
+          </li>
+
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no notes available. Click <a href="{{y.note_title}}">here</a> to add note</p>
+      {% endif %}
+</div>
+
+
+<div class="col-sm-3" style="background-color:lightgrey;">
+xxxxxx
+  {% if links %}
+    <ul>
+      {% for x in links %}
+          <a href="{{x.link_url}}" target="_blank" class="list-group-item">{{ x.link_name }}</a>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no links available. Click <a href="{{x.link_url}}">here</a> to add links</p>
+    {% endif %}
+  </div>
+
+
+
+</body>
+{% endblock %}
