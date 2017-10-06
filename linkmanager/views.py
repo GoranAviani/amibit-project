@@ -8,9 +8,14 @@ from django.shortcuts import render
 def index(request):
 # Render the HTML template index.html with the data in the context variable
     return render(
-#        request,
+        request,
         'index.html',
         #context={'num_apps':num_apps,'num_users':num_users},
+        )
+def about(request):
+    return render(
+    request,
+    'perasis/about.html'
     )
 
 
