@@ -5,3 +5,12 @@ class LinkSerializer(serializers.Serializer):
     class Meta:
         model = Link
         fields = '__all__'
+
+class LinkUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Link
+        #fields = '__all__'
+        fields = (
+        'link_name',
+        'link_url',
+        )

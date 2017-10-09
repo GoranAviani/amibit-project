@@ -4,6 +4,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import render
 
+from rest_framework.generics import (
+    RetrieveUpdateAPIView,
+    DestroyAPIView,
+    )
+
+from .serializers import (
+    LinkUpdateSerializer,
+    )
 
 def index(request):
 # Render the HTML template index.html with the data in the context variable
@@ -29,14 +37,14 @@ class Dashboard(APIView):
         return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
 
-def LinkUpdateView(request,id):
-    return render(
-    request,
-    'perasis/about.html'
-    )
+class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
+    queryset = Link.objects.all()
+    serializer_class = LinkUpdateSerializer
+    lookup_field = 'id'
+    def perform_update(self, serializer):
+        serializer.save(link_user = self.request.user)
 
-
-    #def post(self, request):
-    #    queryLink = Link.objects.all()
-    #    queryNote = Note.objects.all()
-    #    return Response({'links': queryLink, 'notes':queryNote})
+class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
+    queryset = Link.objects.all()
+    #serializer_class = LinkUpdateSerializer #not needed?
+    lookup_field = 'id'
