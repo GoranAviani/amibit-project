@@ -29,6 +29,13 @@ class Dashboard(APIView):
         return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
 
+def LinkUpdateView(request,id):
+    return render(
+    request,
+    'perasis/about.html'
+    )
+
+
     #def post(self, request):
     #    queryLink = Link.objects.all()
     #    queryNote = Note.objects.all()

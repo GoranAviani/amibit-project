@@ -60,7 +60,19 @@ xxxxxx
   {% if links %}
     <ul>
       {% for x in links %}
-          <a href="{{x.link_url}}" target="_blank" class="list-group-item">{{ x.link_name }}</a>
+
+          <a href="{{x.link_url}}" target="_blank" class="list-group-item">
+            <div>{{ x.link_name }}</div>
+            <div>
+              <a href ="{% url 'link_update' x.id %}" class='list-group-item'>
+                update link botun
+              </a>
+              <a href ="{% url 'link_update' x.id %}" class='list-group-item'>
+                update link botun
+              </a>
+            </div>
+          </a>
+#display: inline;
       {% endfor %}
     </ul>
     {% else %}
