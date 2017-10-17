@@ -48,3 +48,15 @@ class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
     #serializer_class = LinkUpdateSerializer #not needed?
     lookup_field = 'id'
+
+def NoteCreateView(request):
+    if request.method == 'POST':
+       note_timestamp = datetime.datetime.now()
+    #import pdb; pdb.set_trace()
+
+
+
+    return render(
+    request,
+    'note/note_create.html'
+    )

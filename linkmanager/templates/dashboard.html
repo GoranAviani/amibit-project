@@ -39,7 +39,9 @@
     {% if notes %}
       <ul>
         {% for y in notes %}
-
+        <a href ="{% url 'note_create' %}" class='list-group-item'>
+          create note botun
+        </a>
           <li>
             {{ y.note_title }}
           </li>
