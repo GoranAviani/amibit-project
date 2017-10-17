@@ -5,8 +5,13 @@ from rest_framework.views import APIView
 from django.shortcuts import render
 
 from rest_framework.generics import (
+    CreateAPIView,
     RetrieveUpdateAPIView,
     DestroyAPIView,
+    )
+
+from rest_framework.permissions import (
+    IsAuthenticated,
     )
 
 from .serializers import (
@@ -36,6 +41,15 @@ class Dashboard(APIView):
         queryNote = Note.objects.all()
         return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
+
+class LinkCreateView(CreateAPIView):
+    queryset = Link.objects.all()
+    serializer_class = LinkUpdateSerializer
+    permission_classes=[IsAuthenticated]
+    def perform_create(self, serializer):
+        serializer.save(link_user = self.request.user)
+
+
 
 class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
