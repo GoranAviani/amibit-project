@@ -3,6 +3,11 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import render
+from django.shortcuts import redirect
+
+
+
+from datetime import datetime
 
 from rest_framework.generics import (
     CreateAPIView,
@@ -17,6 +22,10 @@ from rest_framework.permissions import (
 from .serializers import (
     LinkUpdateSerializer,
     )
+
+from .forms import NoteCreate
+
+
 
 def index(request):
 # Render the HTML template index.html with the data in the context variable
@@ -64,13 +73,15 @@ class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     lookup_field = 'id'
 
 def NoteCreateView(request):
+
     if request.method == 'POST':
-       note_timestamp = datetime.datetime.now()
-    #import pdb; pdb.set_trace()
-
-
-
-    return render(
-    request,
-    'note/note_create.html'
-    )
+        form_note_create = NoteCreate(request.POST)
+        if form_note_create.is_valid():
+            #note_timestamp = datetime.datetime.now()
+            note = form_note_create.save()
+            note.refresh_from_db()  # load the profile instance created by the signal
+            note.save()
+        return redirect('dashboard')
+    else:
+        form_note_create = NoteCreate()
+    return render(request, 'note/note_create.html', {'form_note_create': form_note_create})

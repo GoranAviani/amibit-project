@@ -1,11 +1,16 @@
-<div class="form-group col-lg-12">
-  <label>say</label>
-  <form method="POST">
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
     {% csrf_token %}
-        <input type="" name="link_name" class="form-control" id="" value="">
-        <input type="" name="link_url" class="form-control" id="" value="">
-
-      </div>
-
-      <button type="submit" class="btn btn-primary">say</button>
+    {% for field in form_note_create %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+      
+      </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
   </form>
+{% endblock %}
