@@ -69,7 +69,6 @@ class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
 
 class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
-    #serializer_class = LinkUpdateSerializer #not needed?
     lookup_field = 'id'
 
 def NoteCreateView(request):
@@ -78,8 +77,10 @@ def NoteCreateView(request):
         form_note_create = NoteCreate(request.POST)
         if form_note_create.is_valid():
             #note_timestamp = datetime.datetime.now()
-            note = form_note_create.save()
-            note.refresh_from_db()  # load the profile instance created by the signal
+            note = form_note_create.save(commit=False)
+            #null value in column "note_user_id" violates not-null constraint
+            #DETAIL:  Failing row contains (18, commit=False, commit=False
+            note.note_user = request.user
             note.save()
         return redirect('dashboard')
     else:

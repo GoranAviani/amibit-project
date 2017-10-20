@@ -37,18 +37,27 @@
 <div class="col-sm-9" style="background-color:red;">
 
     {% if notes %}
+    <a href ="{% url 'note_create' %}" class='list-group-item'>
+      create note botun
+    </a>
       <ul>
         {% for y in notes %}
-        <a href ="{% url 'note_create' %}" class='list-group-item'>
-          create note botun
-        </a>
+        <li>
+          {{ y.id }}
+        </li>
+        <li>
+          {{ y.note_user }}
+        </li>
           <li>
             {{ y.note_title }}
           </li>
           <li>
             {{ y.note_text }}
           </li>
-
+          <li>
+            {{ y.note_timestamp }}
+          </li>
+            ___________________________
         {% endfor %}
       </ul>
       {% else %}

@@ -10,7 +10,7 @@ class NoteCreate(forms.ModelForm):
     class Meta:
         model = Note
         fields = (
-            'note_user',
+            #'note_user',
             'note_title',
             'note_text',
         #    'note_timestamp',
