@@ -13,7 +13,7 @@ class NoteCreate(forms.ModelForm):
             #'note_user',
             'note_title',
             'note_text',
-        #    'note_timestamp',
+            #'note_timestamp',
             )
 
 class NoteUpdateForm(forms.ModelForm):
@@ -27,4 +27,13 @@ class NoteUpdateForm(forms.ModelForm):
             'note_title',
             'note_text',
         #    'note_timestamp',
+            )
+class NoteDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = (
+            #'note_user',
+            'note_title',
+            'note_text',
+            #'note_timestamp',
             )

@@ -2,7 +2,7 @@ from .models import Link, Note
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
 
 
@@ -26,6 +26,7 @@ from .serializers import (
 from .forms import (
 NoteCreate,
 NoteUpdateForm,
+NoteDeleteForm,
 )
 
 
@@ -90,6 +91,7 @@ def NoteCreateView(request):
     return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
 
 def NoteUpdateView(request,id):
+    new_to_update = get_object_or_404(Note, id=id)
     if request.method == 'POST':
         form_note_update = NoteUpdateForm(request.POST)
         if form_note_update.is_valid():
@@ -101,5 +103,19 @@ def NoteUpdateView(request,id):
             return redirect('dashboard')
 
     else:
-        form_note_update = NoteUpdateForm()
+        form_note_update = NoteUpdateForm(instance = new_to_update)
         return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
+
+#from django.views.generic import CreateView, UpdateView, \
+#        DeleteView, ListView, DetailView
+################### updateview,createview,deleteview
+def NoteDeleteView(request,id):
+    new_to_delete = get_object_or_404(Note, id=id)
+    if request.method == 'POST':
+        form_note_delete = NoteDeleteForm(request.POST)
+        if form_note_delete.is_valid():
+            new_to_delete.delete()
+            return redirect('dashboard')
+    else:
+        form_note_delete = NoteUpdateForm(instance=new_to_delete)
+        return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
