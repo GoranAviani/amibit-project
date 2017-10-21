@@ -42,6 +42,10 @@
     </a>
       <ul>
         {% for y in notes %}
+        <a href ="{% url 'note_update' y.id %}" class='list-group-item'>
+          update note botun
+        </a>
+
         <li>
           {{ y.id }}
         </li>

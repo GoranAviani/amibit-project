@@ -6,8 +6,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 
 
-
-from datetime import datetime
+from django.utils import timezone
+import datetime
 
 from rest_framework.generics import (
     CreateAPIView,
@@ -23,7 +23,10 @@ from .serializers import (
     LinkUpdateSerializer,
     )
 
-from .forms import NoteCreate
+from .forms import (
+NoteCreate,
+NoteUpdateForm,
+)
 
 
 
@@ -85,3 +88,18 @@ def NoteCreateView(request):
     else:
         form_note_create = NoteCreate()
     return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
+
+def NoteUpdateView(request,id):
+    if request.method == 'POST':
+        form_note_update = NoteUpdateForm(request.POST)
+        if form_note_update.is_valid():
+            note = form_note_update.save(commit=False)
+            note.id = id
+            note.note_timestamp = datetime.datetime.now()
+            note.note_user = request.user
+            note.save()
+            return redirect('dashboard')
+
+    else:
+        form_note_update = NoteUpdateForm()
+        return render(request, 'note/note_update.html', {'form_note_update': form_note_update})

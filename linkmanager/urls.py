@@ -11,5 +11,6 @@ urlpatterns =[
     url(r'^link/update/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkUpdateView.as_view(), name='link_update'),
     url(r'^link/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkDestroyView.as_view(), name='link_delete'),
     url(r'^note/create/', views.NoteCreateView, name='note_create'),
+    url(r'^note/update/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteUpdateView, name='note_update'),
 
     ]

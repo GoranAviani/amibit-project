@@ -15,3 +15,16 @@ class NoteCreate(forms.ModelForm):
             'note_text',
         #    'note_timestamp',
             )
+
+class NoteUpdateForm(forms.ModelForm):
+    note_title = forms.CharField(help_text='Required')
+    note_text = forms.CharField(widget=forms.Textarea)
+
+    class Meta:
+        model = Note
+        fields = (
+            #'note_user',
+            'note_title',
+            'note_text',
+        #    'note_timestamp',
+            )
