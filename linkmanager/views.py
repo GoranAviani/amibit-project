@@ -72,7 +72,6 @@ class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     lookup_field = 'id'
 
 def NoteCreateView(request):
-
     if request.method == 'POST':
         form_note_create = NoteCreate(request.POST)
         if form_note_create.is_valid():
