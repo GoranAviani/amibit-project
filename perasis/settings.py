@@ -147,3 +147,5 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static_files'),
 )
 #added for static files
+
+LOGIN_REDIRECT_URL = 'dashboard' #redirects on succesfull login

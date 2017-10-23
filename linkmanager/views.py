@@ -19,6 +19,12 @@ from rest_framework.permissions import (
     IsAuthenticated,
     )
 
+from django.contrib.auth import (
+    authenticate, #user = authenticate(username=user.username, password=raw_password)
+    login,
+    logout,
+)
+
 from .serializers import (
     LinkUpdateSerializer,
     )
@@ -27,6 +33,7 @@ from .forms import (
 NoteCreate,
 NoteUpdateForm,
 NoteDeleteForm,
+UserRegisterForm,
 )
 
 
@@ -119,3 +126,29 @@ def NoteDeleteView(request,id):
     else:
         form_note_delete = NoteUpdateForm(instance=new_to_delete)
         return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
+# kad se klikne na delete da izbaci pop up.
+#alert()
+#tk inter library za heroje
+#if noute-user == request.user
+#slik
+
+
+def logout_view(request):
+    logout(request)
+    return render(request,"index.html",{})
+
+#registration user:
+def signup_view(request):
+    if request.method == 'POST':
+       form_signup = UserRegisterForm(request.POST)
+       if form_signup.is_valid():
+            user = form_signup.save()
+            user.refresh_from_db()
+            user.save()
+            raw_password = form_signup.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+            return redirect('dashboard')
+    else:
+        form_signup = UserRegisterForm()
+    return render(request, 'users/registration.html', {'form_signup': form_signup})

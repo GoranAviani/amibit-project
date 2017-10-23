@@ -14,4 +14,7 @@ urlpatterns =[
     url(r'^note/update/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteUpdateView, name='note_update'),
     url(r'^note/delete/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteDeleteView, name='note_delete'),
 
-    ]
+    url(r'^user/login/', auth_views.login,  name='login'),
+    url(r'^user/registration/', views.signup_view, name='register'),
+    url(r'^user/logout/', views.logout_view, name='logout'),
+        ]

@@ -78,7 +78,8 @@
         </li>
         {% else %}
  <!--MY PROJECT DROPDOwN-->
-        <li><a href="">Log in</b></a></li>
+        <li><a href="{% url 'login' %}">Log in</b></a></li>
+        <li><a href="{% url 'register' %}">Register</b></a></li>
 
         {% endif %}
 
@@ -98,7 +99,7 @@
 
 
             {% if user.is_authenticated %}
-            <li><a href="">Log out</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
              {% else %}
             <li><a href="">Log in</a><li>
             <li role="separator" class="divider"></li>
