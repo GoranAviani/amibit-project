@@ -3,11 +3,9 @@
 {% load staticfiles %}
 {% load static %}
 <head>
-
   <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
   <link rel="stylesheet" href="{% static 'css/main.css' %} ">
   <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -23,33 +21,25 @@
       <button type="submit" class="btn btn-primary">say</button>
   </form>
 </div>
-<div class="col-sm-9" style="background-color:lightblue;">
-  <div class="col-sm-4" style="background-color:orange;">
-    link
+
+<div class="col-sm-9">
+
+  <div class="col-sm-12" style="background-color:lightblue;">
+    <div class="col-sm-4" style="background-color:orange;">
+      NOTES
+    </div>
+    <div class="col-sm-8" style="background-color:orange;">
+      <a href ="{% url 'note_create' %}" class='list-group-item' >
+        Create note
+      </a>
+    </div>
   </div>
-  <div class="col-sm-4" style="background-color:orange;">
-    link
-  </div>
-  <div class="col-sm-4" style="background-color:orange;">
-    link
-  </div>
-</div>
-<div class="col-sm-9" style="background-color:red;">
-NOTES
+
     {% if notes %}
-    <a href ="{% url 'note_create' %}" class='list-group-item'>
-      create note botun
-    </a>
+
       <ul>
         {% for y in notes %}
-        <a href ="{% url 'note_update' y.id %}" class='list-group-item'>
-          update note botun
-        </a>
-        <a href ="{% url 'note_delete' y.id %}" class='list-group-item'>
-          delete note botun
-        </a>
-
-
+      ________________________
         <li>
           {{ y.id }}
         </li>
@@ -65,7 +55,14 @@ NOTES
           <li>
             {{ y.note_timestamp }}
           </li>
-            ___________________________
+          <a href ="{% url 'note_update' y.id %}" class="btn btn-primary">
+            Update
+          </a>
+          <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary">
+            Delete
+          </a>
+
+            <li>___________________________</li>
         {% endfor %}
       </ul>
       {% else %}
@@ -78,25 +75,22 @@ NOTES
 LINKS
 
   {% if links %}
-  <a href ="{% url 'link_create' %}" >
-    create link botun
+  <a href ="{% url 'link_create' %}" class="list-group-item" style="background-color:lightblue;">
+    Create link
   </a>
     <ul>
       {% for x in links %}
-
+      <div>
           <a href="{{x.link_url}}" target="_blank" class="list-group-item">
             <div>{{ x.link_name }}</div>
-            <div>
-              <a href ="{% url 'link_update' x.id %}" class='list-group-item'>
-                update link botun
-              </a>
-              <a href ="{% url 'link_delete' x.id %}" class='list-group-item'>
-                delete link botun
-              </a>
-
-            </div>
           </a>
-#display: inline;
+          <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
+            Update
+          </a>
+          <a href ="{% url 'link_delete' x.id %}" class='btn btn-primary'>
+            Delete
+          </a>
+        </div>
       {% endfor %}
     </ul>
     {% else %}

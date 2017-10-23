@@ -14,12 +14,10 @@ from rest_framework.generics import (
     RetrieveUpdateAPIView,
     DestroyAPIView,
     )
-#from rest_framework.permissions import (
-#    IsAuthenticated,
-    #IsAuthenticatedOrReadOnly,
-    #IsAuthenticatedAndOwner,
-#    )
-from rest_framework.permissions import *
+from rest_framework.permissions import (
+    IsAuthenticated,
+    IsAuthenticatedOrReadOnly,
+)
 from .permissions import *
 
 from django.contrib.auth import (
@@ -68,7 +66,7 @@ class Dashboard(APIView):
 class LinkCreateView(CreateAPIView):
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
-    permission_classes=(IsAuthenticated)
+    permission_classes=(IsAuthenticated,)
     def perform_create(self, serializer):
         serializer.save(link_user = self.request.user)
 
