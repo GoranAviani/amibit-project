@@ -14,11 +14,13 @@ from rest_framework.generics import (
     RetrieveUpdateAPIView,
     DestroyAPIView,
     )
-from rest_framework import permissions
-from rest_framework.permissions import (
-    IsAuthenticated,
-    IsAuthenticatedOrReadOnly, #is authenticaed and user
-    )
+#from rest_framework.permissions import (
+#    IsAuthenticated,
+    #IsAuthenticatedOrReadOnly,
+    #IsAuthenticatedAndOwner,
+#    )
+from rest_framework.permissions import *
+from .permissions import *
 
 from django.contrib.auth import (
     authenticate, #user = authenticate(username=user.username, password=raw_password)
@@ -76,15 +78,21 @@ class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
     lookup_field = 'id'
-    permission_classes= (IsAuthenticated,)
+    permission_classes= (IsAuthenticated,IsOwner,)
 
     def perform_update(self, serializer):
             serializer.save(link_user = self.request.user)
 
 class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
-    permission_classes= (IsAuthenticated,)
+    permission_classes= (IsAuthenticated,IsOwner)
     queryset = Link.objects.all()
     lookup_field = 'id'
+    permission_classes= (IsAuthenticated,IsOwner)
+
+    #def get(self, request,id):
+    #    lookup_field = 'id'
+    #    queryset = Link.objects.filter(link_user=self.request.user)
+
 
 def NoteCreateView(request):
     if request.user.is_authenticated():
@@ -115,7 +123,6 @@ def NoteUpdateView(request,id):
                     note.note_user = request.user
                     note.save()
                     return redirect('dashboard')
-
             else:
                 form_note_update = NoteUpdateForm(instance = new_to_update)
                 return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
