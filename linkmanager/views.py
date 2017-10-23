@@ -54,6 +54,7 @@ def about(request):
 
 
 class Dashboard(APIView):
+    permission_classes=(IsAuthenticated,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'dashboard.html'
 
@@ -76,16 +77,16 @@ class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
     lookup_field = 'id'
-    permission_classes= (IsAuthenticated,IsOwner,)
+    permission_classes= (IsAuthenticated,IsLinkOwner,)
 
     def perform_update(self, serializer):
             serializer.save(link_user = self.request.user)
 
 class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
-    permission_classes= (IsAuthenticated,IsOwner)
+    permission_classes= (IsAuthenticated,IsLinkOwner)
     queryset = Link.objects.all()
     lookup_field = 'id'
-    permission_classes= (IsAuthenticated,IsOwner)
+
 
     #def get(self, request,id):
     #    lookup_field = 'id'
@@ -109,9 +110,9 @@ def NoteCreateView(request):
         return render(request,'perasis/not_authenticaded.html')
 
 def NoteUpdateView(request,id):
-    new_to_update = get_object_or_404(Note, id=id)
+    note_to_update = get_object_or_404(Note, id=id)
     if request.user.is_authenticated():
-        if Note.note_user == request.user:
+        if note_to_update.note_user == request.user:
             if request.method == 'POST':
                 form_note_update = NoteUpdateForm(request.POST)
                 if form_note_update.is_valid():
@@ -122,7 +123,7 @@ def NoteUpdateView(request,id):
                     note.save()
                     return redirect('dashboard')
             else:
-                form_note_update = NoteUpdateForm(instance = new_to_update)
+                form_note_update = NoteUpdateForm(instance = note_to_update)
                 return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
         else:
             return render(request,'perasis/not_owner.html')
@@ -131,16 +132,16 @@ def NoteUpdateView(request,id):
 
 
 def NoteDeleteView(request,id):
+    note_to_delete = get_object_or_404(Note, id=id)
     if request.user.is_authenticated():
-        if Note.note_user == request.user:
-            new_to_delete = get_object_or_404(Note, id=id)
+        if note_to_delete.note_user == request.user:
             if request.method == 'POST':
                 form_note_delete = NoteDeleteForm(request.POST)
                 if form_note_delete.is_valid():
-                    new_to_delete.delete()
+                    note_to_delete.delete()
                     return redirect('dashboard')
             else:
-                form_note_delete = NoteUpdateForm(instance=new_to_delete)
+                form_note_delete = NoteUpdateForm(instance=note_to_delete)
                 return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
         else:
             return render(request,'perasis/not_owner.html')
