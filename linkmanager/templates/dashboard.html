@@ -35,7 +35,7 @@
   </div>
 </div>
 <div class="col-sm-9" style="background-color:red;">
-
+NOTES
     {% if notes %}
     <a href ="{% url 'note_create' %}" class='list-group-item'>
       create note botun
@@ -69,17 +69,18 @@
         {% endfor %}
       </ul>
       {% else %}
-        <p>There are no notes available. Click <a href="{{y.note_title}}">here</a> to add note</p>
+        <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
       {% endif %}
 </div>
 
 
 <div class="col-sm-3" style="background-color:lightgrey;">
-xxxxxx
-<a href ="{% url 'link_create' %}" >
-  create link botun
-</a>
+LINKS
+
   {% if links %}
+  <a href ="{% url 'link_create' %}" >
+    create link botun
+  </a>
     <ul>
       {% for x in links %}
 
@@ -99,7 +100,7 @@ xxxxxx
       {% endfor %}
     </ul>
     {% else %}
-      <p>There are no links available. Click <a href="{{x.link_url}}">here</a> to add links</p>
+      <p>There are no links available. Click <a href="{% url 'link_create' %}">here</a> to add links</p>
     {% endif %}
   </div>
 

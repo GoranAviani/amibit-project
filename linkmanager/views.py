@@ -58,7 +58,7 @@ class Dashboard(APIView):
 
     def get(self, request):
         queryLink = Link.objects.filter(link_user=self.request.user)
-        queryNote = Note.objects.all()
+        queryNote = Note.objects.filter(note_user=self.request.user)
         return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
 
