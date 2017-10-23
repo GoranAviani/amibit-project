@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 class NoteCreate(forms.ModelForm):
     #your_name = forms.CharField(label='Your name', max_length=100)
-    note_title = forms.CharField(help_text='Required')
-    note_text = forms.CharField(help_text='Required')
+    note_title = forms.CharField()
+    note_text = forms.CharField(widget=forms.Textarea)
 
     class Meta:
         model = Note
@@ -19,7 +19,7 @@ class NoteCreate(forms.ModelForm):
             )
 
 class NoteUpdateForm(forms.ModelForm):
-    note_title = forms.CharField(help_text='Required')
+    note_title = forms.CharField()
     note_text = forms.CharField(widget=forms.Textarea)
 
     class Meta:

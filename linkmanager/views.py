@@ -14,9 +14,10 @@ from rest_framework.generics import (
     RetrieveUpdateAPIView,
     DestroyAPIView,
     )
-
+from rest_framework import permissions
 from rest_framework.permissions import (
     IsAuthenticated,
+    IsAuthenticatedOrReadOnly, #is authenticaed and user
     )
 
 from django.contrib.auth import (
@@ -65,7 +66,7 @@ class Dashboard(APIView):
 class LinkCreateView(CreateAPIView):
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
-    permission_classes=[IsAuthenticated]
+    permission_classes=(IsAuthenticated)
     def perform_create(self, serializer):
         serializer.save(link_user = self.request.user)
 
@@ -75,57 +76,71 @@ class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
     lookup_field = 'id'
+    permission_classes= (IsAuthenticated,)
+
     def perform_update(self, serializer):
-        serializer.save(link_user = self.request.user)
+            serializer.save(link_user = self.request.user)
 
 class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
+    permission_classes= (IsAuthenticated,)
     queryset = Link.objects.all()
     lookup_field = 'id'
 
 def NoteCreateView(request):
-    if request.method == 'POST':
-        form_note_create = NoteCreate(request.POST)
-        if form_note_create.is_valid():
-            #note_timestamp = datetime.datetime.now()
-            note = form_note_create.save(commit=False)
-            #null value in column "note_user_id" violates not-null constraint
-            #DETAIL:  Failing row contains (18, commit=False, commit=False
-            note.note_user = request.user
-            note.save()
-        return redirect('dashboard')
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            form_note_create = NoteCreate(request.POST)
+            if form_note_create.is_valid():
+                #note_timestamp = datetime.datetime.now()
+                note = form_note_create.save(commit=False)
+                note.note_user = request.user
+                note.save()
+            return redirect('dashboard')
+        else:
+            form_note_create = NoteCreate()
+            return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
     else:
-        form_note_create = NoteCreate()
-    return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
+        return render(request,'perasis/not_authenticaded.html')
 
 def NoteUpdateView(request,id):
     new_to_update = get_object_or_404(Note, id=id)
-    if request.method == 'POST':
-        form_note_update = NoteUpdateForm(request.POST)
-        if form_note_update.is_valid():
-            note = form_note_update.save(commit=False)
-            note.id = id
-            note.note_timestamp = datetime.datetime.now()
-            note.note_user = request.user
-            note.save()
-            return redirect('dashboard')
+    if request.user.is_authenticated():
+        if Note.note_user == request.user:
+            if request.method == 'POST':
+                form_note_update = NoteUpdateForm(request.POST)
+                if form_note_update.is_valid():
+                    note = form_note_update.save(commit=False)
+                    note.id = id
+                    note.note_timestamp = datetime.datetime.now()
+                    note.note_user = request.user
+                    note.save()
+                    return redirect('dashboard')
 
+            else:
+                form_note_update = NoteUpdateForm(instance = new_to_update)
+                return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
+        else:
+            return render(request,'perasis/not_owner.html')
     else:
-        form_note_update = NoteUpdateForm(instance = new_to_update)
-        return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
+        return render(request,'perasis/not_authenticaded.html')
 
-#from django.views.generic import CreateView, UpdateView, \
-#        DeleteView, ListView, DetailView
-################### updateview,createview,deleteview
+
 def NoteDeleteView(request,id):
-    new_to_delete = get_object_or_404(Note, id=id)
-    if request.method == 'POST':
-        form_note_delete = NoteDeleteForm(request.POST)
-        if form_note_delete.is_valid():
-            new_to_delete.delete()
-            return redirect('dashboard')
+    if request.user.is_authenticated():
+        if Note.note_user == request.user:
+            new_to_delete = get_object_or_404(Note, id=id)
+            if request.method == 'POST':
+                form_note_delete = NoteDeleteForm(request.POST)
+                if form_note_delete.is_valid():
+                    new_to_delete.delete()
+                    return redirect('dashboard')
+            else:
+                form_note_delete = NoteUpdateForm(instance=new_to_delete)
+                return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
+        else:
+            return render(request,'perasis/not_owner.html')
     else:
-        form_note_delete = NoteUpdateForm(instance=new_to_delete)
-        return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
+        return render(request,'perasis/not_authenticaded.html')
 # kad se klikne na delete da izbaci pop up.
 #alert()
 #tk inter library za heroje
