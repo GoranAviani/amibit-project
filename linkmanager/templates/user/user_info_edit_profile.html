@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    {{user_info_form.as_p}}
+    <button type="submit">Save</button>
+</form>
+
+
+{% endblock %}

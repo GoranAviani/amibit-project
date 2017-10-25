@@ -1,7 +1,7 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-  <h2>Sign up</h2>
+  <h2>Write new note</h2>
   <form method="post">
     {% csrf_token %}
     {% for field in form_note_create %}
@@ -11,6 +11,6 @@
       
       </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    <button type="submit">Save</button>
   </form>
 {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<body>
+<h3>User Information</h3>
+<h4><p>Welcome, {{ user.username }}</p></h4>
+<p>Here you can choose to edit your info or your change your password.</p>
+</br>
+</br>
+	<h4><p>Your profile</p></h4>
+	<li>Username: {{user.username}}</li>
+	<li>First name: {{user.first_name}}</li>
+	<li>Last name: {{user.last_name}}</li>
+	<li>E-mail: {{user.email}}</li>
+	<li><a href="{% url 'user_info_edit_profile' %}">user_info_edit_profile</a></li>
+	</br>
+	<h4><p>Security</p></h4>
+	<li>Password: ******</li>
+	<li><a href="">Change your password</a></li>
+
+
+</body>
+{% endblock %}

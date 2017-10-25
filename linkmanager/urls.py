@@ -17,4 +17,10 @@ urlpatterns =[
     url(r'^user/login/', auth_views.login,  name='login'),
     url(r'^user/registration/', views.signup_view, name='register'),
     url(r'^user/logout/', views.logout_view, name='logout'),
+
+	url(r'^user/setttings/', views.user_settings_menu, name='user_settings_menu'),
+    url(r'^user/info/', views.user_info, name='user_info'),
+	url(r'^user/infoedit/profile/', views.user_info_edit_profile, name='user_info_edit_profile'),
+
+
         ]

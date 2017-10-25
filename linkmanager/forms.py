@@ -55,3 +55,13 @@ class UserRegisterForm(UserCreationForm):
         'password1',
         'password2',
         )
+
+class UserInfo(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            )

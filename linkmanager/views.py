@@ -35,9 +35,10 @@ NoteCreate,
 NoteUpdateForm,
 NoteDeleteForm,
 UserRegisterForm,
+UserInfo,
 )
 
-
+#basic views:
 
 def index(request):
 # Render the HTML template index.html with the data in the context variable
@@ -52,6 +53,18 @@ def about(request):
     'perasis/about.html'
     )
 
+def user_settings_menu(request):
+
+     return render(
+         request,
+        'user/user_settings_menu.html',
+    )
+
+def user_info(request):
+    #current_user ={'user': request.user}
+    return render(request,'user/user_info.html')
+
+#Api views:
 
 class Dashboard(APIView):
     permission_classes=(IsAuthenticated,)
@@ -92,7 +105,7 @@ class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     #    lookup_field = 'id'
     #    queryset = Link.objects.filter(link_user=self.request.user)
 
-
+#form views:
 def NoteCreateView(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
@@ -172,4 +185,15 @@ def signup_view(request):
             return redirect('dashboard')
     else:
         form_signup = UserRegisterForm()
-    return render(request, 'users/registration.html', {'form_signup': form_signup})
+    return render(request, 'user/registration.html', {'form_signup': form_signup})
+
+#edit user info:
+def user_info_edit_profile(request):
+    if request.method == 'POST':
+        user_info_form = UserInfo(request.POST, instance = request.user)
+        if user_info_form.is_valid():
+            user_info_form.save()
+            return redirect('user_info')
+    else:
+        user_info_form = UserInfo(instance=request.user)
+        return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
