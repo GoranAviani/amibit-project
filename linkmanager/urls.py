@@ -21,6 +21,7 @@ urlpatterns =[
 	url(r'^user/setttings/', views.user_settings_menu, name='user_settings_menu'),
     url(r'^user/info/', views.user_info, name='user_info'),
 	url(r'^user/infoedit/profile/', views.user_info_edit_profile, name='user_info_edit_profile'),
+    url(r'^user/infoedit/password/', views.user_info_edit_password, name='user_info_edit_password'),
 
 
         ]

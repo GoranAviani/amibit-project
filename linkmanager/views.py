@@ -24,11 +24,13 @@ from django.contrib.auth import (
     authenticate, #user = authenticate(username=user.username, password=raw_password)
     login,
     logout,
+    update_session_auth_hash,
 )
 
 from .serializers import (
     LinkUpdateSerializer,
     )
+from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import (
 NoteCreate,
@@ -197,3 +199,16 @@ def user_info_edit_profile(request):
     else:
         user_info_form = UserInfo(instance=request.user)
         return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
+
+#change user password:
+def user_info_edit_password(request):
+    if request.method == 'POST':
+        change_password_form = PasswordChangeForm(data = request.POST, user = request.user)
+
+        if change_password_form.is_valid():
+            change_password_form.save()
+            update_session_auth_hash(request, change_password_form.user)
+            return redirect('user_info')
+    else:
+        change_password_form=PasswordChangeForm(user = request.user)
+        return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
