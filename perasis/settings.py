@@ -25,7 +25,7 @@ SECRET_KEY = '8z!!$*7#)zkq7aw0^10#ru0nayuo3a0fu2i+gb(@jqb+0q7yl!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['78.46.164.210']
+ALLOWED_HOSTS = ['78.46.164.210','amibit.org'.'www.amibit.org']
 
 
 # Application definition
@@ -140,8 +140,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = '/root/envs/perasis/static_files/'
+#STATIC_ROOT = '/root/envs/perasis/static_files/'
 STATIC_URL = '/static_files/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 #added for static files ->
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 #STATICFILES_DIRS = (
