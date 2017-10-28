@@ -140,7 +140,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT = '/root/envs/perasis/static_files/'
 STATIC_URL = '/static_files/'
 #added for static files ->
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -148,8 +148,8 @@ STATIC_URL = '/static_files/'
 #    os.path.join(PROJECT_ROOT, 'static_files'),
 #)
 #added for static files
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_files')
+#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+#STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_files')
 
 
 LOGIN_REDIRECT_URL = 'dashboard' #redirects on succesfull login
