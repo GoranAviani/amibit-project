@@ -83,8 +83,17 @@ class LinkCreateView(CreateAPIView):
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
     permission_classes=(IsAuthenticated,)
+
+#    def validate_content(self,value):
+#        #If content is 'baz' returns 'foo'
+#        if value.link_url != '123':
+#            print("hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe")
+#        return link_url
+    
     def perform_create(self, serializer):
-        serializer.save(link_user = self.request.user)
+            serializer.save(link_user = self.request.user)
+
+
 
 
 

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8z!!$*7#)zkq7aw0^10#ru0nayuo3a0fu2i+gb(@jqb+0q7yl!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['78.46.164.210']
 
 
 # Application definition
@@ -93,7 +93,8 @@ DATABASES = {
         'NAME': 'perasisdb',
         'USER': 'admin',
         'PASSWORD': '224466integer',
-        'HOST': '127.0.0.1',
+        'HOST':'',
+        #'HOST': '127.0.0.1',
         'PORT': '',
     }
  }
