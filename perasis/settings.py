@@ -143,10 +143,13 @@ USE_TZ = True
 
 STATIC_URL = '/static_files/'
 #added for static files ->
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static_files'),
-)
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+#STATICFILES_DIRS = (
+#    os.path.join(PROJECT_ROOT, 'static_files'),
+#)
 #added for static files
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_files')
+
 
 LOGIN_REDIRECT_URL = 'dashboard' #redirects on succesfull login
