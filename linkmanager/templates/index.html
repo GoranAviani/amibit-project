@@ -28,33 +28,31 @@
       <img src="{% static "pics/carousel/3_dark.png" %}" alt="Pic1">
         <div class="carousel-caption d-none d-md-block">
               <h1>Built for you</h1>
-              <h3>Aipa is inspired by the way you work.</h3>
+              <h3>Amibit is inspired by the way you work.</h3>
               <hr class="intro-divider">
-              <a href="#" class="btn btn-success" role="button">Log in</a>
-              <a href="#" class="btn btn-success" role="button">Sign up</a>
+              <a href="{% url 'login' %}" class="btn btn-success" role="button">Log in</a>
+              <a href="{% url 'register' %}" class="btn btn-success" role="button">Sign up</a>
           </div>
         </div>
         <div class="item">
         <img src="{% static "pics/carousel/1_dark.png" %}" alt="My image"/>
           <div class="carousel-caption d-none d-md-block">
               <h1>Better way to organise yourself</h1>
-                <h3>Amibit brings people together to work through problems,
-                move ideas forward,
-                and learn from each other along the way.
+                <h3>Amibit brings you the new ways to organize your browsing.
                 </h3>
               <hr class="intro-divider">
-              <a href="#" class="btn btn-success" role="button">Log in</a>
-              <a href="#" class="btn btn-success" role="button">Sign up</a>
+              <a href="{% url 'login' %}" class="btn btn-success" role="button">Log in</a>
+              <a href="{% url 'register' %}" class="btn btn-success" role="button">Sign up</a>
             </div>
       </div>
       <div class="item">
       <img src="{% static "pics/carousel/2_dark.png" %}" alt="Pic3">
         <div class="carousel-caption d-none d-md-block">
-           <h1>Place for developers</h1>
-           <h3>Place where you will find new collegues</h3>
+           <h1>Place for enthusiasts</h1>
+           <h3>Place where you are in control of your browser.</h3>
            <hr class="intro-divider">
-           <a href="#" class="btn btn-success" role="button">Log in</a>
-           <a href="#" class="btn btn-success" role="button">Sign up</a>
+           <a href="{% url 'login' %}" class="btn btn-success" role="button">Log in</a>
+           <a href="{% url 'register' %}" class="btn btn-success" role="button">Sign up</a>
         </div>
    </div>
 
@@ -74,7 +72,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h4>Aipa</h4>
+          <h4>Amibit</h4>
         </div>
         <div class="col-md-9">
           <p1>
@@ -102,319 +100,115 @@
   <!-- SECTION: Stats -->
   <div class="stats has-padding-tall">
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <h4>Numbers</h4>
+            </div>
+          </div>
       <div class="row">
         <div class="col-md-4 col-sm-4 stats-container">
           <i class="icon icon-Cup"></i>
           <div class="stats-wrapper">
             <p class="stats-number" data-stop="24">{{ num_apps }}</p>
-            <p class="stats-text">Applications</p>
+            <p class="stats-text">Number of notes</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 stats-container">
           <i class="icon icon-Book"></i>
           <div class="stats-wrapper">
             <p class="stats-number" data-stop="341">{{ num_users }}</p>
-            <p class="stats-text">users</p>
+            <p class="stats-text">Users</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 stats-container">
           <i class="icon icon-Pen"></i>
           <div class="stats-wrapper">
             <p class="stats-number" data-stop="43">43</p>
-            <p class="stats-text">Freebies</p>
+            <p class="stats-text">Links</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- END SECTION: Stats -->
-  <!-- SECTION: Crew -->
-  <section class="crew has-padding alternate-bg" id="team">
+  <!-- SECTION: Description -->
+  <section class="crew has-padding alternate-bg" id="weoffer">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h4>Our users</h4>
+          <h4>We offer</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <article class="crew-member" style="background-image: url(img/crew-peter-finlan.jpg)">
+           
+            <img src="{% static "pics/weoffer/star.png" %}" alt="Save links"   section class="has-30padding" />
+                
             <figure>
               <figcaption class="overlay">
-                <h2>Peter Finlan</h2>
-                <p>8-bit aesthetic kitsch 90's humblebrag. Gastropub tacos hoodie letterpress.</p>
+                <h3>Links</h3>
+                <p>Save your links and have them on hand everywhere you go, on your PC, IOS or Android. Anywhere you have a browser!</p>
                 <div class="crew-socials">
-                  <ul>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                  </ul>
+            
                 </div>
               </figcaption>
             </figure>
           </article>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <article class="crew-member" style="background-image: url(img/crew-blaz-robar.jpg)">
+            <img src="{% static "pics/weoffer/note.png" %}" alt="Write notes" section class="has-30padding"/>
+            
             <figure>
               <figcaption class="overlay">
-                <h2>Blaz Robar</h2>
-                <p>8-bit aesthetic kitsch 90's humblebrag. Gastropub tacos hoodie letterpress.</p>
+                <h3>Notes</h3>
+                <p>Write down your thoughts so you can access them anytime anywhere. Save your favourite recepies, reminders...</p>
                 <div class="crew-socials">
-                  <ul>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                  </ul>
+                  
                 </div>
               </figcaption>
             </figure>
           </article>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <article class="crew-member" style="background-image: url(img/crew-mary-lou.jpg)">
+            <img src="{% static "pics/weoffer/mail.png" %}" alt="Send email's" section class="has-30padding"/>
             <figure>
               <figcaption class="overlay">
-                <h2>Mary Lou</h2>
-                <p>8-bit aesthetic kitsch 90's humblebrag. Gastropub tacos hoodie letterpress.</p>
+                <h3>Email</h3>
+                <p>We offer you a free @amibit.org email. You can even use it when registering your account, we don't care!</p>
                 <div class="crew-socials">
-                  <ul>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                  </ul>
+                 
                 </div>
               </figcaption>
             </figure>
           </article>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <article class="crew-member" style="background-image: url('img/crew-dude.jpg')">
+            <img src="{% static "pics/weoffer/user.png" %}" alt="Privacy" section class="has-30padding"/>
             <figure>
               <figcaption class="overlay">
-                <h2>Kobe West</h2>
-                <p>8-bit aesthetic kitsch 90's humblebrag. Gastropub tacos hoodie letterpress.</p>
+                <h3>Privacy</h3>
+                <p>We at Amibit respect your privacy and will never ask you for additional info to use our products, not even your name!</p>
                 <div class="crew-socials">
-                  <ul>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                  </ul>
+                 
                 </div>
               </figcaption>
             </figure>
           </article>
         </div>
       </div>
-      <div class="row skillset">
-        <div class="col-md-6">
-          <div class="bar-chart-wrapper">
-            <h5 class="bar-chart-text">Experience Design <span class="push-right">90%</span></h5>
-            <div class="bar-wrapper">
-              <div class="bar" data-percentage="90%">
-                <span></span>
-              </div>
-            </div>
-          </div>
-          <div class="bar-chart-wrapper">
-            <h5 class="bar-chart-text">HTML5/CSS3 <span class="push-right">95%</span></h5>
-            <div class="bar-wrapper">
-              <div class="bar" data-percentage="95%">
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="bar-chart-wrapper">
-            <h5 class="bar-chart-text">Interactive Prototyping <span class="push-right">80%</span></h5>
-            <div class="bar-wrapper">
-              <div class="bar" data-percentage="80%">
-                <span></span>
-              </div>
-            </div>
-          </div>
-          <div class="bar-chart-wrapper">
-            <h5 class="bar-chart-text">Visual Design <span class="push-right">90%</span></h5>
-            <div class="bar-wrapper">
-              <div class="bar" data-percentage="90%">
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row is-centered">
-          <a href="#intro" class="btn secondary view-more">View more</a>
-        </div>
-      </div>
-    </div>
-
+      
   </section>
-  <!-- END SECTION: Crew -->
+  <!-- END SECTION: Description -->
 
-  <!-- SECTION: Projects -->
-  <section class="latest-articles has-padding alternate-bg" id="articles">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-4">
-          <h4>Projects</h4>
-        </div>
-        <div class="col-md-8 col-sm-8 sort">
-          <h5>Sort by</h5>
-          <select name="article-sort" id="inputArticle-Sort" class="">
-            <option value="">Experience Design</option>
-            <option value="">Visual Design</option>
-            <option value="">UI Patterns</option>
-            <option value="">Product Design</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-01.jpg)">
-                <span class="featured-tag">Featured</span>
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>8 solid tips when working with front-end developers</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">Product</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 51</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-02.jpg)">
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>The 10 best traits of a awesome design leaders</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">Teams</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 42</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-03.jpg)">
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>How to design well collaboratively with an agile product team</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">Teams</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 58</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-      <div class="row has-top-margin">
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-04.jpg)">
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>The essentials of modern interaction design (mobile + tablet)</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">UX Design</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 14</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-05.jpg)">
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>Overcoming barriers encountered in the pitch process (part 1)</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">Product</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 55</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="article-post">
-            <a href="#">
-              <div class="article-image has-overlay" style="background-image: url(img/article-06.jpg)">
-              </div>
-              <figure>
-                <figcaption>
-                  <h2>10 things we've learnt about our users (Case Study)</h2>
-                  <p>A posuere donec senectus suspendisse bibendum magna ridiculus a justo orci parturient suspendisse ad rhoncus...</p>
-                </figcaption>
-              </figure>
-            </a>
-            <ul class="article-footer">
-              <li class="article-category">
-                <a href="#">UX Design</a>
-              </li>
-              <li class="article-comments">
-                <span><i class="fa fa-comments"></i> 20</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-      <div class="row is-centered">
-        <a href="#intro" class="btn secondary view-more">View more</a>
-      </div>
-    </div>
-  </section>
-  <!-- END SECTION: Articles -->
+  <div class="col-md-12">
+  <section class="has-30padding">
+      <p>
+        8-bit aesthetic kitsch 90's humblebrag. Gastropub tacos hoodie letterpress, banjo normcore trust fund hella. Kinfolk gluten-free lo-fi quinoa.
+      </p>
+      <p>
+        Pabst kitsch ennui hoodie meggings banjo. Schlitz tacos kitsch godard before they sold out. Kale chips chillwave kickstarter photo booth cronut cold-pressed. Banjo fixie umami kombucha affogato gluten-free authentic slow-carb hashtag, hammock pour-over chambray viral VHS normcore.
+      </p>
+    </section>
+  </div>
 </body>
 {% endblock %}

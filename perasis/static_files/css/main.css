@@ -24,3 +24,15 @@ p1 {
   /* 16 * 0.0625 = 1px */
   letter-spacing: 0.0525em;
 }
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+

@@ -43,6 +43,9 @@ UserInfo,
 #basic views:
 
 def index(request):
+
+#if request.user.is_authenticated():
+    
 # Render the HTML template index.html with the data in the context variable
     return render(
         request,
@@ -53,6 +56,11 @@ def about(request):
     return render(
     request,
     'perasis/about.html'
+    )
+def how_to_use(request):
+    return render(
+    request,
+    'perasis/how_to_use.html'
     )
 
 def user_settings_menu(request):

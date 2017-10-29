@@ -11,6 +11,11 @@
   <form method="post">
 
     {% csrf_token %}
+
+    {% if form.errors %}
+    <p>Authentication failed. Try again</p>
+    {% endif %}
+
       <div class="form-group col-lg-12">
         <label>Username</label>
         <input type="" name="username" class="form-control" id="" value="">
