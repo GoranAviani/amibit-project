@@ -44,14 +44,15 @@ UserInfo,
 
 def index(request):
 
-#if request.user.is_authenticated():
-    
-# Render the HTML template index.html with the data in the context variable
-    return render(
-        request,
-        'index.html',
-        #context={'num_apps':num_apps,'num_users':num_users},
-        )
+    if request.user.is_authenticated():
+        return redirect('dashboard')
+    else:
+    # Render the HTML template index.html with the data in the context variable
+        return render(
+            request,
+            'index.html',
+            #context={'num_apps':num_apps,'num_users':num_users},
+            )
 def about(request):
     return render(
     request,

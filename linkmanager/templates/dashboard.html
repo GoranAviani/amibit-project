@@ -10,7 +10,7 @@
 </head>
 <body>
 
- <div class="col-sm-12"
+ <div class="col-sm-12">
 
   <label>say</label>
   <form method="POST">
@@ -24,15 +24,14 @@
 
 <div class="col-sm-9">
 
-  <div class="col-sm-12" style="background-color:lightblue;">
-    <div class="col-sm-4" style="background-color:orange;">
+  <div class="col-sm-12" >
+  
       NOTES
-    </div>
-    <div class="col-sm-8" style="background-color:orange;">
-      <a href ="{% url 'note_create' %}" class='list-group-item' >
+  
+      <a href ="{% url 'note_create' %}" class='list-group-item' style="background-color:lightblue;">
         Create note
       </a>
-    </div>
+  
   </div>
 
     {% if notes %}
