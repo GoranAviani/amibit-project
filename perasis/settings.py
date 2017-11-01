@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8z!!$*7#)zkq7aw0^10#ru0nayuo3a0fu2i+gb(@jqb+0q7yl!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.amibit.org','amibit.org','78.46.164.210','127.0.0.1']
 
