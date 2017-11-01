@@ -41,7 +41,6 @@ UserInfo,
 )
 
 
-from linkmanager.variables_pa import *
 
 
 
@@ -244,6 +243,9 @@ def user_info_edit_password(request):
         change_password_form=PasswordChangeForm(user = request.user)
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
 
+import webbrowser
+HTTP_URL="http://"
+
 
 #dashboard:
 def Dashboard(request):
@@ -275,8 +277,8 @@ def Dashboard(request):
 
 
 #checkforHTTP()#########################
-def checkforHTTP(text):
-    pass
+#def checkforHTTP(text):
+#    pass
    # if text[0:2+1] == "go ":
    #     if text[4:10] == "http://":
    #         fixtext= text[11:0]
