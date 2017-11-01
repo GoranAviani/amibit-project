@@ -259,8 +259,8 @@ def Dashboard(request):
                 #webbrowser.open_new_tab(HTTP_URL+text[3:])
                 #webbrowser.get().open(HTTP_URL+text[3:])
 
-                b = webbrowser.get('firefox')
-                b.open(HTTP_URL+text[3:])
+               # b = webbrowser.get('firefox')
+               # b.open(HTTP_URL+text[3:])
                 return redirect(HTTP_URL+text[3:])
 
             elif text[0:3+1] == "goo ":
