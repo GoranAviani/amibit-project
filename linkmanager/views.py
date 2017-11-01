@@ -256,8 +256,8 @@ def Dashboard(request):
            #browser
             if text[0:2+1] == "go ":
                 #checkforHTTP(text)
-                #webbrowser.open(HTTP_URL+text[3:], new=2, autoraise=True,)
-                webbrowser.get(using='google-chrome').open(HTTP_URL+text[3:],new=2)
+                webbrowser.open(HTTP_URL+text[3:], new=2)
+                
             if text[0:3+1] == "goo ":
                 webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=2)
                 #checkforHTTP(text)
