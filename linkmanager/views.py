@@ -257,7 +257,9 @@ def Dashboard(request):
             if text[0:2+1] == "go ":                
                # webbrowser.open(HTTP_URL+text[3:],new=2,autoraise=True)
                 #webbrowser.open_new_tab(HTTP_URL+text[3:])
-                webbrowser.get().open(HTTP_URL+text[3:])
+                #webbrowser.get().open(HTTP_URL+text[3:])
+                b = webbrowser.get('firefox')
+                b.open(HTTP_URL+text[3:])
 
 
             if text[0:3+1] == "goo ":
