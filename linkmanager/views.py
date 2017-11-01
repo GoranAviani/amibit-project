@@ -268,7 +268,7 @@ def Dashboard(request):
                 #checkforHTTP(text)
                 #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
              #browser
-                return redirect(HTTP_URL+text[4:])
+                return redirect(HTTP_URL+"www.google.com/?#q="+(text[4:]))
             
             else:
                 webbrowser.Error
