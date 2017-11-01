@@ -40,6 +40,11 @@ UserRegisterForm,
 UserInfo,
 )
 
+
+from linkmanager.variables_pa import *
+
+
+
 #basic views:
 
 def index(request):
@@ -64,6 +69,13 @@ def how_to_use(request):
     'perasis/how_to_use.html'
     )
 
+
+def pa_list_of_commands(request):
+    return render(
+    request,
+    'perasis/pa_list_of_commands.html'
+    )
+
 def user_settings_menu(request):
 
      return render(
@@ -77,22 +89,22 @@ def user_info(request):
 
 #Api views:
 
-class Dashboard(APIView):
-    permission_classes=(IsAuthenticated,)
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'dashboard.html'
-
-    def get(self, request):
-        queryLink = Link.objects.filter(link_user=self.request.user)
-        queryNote = Note.objects.filter(note_user=self.request.user)
-        return Response({'links': queryLink, 'notes':queryNote})
+#class Dashboard(APIView):
+#    permission_classes=(IsAuthenticated,)
+#    renderer_classes = [TemplateHTMLRenderer]
+#    template_name = 'dashboard.html'
+#
+ #   def get(self, request):
+ #       queryLink = Link.objects.filter(link_user=self.request.user)
+ #       queryNote = Note.objects.filter(note_user=self.request.user)
+ #       return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
 
 class LinkCreateView(CreateAPIView):
     queryset = Link.objects.all()
     serializer_class = LinkUpdateSerializer
     permission_classes=(IsAuthenticated,)
-
+   
 #    def validate_content(self,value):
 #        #If content is 'baz' returns 'foo'
 #        if value.link_url != '123':
@@ -100,7 +112,8 @@ class LinkCreateView(CreateAPIView):
 #        return link_url
     
     def perform_create(self, serializer):
-            serializer.save(link_user = self.request.user)
+        #checkforHTTP(text)
+        serializer.save(link_user = self.request.user)
 
 
 
@@ -230,3 +243,46 @@ def user_info_edit_password(request):
     else:
         change_password_form=PasswordChangeForm(user = request.user)
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
+
+
+#dashboard:
+def Dashboard(request):
+    if request.user.is_authenticated():
+        if(request.POST.get('personal_assistant_textbox')):
+            text = request.POST.get('personal_assistant_textbox')
+       
+           #browser
+            if text[0:2+1] == "go ":
+                #checkforHTTP(text)
+                webbrowser.open(HTTP_URL+text[3:], new=2, autoraise=True)
+            if text[0:3+1] == "goo ":
+                webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=2, autoraise=True)
+                #checkforHTTP(text)
+                #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
+             #browser
+            
+              
+            return redirect('dashboard')
+        else:
+            queryLink = Link.objects.filter(link_user=request.user)
+            queryNote = Note.objects.filter(note_user=request.user)
+            return render(request, 'dashboard.html', {
+            'queryLink': queryLink,
+            'queryNote': queryNote,
+            })
+    else:
+        return render(request,'perasis/not_authenticaded.html')
+
+
+#checkforHTTP()#########################
+def checkforHTTP(text):
+    pass
+   # if text[0:2+1] == "go ":
+   #     if text[4:10] == "http://":
+   #         fixtext= text[11:0]
+    #    return text
+
+
+
+
+#checkforHTTP()

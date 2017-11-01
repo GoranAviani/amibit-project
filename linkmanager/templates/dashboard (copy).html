@@ -12,35 +12,33 @@
 
  <div class="col-sm-12">
 
-  <label>Type your command:</label>
+  <label>say</label>
   <form method="POST">
     {% csrf_token %}
         <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
 
-      <div class="col-sm-12"> 
-        <button type="submit" class="navbar-btn btn-success btn pull-left" name="personal_assistant_btn">Submit</button>
-        <a href="{% url 'pa_list_of_commands' %}" class="navbar-btn btn-default btn pull-right">List of commands</a>
-      </div>
-       
+
+      <button type="submit" class="btn btn-primary" name="personal_assistant_btn">say</button>
+    
     </form>
 </div>
 
 <div class="col-sm-9">
 
-  <div class="col-sm-12" style="background-color:lightgrey;">
-      <div class="col-sm-12" >
+  <div class="col-sm-12" >
+  
       NOTES
-     </div>
-      <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
+  
+      <a href ="{% url 'note_create' %}" class='list-group-item' style="background-color:lightblue;">
         Create note
       </a>
   
   </div>
 
-    {% if queryNote %}
+    {% if notes %}
 
       <ul>
-        {% for y in queryNote %}
+        {% for y in notes %}
       ________________________
         <li>
           {{ y.id }}
@@ -74,15 +72,14 @@
 
 
 <div class="col-sm-3" style="background-color:lightgrey;">
-  <div class="col-sm-12" >
-    LINKS
-  </div>
-  {% if queryLink %}
-  <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn">
+LINKS
+
+  {% if links %}
+  <a href ="{% url 'link_create' %}" class="list-group-item" style="background-color:lightblue;">
     Create link
   </a>
     <ul>
-      {% for x in queryLink %}
+      {% for x in links %}
       <div>
           <a href="{{x.link_url}}" target="_blank" class="list-group-item">
             <div>{{ x.link_name }}</div>

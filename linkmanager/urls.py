@@ -7,13 +7,17 @@ from django.contrib.auth import views as auth_views
 urlpatterns =[
 
 
-    url(r'^dashboard/', views.Dashboard.as_view(template_name="dashboard.html"),  name='dashboard'),
+   # url(r'^dashboard/', views.Dashboard.as_view(template_name="dashboard.html"),  name='dashboard'),
+    url(r'^dashboard/', views.Dashboard,  name='dashboard'),
 
     url(r'^about', views.about, name='about'),
-    url(r'^how_to_use', views.how_to_use, name='how_to_use'),
+    url(r'^how_to/use', views.how_to_use, name='how_to_use'),
+    url(r'^pa/list_of_commands', views.pa_list_of_commands, name='pa_list_of_commands'),
+
     url(r'^link/create/', views.LinkCreateView.as_view(), name='link_create'),
     url(r'^link/update/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkUpdateView.as_view(), name='link_update'),
     url(r'^link/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkDestroyView.as_view(), name='link_delete'),
+   
     url(r'^note/create/', views.NoteCreateView, name='note_create'),
     url(r'^note/update/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteUpdateView, name='note_update'),
     url(r'^note/delete/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteDeleteView, name='note_delete'),
