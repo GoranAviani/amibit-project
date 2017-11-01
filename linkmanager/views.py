@@ -256,8 +256,10 @@ def Dashboard(request):
            #browser
             if text[0:2+1] == "go ":                
                # webbrowser.open(HTTP_URL+text[3:],new=2,autoraise=True)
-                webbrowser.open_new_tab(HTTP_URL+text[3:])
-                
+                #webbrowser.open_new_tab(HTTP_URL+text[3:])
+                webbrowser.get().open(HTTP_URL+text[3:])
+
+
             if text[0:3+1] == "goo ":
                 webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=1)
                 #checkforHTTP(text)
