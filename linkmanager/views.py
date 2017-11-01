@@ -264,10 +264,11 @@ def Dashboard(request):
                 return redirect(HTTP_URL+text[3:])
 
             elif text[0:3+1] == "goo ":
-                webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=1)
+               # webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=1)
                 #checkforHTTP(text)
                 #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
              #browser
+                return redirect(HTTP_URL+text[4:])
             
             else:
                 webbrowser.Error
