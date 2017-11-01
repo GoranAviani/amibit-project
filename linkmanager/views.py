@@ -41,7 +41,8 @@ UserInfo,
 )
 
 
-
+import webbrowser
+HTTP_URL="http://"
 
 
 #basic views:
@@ -243,8 +244,7 @@ def user_info_edit_password(request):
         change_password_form=PasswordChangeForm(user = request.user)
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
 
-import webbrowser
-HTTP_URL="http://"
+
 
 
 #dashboard:
@@ -256,9 +256,10 @@ def Dashboard(request):
            #browser
             if text[0:2+1] == "go ":
                 #checkforHTTP(text)
-                webbrowser.open(HTTP_URL+text[3:], new=2, autoraise=True)
+                #webbrowser.open(HTTP_URL+text[3:], new=2, autoraise=True,)
+                webbrowser.get(using='google-chrome').open(HTTP_URL+text[3:],new=2)
             if text[0:3+1] == "goo ":
-                webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=2, autoraise=True)
+                webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=2)
                 #checkforHTTP(text)
                 #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
              #browser
