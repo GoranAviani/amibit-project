@@ -258,16 +258,19 @@ def Dashboard(request):
                # webbrowser.open(HTTP_URL+text[3:],new=2,autoraise=True)
                 #webbrowser.open_new_tab(HTTP_URL+text[3:])
                 #webbrowser.get().open(HTTP_URL+text[3:])
+
                 b = webbrowser.get('firefox')
                 b.open(HTTP_URL+text[3:])
 
 
-            if text[0:3+1] == "goo ":
+            elif text[0:3+1] == "goo ":
                 webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=1)
                 #checkforHTTP(text)
                 #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
              #browser
             
+            else:
+                webbrowser.Error
               
             return redirect('dashboard')
         else:
