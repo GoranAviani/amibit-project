@@ -14,7 +14,7 @@ urlpatterns =[
     url(r'^how_to/use', views.how_to_use, name='how_to_use'),
     url(r'^pa/list_of_commands', views.pa_list_of_commands, name='pa_list_of_commands'),
 
-    url(r'^link/create/', views.LinkCreateView.as_view(), name='link_create'),
+    url(r'^link/create/', views.LinkCreateView, name='link_create'),
     url(r'^link/update/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkUpdateView.as_view(), name='link_update'),
     url(r'^link/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkDestroyView.as_view(), name='link_delete'),
    

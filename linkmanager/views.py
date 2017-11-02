@@ -33,7 +33,7 @@ from .serializers import (
 from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import (
-NoteCreate,
+LinkCreateForm,
 NoteUpdateForm,
 NoteDeleteForm,
 UserRegisterForm,
@@ -99,22 +99,57 @@ def user_info(request):
  #       queryNote = Note.objects.filter(note_user=self.request.user)
  #       return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
+#dashboard:
+def Dashboard(request):
+    if request.user.is_authenticated():
+        if(request.POST.get('personal_assistant_textbox')):
+            text = request.POST.get('personal_assistant_textbox')
+       
+           #browser
+            if text[0:2+1] == "go ":                
+                return redirect(HTTP_URL+text[3:])
 
-class LinkCreateView(CreateAPIView):
-    queryset = Link.objects.all()
-    serializer_class = LinkUpdateSerializer
-    permission_classes=(IsAuthenticated,)
-   
-#    def validate_content(self,value):
-#        #If content is 'baz' returns 'foo'
-#        if value.link_url != '123':
-#            print("hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe")
-#        return link_url
-    
-    def perform_create(self, serializer):
-        #checkforHTTP(text)
-        serializer.save(link_user = self.request.user)
+            elif text[0:3+1] == "goo ":
+                return redirect(HTTP_URL+"www.google.com/?#q="+(text[4:]))    
+            else:
+                webbrowser.Error
+            return redirect('dashboard')
+        else:
+            queryLink = Link.objects.filter(link_user=request.user)
+            queryNote = Note.objects.filter(note_user=request.user)
+            return render(request, 'dashboard.html', {
+            'queryLink': queryLink,
+            'queryNote': queryNote,
+            })
+    else:
+        return render(request,'perasis/not_authenticaded.html')
 
+
+
+
+
+######## Commented because with Rest its harder to add custom code
+#class LinkCreateView(CreateAPIView):
+#    queryset = Link.objects.all()
+#    serializer_class = LinkUpdateSerializer
+#    permission_classes=(IsAuthenticated,)
+#    def perform_create(self, serializer):
+#        serializer.save(link_user = self.request.user)
+
+def LinkCreateView(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            form_link_create = LinkCreateForm(request.POST)
+            if form_link_create.is_valid():
+                form = form_link_create.save(commit=False)
+                form.link_user = request.user
+                form.save()
+            return redirect('dashboard')
+        else:
+            form_link_create = LinkCreateForm()
+            return render(request, 'link/link_create.html', {'form_link_create': form_link_create})
+    else:
+        return render(request,'perasis/not_authenticaded.html')
 
 
 
@@ -247,42 +282,7 @@ def user_info_edit_password(request):
 
 
 
-#dashboard:
-def Dashboard(request):
-    if request.user.is_authenticated():
-        if(request.POST.get('personal_assistant_textbox')):
-            text = request.POST.get('personal_assistant_textbox')
-       
-           #browser
-            if text[0:2+1] == "go ":                
-               # webbrowser.open(HTTP_URL+text[3:],new=2,autoraise=True)
-                #webbrowser.open_new_tab(HTTP_URL+text[3:])
-                #webbrowser.get().open(HTTP_URL+text[3:])
 
-               # b = webbrowser.get('firefox')
-               # b.open(HTTP_URL+text[3:])
-                return redirect(HTTP_URL+text[3:])
-
-            elif text[0:3+1] == "goo ":
-               # webbrowser.open(HTTP_URL+"www.google.com/?#q="+(text[4:]),new=1)
-                #checkforHTTP(text)
-                #####################(webURL.getcode()) ako je 200 radi, ak je 404 ne radi i pop up poruka
-             #browser
-                return redirect(HTTP_URL+"www.google.com/?#q="+(text[4:]))
-            
-            else:
-                webbrowser.Error
-              
-            return redirect('dashboard')
-        else:
-            queryLink = Link.objects.filter(link_user=request.user)
-            queryNote = Note.objects.filter(note_user=request.user)
-            return render(request, 'dashboard.html', {
-            'queryLink': queryLink,
-            'queryNote': queryNote,
-            })
-    else:
-        return render(request,'perasis/not_authenticaded.html')
 
 
 #checkforHTTP()#########################
