@@ -25,29 +25,27 @@
     </form>
 </div>
 
-<div class="col-sm-9">
 
-  <div class="col-sm-12" style="background-color:lightgrey;">
+
+  <div class="col-sm-9">
+    <div class="col-sm-12" style="background-color:lightgrey;">
       <div class="col-sm-12" >
-      NOTES
-     </div>
+        NOTES
+      </div>
       <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
         Create note
       </a>
-  
-  </div>
-
+    </div>
     {% if queryNote %}
-
       <ul>
         {% for y in queryNote %}
-      ________________________
-        <li>
-          {{ y.id }}
-        </li>
-        <li>
-          {{ y.note_user }}
-        </li>
+          ________________________
+          <li>
+            {{ y.id }}
+          </li>
+          <li>
+            {{ y.note_user }}
+          </li>
           <li>
             {{ y.note_title }}
           </li>
@@ -63,43 +61,42 @@
           <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary">
             Delete
           </a>
+          <li>___________________________</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
+    {% endif %}
+      </div>
 
-            <li>___________________________</li>
+
+  <div class="col-sm-3" style="background-color:lightgrey;">
+    <div class="col-sm-12" >
+      LINKS
+    </div>
+    <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn">
+        Create link
+    </a>
+    {% if queryLink %}
+      <ul>
+        {% for x in queryLink %}
+      <div> <!-- must be div-->
+            <a href="{{x.link_url}}" target="_blank" class="list-group-item">
+              <div>{{ x.link_name }}</div>
+            </a>
+            <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
+              Update
+            </a>
+            <a href ="{% url 'link_delete' x.id %}" class='btn btn-primary'>
+              Delete
+            </a>
+      </div>
         {% endfor %}
       </ul>
       {% else %}
-        <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
+        <p>There are no links available. Click <a href="{% url 'link_create' %}">here</a> to add links</p>
       {% endif %}
-</div>
-
-
-<div class="col-sm-3" style="background-color:lightgrey;">
-  <div class="col-sm-12" >
-    LINKS
-  </div>
-  {% if queryLink %}
-  <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn">
-    Create link
-  </a>
-    <ul>
-      {% for x in queryLink %}
-      <div>
-          <a href="{{x.link_url}}" target="_blank" class="list-group-item">
-            <div>{{ x.link_name }}</div>
-          </a>
-          <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
-            Update
-          </a>
-          <a href ="{% url 'link_delete' x.id %}" class='btn btn-primary'>
-            Delete
-          </a>
-        </div>
-      {% endfor %}
-    </ul>
-    {% else %}
-      <p>There are no links available. Click <a href="{% url 'link_create' %}">here</a> to add links</p>
-    {% endif %}
-  </div>
+    </div>
 
 
 
