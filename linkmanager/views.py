@@ -99,7 +99,7 @@ def user_info(request):
  #       queryNote = Note.objects.filter(note_user=self.request.user)
  #       return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
-#dashboard:
+#new dashboard:
 def Dashboard(request):
     if request.user.is_authenticated():
         if(request.POST.get('personal_assistant_textbox')):
@@ -142,7 +142,8 @@ def LinkCreateView(request):
             form_link_create = LinkCreateForm(request.POST)
             if form_link_create.is_valid():
                 form = form_link_create.save(commit=False)
-                form.link_user = request.user
+                form.link_user = request.user    
+                form.link_url = add_HTTP_to_linkurl(form.link_url)
                 form.save()
             return redirect('dashboard')
         else:
@@ -152,6 +153,10 @@ def LinkCreateView(request):
         return render(request,'perasis/not_authenticaded.html')
 
 
+def add_HTTP_to_linkurl(link_url):
+    if link_url[0:7] != HTTP_URL:
+        link_url=HTTP_URL + link_url
+    return link_url
 
 
 class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
