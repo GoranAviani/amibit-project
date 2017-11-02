@@ -147,10 +147,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 
 #added for static files ->
 #for deployment comment for local uncommenr:
-#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'static_files'),
-#)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static_files'),
+)
 #added for static files
 
 

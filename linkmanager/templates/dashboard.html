@@ -74,14 +74,14 @@
     <div class="col-sm-12" >
       LINKS
     </div>
-    <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn">
+    <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn" >
         Create link
     </a>
     {% if queryLink %}
       <ul>
         {% for x in queryLink %}
       <div> <!-- must be div-->
-            <a href="{{x.link_url}}" target="_blank" class="list-group-item">
+            <a href="{{x.link_url}}" target="_self" class="list-group-item">
               <div>{{ x.link_name }}</div>
             </a>
             <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
