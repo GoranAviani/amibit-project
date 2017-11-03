@@ -8,9 +8,7 @@
   <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-  
+ 
 </head>
 <body>
 
@@ -32,9 +30,9 @@
 
 
 
-  <div class="col-sm-9">
+  <div id = NotesContainer class="col-sm-9">
 
-    <div class="col-sm-12" style="background-color:lightgrey;">
+    <div class="col-sm-12">
       <div class="col-sm-12" >            
         NOTES
       </div>
@@ -48,9 +46,10 @@
         <div class="grid">
       
         {% for y in queryNote %}
+        
         <div class="grid-item">
         
-          ________________________
+         
           <li>
             {{ y.id }}
           </li>
@@ -59,23 +58,26 @@
           </li>
           <li>
             {{ y.note_title }}
+           
           </li>
+          <br>
           <li>
             {{ y.note_text }}
           </li>
           <li>
             {{ y.note_timestamp }}
           </li>
+          <br>
           <a href ="{% url 'note_update' y.id %}" class="btn btn-primary">
             Update
           </a>
           <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary">
             Delete
           </a>
-          <li>___________________________</li>
+          
        
         </div>
-     
+      
         {% endfor %}
       </div>
     </div>  

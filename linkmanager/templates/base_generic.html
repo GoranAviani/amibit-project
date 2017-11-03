@@ -2,6 +2,8 @@
   <title>Amibit</title>
  {% endblock %} <!-- STA PISE U TABU-->
 
+ {% load staticfiles %}
+ {% load static %}
 <!-- for collapse to work -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,8 +16,16 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-{% load staticfiles %}
-{% load static %}
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="{% static "js/isotope.pkgd.js" %}"></script>
+
+
+
+
 
 
 <nav class="navbar navbar-default">
@@ -67,7 +77,7 @@
        {% if user.is_authenticated %}
        <li><a href="https://www.facebook.com/" target="_self"><img src="{% static "pics/social_media/facebook.png" %}" alt="FB"/></a> </li>
        <li><a href="https://www.gmail.com/" target="_self"><img src="{% static "pics/social_media/gmail.png" %}" alt="G"/></a> </li>
-       <li><a href="https://www.linkedin.com/" target="_self"><img src="{% static "pics/social_media/linkedin.png" %}" alt="L"/></a> </li>
+       <li><a href="https://www.linkedin.com/" target="_self"><img src="{% static "pics/social_media/linkedin.png"  %}" alt="L"/></a> </li>
        <li><a href="#">Welcome <b>{{ user.username }}</b></a></li>
 
   <!-- control panel-->

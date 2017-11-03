@@ -3,13 +3,46 @@
   margin-right:0
  }
 
- .grid-item { width: 25%; }
- .grid-item--width2 { width: 50%; }
- 
 
 
 
 
+
+
+
+
+
+
+/* ---- grid ---- */
+
+
+/* clear fix */
+
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 32%;
+  border-radius: 5px;
+  border: 1px solid #888888;
+  box-shadow: 3px 3px 5px #888888;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+
+
+#NotesContainer{
+  background-color: #f2f2f2;
+  
+
+
+
+}
 
 
 
