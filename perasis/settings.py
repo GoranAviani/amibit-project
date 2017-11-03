@@ -143,7 +143,12 @@ USE_TZ = True
 STATIC_URL = '/static_files/'
 
 #for deployment uncomment or local comment:
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_files"),
+]
+
+
 
 #added for static files ->
 #for deployment comment for local uncommenr:
