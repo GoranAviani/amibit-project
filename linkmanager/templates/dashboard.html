@@ -30,12 +30,10 @@
 
 
 
-  <div id = NotesContainer class="col-sm-9">
+  <div id = NoteContainer class="col-sm-9">
 
     <div class="col-sm-12">
-      <div class="col-sm-12" >            
-        NOTES
-      </div>
+      
       <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
         Create note
       </a>
@@ -56,10 +54,10 @@
           <li>
             {{ y.note_user }}
           </li>
-          <li>
-            {{ y.note_title }}
+          <br>
+            <h3>{{ y.note_title }}</h3>
            
-          </li>
+          
           <br>
           <li>
             {{ y.note_text }}
@@ -68,10 +66,10 @@
             {{ y.note_timestamp }}
           </li>
           <br>
-          <a href ="{% url 'note_update' y.id %}" class="btn btn-primary">
+          <a href ="{% url 'note_update' y.id %}" class="btn btn-primary pull-left">
             Update
           </a>
-          <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary">
+          <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary pull-right">
             Delete
           </a>
           
@@ -88,10 +86,8 @@
       </div>
 
 
-  <div class="col-sm-3" style="background-color:lightgrey;">
-    <div class="col-sm-12" >
-      LINKS
-    </div>
+  <div id = LinkContainer class="col-sm-3">
+   
     <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn" >
         Create link
     </a>
@@ -100,7 +96,7 @@
         {% for x in queryLink %}
       <div> <!-- must be div-->
             <a href="{{x.link_url}}" target="_self" class="list-group-item">
-              <div>{{ x.link_name }}</div>
+              <h3> <div>{{ x.link_name }}</div></h3>
             </a>
             <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
               Update

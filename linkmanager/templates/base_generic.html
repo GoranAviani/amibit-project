@@ -77,7 +77,9 @@
        {% if user.is_authenticated %}
        <li><a href="https://www.facebook.com/" target="_self"><img src="{% static "pics/social_media/facebook.png" %}" alt="FB"/></a> </li>
        <li><a href="https://www.gmail.com/" target="_self"><img src="{% static "pics/social_media/gmail.png" %}" alt="G"/></a> </li>
+       <li><a href="https://www.youtube.com/" target="_self"><img src="{% static "pics/social_media/youtube.png"  %}" alt="L"/></a> </li>
        <li><a href="https://www.linkedin.com/" target="_self"><img src="{% static "pics/social_media/linkedin.png"  %}" alt="L"/></a> </li>
+       
        <li><a href="#">Welcome <b>{{ user.username }}</b></a></li>
 
   <!-- control panel-->
@@ -99,9 +101,10 @@
 
             {% if user.is_authenticated %}
             <li><a href="{% url 'user_settings_menu' %}">Settings</a></li>
+            <li role="separator" class="divider"></li>
             {% endif %}
+            
             <li><a href="{% url 'about' %}">About</a></li>      
-            <li><a href="#">Terms and Conditions</a></li>
             <li><a href="#">Contact us</a></li>
 
             <li role="separator" class="divider"></li>
