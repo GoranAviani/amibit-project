@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %} ">
   <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  
 </head>
 <body>
 
@@ -27,9 +31,11 @@
 
 
 
+
   <div class="col-sm-9">
+
     <div class="col-sm-12" style="background-color:lightgrey;">
-      <div class="col-sm-12" >
+      <div class="col-sm-12" >            
         NOTES
       </div>
       <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
@@ -37,8 +43,13 @@
       </a>
     </div>
     {% if queryNote %}
-      <ul>
+    <div class="col-sm-12" > 
+    <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+        <div class="grid">
+      
         {% for y in queryNote %}
+        <div class="grid-item">
+        
           ________________________
           <li>
             {{ y.id }}
@@ -62,8 +73,13 @@
             Delete
           </a>
           <li>___________________________</li>
+       
+        </div>
+     
         {% endfor %}
-      </ul>
+      </div>
+    </div>  
+  </div> 
     {% else %}
       <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
     {% endif %}
