@@ -34,6 +34,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import (
 LinkCreateForm,
+NoteCreateForm,
 NoteUpdateForm,
 NoteDeleteForm,
 UserRegisterForm,
@@ -182,7 +183,7 @@ class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
 def NoteCreateView(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
-            form_note_create = NoteCreate(request.POST)
+            form_note_create = NoteCreateForm(request.POST)
             if form_note_create.is_valid():
                 #note_timestamp = datetime.datetime.now()
                 note = form_note_create.save(commit=False)
@@ -190,7 +191,7 @@ def NoteCreateView(request):
                 note.save()
             return redirect('dashboard')
         else:
-            form_note_create = NoteCreate()
+            form_note_create = NoteCreateForm()
             return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
     else:
         return render(request,'perasis/not_authenticaded.html')

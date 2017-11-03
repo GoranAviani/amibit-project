@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 from django.contrib.auth.forms import UserCreationForm
 
-class NoteCreate(forms.ModelForm):
+class NoteCreateForm(forms.ModelForm):
     #your_name = forms.CharField(label='Your name', max_length=100)
     note_title = forms.CharField()
     note_text = forms.CharField(widget=forms.Textarea)
