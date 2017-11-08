@@ -27,6 +27,9 @@ class LinkUpdateForm(forms.ModelForm):
             )
 
 class LinkDeleteForm(forms.ModelForm):
+    link_name = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    link_url = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+
     class Meta:
         model = Link
         fields = (
@@ -63,6 +66,8 @@ class NoteUpdateForm(forms.ModelForm):
         #    'note_timestamp',
             )
 class NoteDeleteForm(forms.ModelForm):
+    note_title = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    note_text = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
     class Meta:
         model = Note
         fields = (
