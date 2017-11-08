@@ -34,6 +34,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 from .forms import (
 LinkCreateForm,
+LinkUpdateForm,
 NoteCreateForm,
 NoteUpdateForm,
 NoteDeleteForm,
@@ -159,15 +160,47 @@ def add_HTTP_to_linkurl(link_url):
         link_url=HTTP_URL + link_url
     return link_url
 
+######## Commented because with Rest its harder to add custom code
+#class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
+#    queryset = Link.objects.all()
+#    serializer_class = LinkUpdateSerializer
+#    lookup_field = 'id'
+#    permission_classes= (IsAuthenticated,IsLinkOwner,)
+#
+#    def perform_update(self, serializer):
+#            serializer.save(link_user = self.request.user)
 
-class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
-    queryset = Link.objects.all()
-    serializer_class = LinkUpdateSerializer
-    lookup_field = 'id'
-    permission_classes= (IsAuthenticated,IsLinkOwner,)
 
-    def perform_update(self, serializer):
-            serializer.save(link_user = self.request.user)
+
+def LinkUpdateView(request,id):
+    link_to_update = get_object_or_404(Link, id=id)
+    if request.user.is_authenticated():
+        if link_to_update.link_user == request.user:
+            if request.method == 'POST':
+                form_link_update = LinkUpdateForm(request.POST)
+                if form_link_update.is_valid():
+                    link = form_link_update.save(commit=False)
+                    link.id = id
+                    link.link_user = request.user
+                    link.link_url = add_HTTP_to_linkurl(link.link_url)
+                    link.save()
+                    return redirect('dashboard')
+            else:
+                form_link_update = LinkUpdateForm(instance = link_to_update)
+                return render(request, 'link/link_update.html', {'form_link_update': form_link_update})
+        else:
+            return render(request,'perasis/not_owner.html')
+    else:
+        return render(request,'perasis/not_authenticaded.html')
+
+
+
+
+
+
+
+
+
 
 class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
     permission_classes= (IsAuthenticated,IsLinkOwner)

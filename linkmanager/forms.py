@@ -28,6 +28,15 @@ class LinkCreateForm(forms.ModelForm):
             'link_url',
             )
 
+class LinkUpdateForm(forms.ModelForm):
+    link_name = forms.CharField()
+    link_url = forms.CharField()
+    class Meta:
+        model = Link
+        fields = (
+            'link_name',
+            'link_url',
+            )
 
 
 class NoteUpdateForm(forms.ModelForm):
