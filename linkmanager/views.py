@@ -1,4 +1,7 @@
 from .models import Link, Note
+from django.contrib.auth.models import User
+
+
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -55,11 +58,18 @@ def index(request):
     if request.user.is_authenticated():
         return redirect('dashboard')
     else:
+
+        # Generate counts of some of the main objects
+        num_note=Note.objects.all().count()
+        # The 'all()' is implied by default.
+        num_user=User.objects.count()
+        num_link=Link.objects.count()
+
     # Render the HTML template index.html with the data in the context variable
         return render(
             request,
             'index.html',
-            #context={'num_apps':num_apps,'num_users':num_users},
+            context={'num_note':num_note,'num_user':num_user,'num_link':num_link},
             )
 def about(request):
     return render(
@@ -176,6 +186,9 @@ def add_HTTP_to_linkurl(link_url):
         link_url=HTTP_URL + link_url
     return link_url
 
+
+
+
 ######## Commented because with Rest its harder to add custom code
 #class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
 #    queryset = Link.objects.all()
@@ -185,9 +198,6 @@ def add_HTTP_to_linkurl(link_url):
 #
 #    def perform_update(self, serializer):
 #            serializer.save(link_user = self.request.user)
-
-
-
 def LinkUpdateView(request,id):
     link_to_update = get_object_or_404(Link, id=id)
     if request.user.is_authenticated():
@@ -222,9 +232,6 @@ def LinkUpdateView(request,id):
 #    permission_classes= (IsAuthenticated,IsLinkOwner)
  #   queryset = Link.objects.all()
  #   lookup_field = 'id'
-
-
-
 def LinkDeleteView(request,id):
     link_to_delete = get_object_or_404(Link, id=id)
     if request.user.is_authenticated():
