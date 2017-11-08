@@ -66,6 +66,21 @@ def about(request):
     request,
     'perasis/about.html'
     )
+
+def contact(request):
+    return render(
+    request,
+    'perasis/contact.html'
+    )
+
+
+def terms_and_conditions(request):
+    return render(
+    request,
+    'perasis/terms_and_conditions.html'
+    )
+
+
 def how_to_use(request):
     return render(
     request,
