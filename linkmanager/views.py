@@ -35,6 +35,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import (
 LinkCreateForm,
 LinkUpdateForm,
+LinkDeleteForm,
 NoteCreateForm,
 NoteUpdateForm,
 NoteDeleteForm,
@@ -201,16 +202,33 @@ def LinkUpdateView(request,id):
 
 
 
+######## Commented because with Rest its harder to add custom code
+#class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
+#    permission_classes= (IsAuthenticated,IsLinkOwner)
+ #   queryset = Link.objects.all()
+ #   lookup_field = 'id'
 
-class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
-    permission_classes= (IsAuthenticated,IsLinkOwner)
-    queryset = Link.objects.all()
-    lookup_field = 'id'
 
 
-    #def get(self, request,id):
-    #    lookup_field = 'id'
-    #    queryset = Link.objects.filter(link_user=self.request.user)
+def LinkDeleteView(request,id):
+    link_to_delete = get_object_or_404(Link, id=id)
+    if request.user.is_authenticated():
+        if link_to_delete.link_user == request.user:
+            if request.method == 'POST':
+                form_link_delete = LinkDeleteForm(request.POST)
+                if form_link_delete.is_valid():
+                    link_to_delete.delete()
+                    return redirect('dashboard')
+            else:
+                form_link_delete = LinkDeleteForm(instance=link_to_delete)
+                return render(request, 'link/link_delete.html', {'form_link_delete': form_link_delete})
+        else:
+            return render(request,'perasis/not_owner.html')
+    else:
+        return render(request,'perasis/not_authenticaded.html')
+
+
+
 
 #form views:
 def NoteCreateView(request):
