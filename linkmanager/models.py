@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Link(models.Model):
+	#link model
+	
     link_user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     link_name = models.CharField(max_length=200)
     link_url = models.CharField(max_length=1000)

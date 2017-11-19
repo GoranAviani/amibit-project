@@ -72,6 +72,7 @@ def index(request):
             context={'num_note':num_note,'num_user':num_user,'num_link':num_link},
             )
 def about(request):
+    #To show about page
     return render(
     request,
     'perasis/about.html'
