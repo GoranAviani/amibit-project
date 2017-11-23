@@ -19,15 +19,12 @@ from linkmanager import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    
-    url(r'^$', views.index,  name='index'),
-    
-   
 
+    url(r'^$', views.index,  name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^linkmanager/', include('linkmanager.urls')),
 
-    
+
 ]
 
 #django updte model

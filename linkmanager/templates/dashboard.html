@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
- 
+
 </head>
 <body>
 
@@ -18,11 +18,11 @@
     {% csrf_token %}
         <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
 
-      <div class="col-sm-12"> 
+      <div class="col-sm-12">
         <button type="submit" class="navbar-btn btn-success btn pull-left" name="personal_assistant_btn">Submit</button>
         <a href="{% url 'pa_list_of_commands' %}" class="navbar-btn btn-default btn pull-right">List of commands</a>
       </div>
-       
+
     </form>
 </div>
 
@@ -32,35 +32,27 @@
   <div id = NoteContainer class="col-sm-9">
 
     <div class="col-sm-12">
-      
+
       <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
         Create note
       </a>
     </div>
     {% if queryNote %}
-    <div class="col-sm-12" > 
+    <div class="col-sm-12" >
     <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
         <div class="grid">
-      
+
         {% for y in queryNote %}
-        
+
         <div class="grid-item">
-        
-         
-          <li>
-            {{ y.id }}
-          </li>
-          <li>
-            {{ y.note_user }}
-          </li>
+
           <br>
-            <h3>{{ y.note_title }}</h3>
-           
-          
-          <br>
-          <li>
-            {{ y.note_text }}
-          </li>
+          <h3><a href ="{% url 'note_detail' y.id y.note_slug %}"> {{y.note_title}}</a></h3>
+
+
+
+            {{ y.note_text|truncatewords:6|linebreaks }}
+
           <li>
             {{ y.note_timestamp }}
           </li>
@@ -71,14 +63,14 @@
           <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary pull-right">
             Delete
           </a>
-          
-       
+
+
         </div>
-      
+
         {% endfor %}
       </div>
-    </div>  
-  </div> 
+    </div>
+  </div>
     {% else %}
       <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
     {% endif %}
@@ -86,7 +78,7 @@
 
 
   <div id = LinkContainer class="col-sm-3">
-   
+
     <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn" >
         Create link
     </a>

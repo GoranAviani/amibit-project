@@ -20,7 +20,7 @@ urlpatterns =[
     url(r'^link/create/', views.LinkCreateView, name='link_create'),
     url(r'^link/update/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkUpdateView, name='link_update'),
     url(r'^link/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkDeleteView, name='link_delete'),
-   
+
     url(r'^note/create/', views.NoteCreateView, name='note_create'),
     url(r'^note/update/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteUpdateView, name='note_update'),
     url(r'^note/delete/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteDeleteView, name='note_delete'),
@@ -34,5 +34,6 @@ urlpatterns =[
 	url(r'^user/infoedit/profile/', views.user_info_edit_profile, name='user_info_edit_profile'),
     url(r'^user/infoedit/password/', views.user_info_edit_password, name='user_info_edit_password'),
 
+    url(r'^note/show/(?P<id>[0-9A-Za-z_\-]+)/(?P<note_slug>[0-9A-Za-z_\-]+)$', views.note_detail, name='note_detail'),
 
         ]

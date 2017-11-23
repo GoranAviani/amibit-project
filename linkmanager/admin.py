@@ -15,6 +15,7 @@ class LinkAdmin(admin.ModelAdmin):
 class NoteAdmin(admin.ModelAdmin):
     list_display = ("note_title" , "note_timestamp" , "note_user")
     list_filter = ("note_title" , "note_timestamp" , "note_user")
+    prepopulated_fields = {"note_slug": ("note_title",)}
     search_fields= ("note_title","note_text")
     ordering = ["note_timestamp",]
 

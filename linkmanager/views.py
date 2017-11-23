@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-
+from .permissions import *
 
 from django.utils import timezone
 import datetime
@@ -21,7 +21,7 @@ from rest_framework.permissions import (
     IsAuthenticated,
     IsAuthenticatedOrReadOnly,
 )
-from .permissions import *
+
 
 from django.contrib.auth import (
     authenticate, #user = authenticate(username=user.username, password=raw_password)
@@ -133,13 +133,13 @@ def Dashboard(request):
     if request.user.is_authenticated():
         if(request.POST.get('personal_assistant_textbox')):
             text = request.POST.get('personal_assistant_textbox')
-       
+
            #browser
-            if text[0:2+1] == "go ":                
+            if text[0:2+1] == "go ":
                 return redirect(HTTP_URL+text[3:])
 
             elif text[0:3+1] == "goo ":
-                return redirect(HTTP_URL+"www.google.com/?#q="+(text[4:]))    
+                return redirect(HTTP_URL+"www.google.com/?#q="+(text[4:]))
             else:
                 webbrowser.Error
             return redirect('dashboard')
@@ -171,7 +171,7 @@ def LinkCreateView(request):
             form_link_create = LinkCreateForm(request.POST)
             if form_link_create.is_valid():
                 form = form_link_create.save(commit=False)
-                form.link_user = request.user    
+                form.link_user = request.user
                 form.link_url = add_HTTP_to_linkurl(form.link_url)
                 form.save()
             return redirect('dashboard')
@@ -262,6 +262,7 @@ def NoteCreateView(request):
                 #note_timestamp = datetime.datetime.now()
                 note = form_note_create.save(commit=False)
                 note.note_user = request.user
+                note.note_slug = note.note_title.replace(" ","-")
                 note.save()
             return redirect('dashboard')
         else:
@@ -281,6 +282,7 @@ def NoteUpdateView(request,id):
                     note.id = id
                     note.note_timestamp = datetime.datetime.now()
                     note.note_user = request.user
+                    note.note_slug = note.note_title.replace(" ","-")
                     note.save()
                     return redirect('dashboard')
             else:
@@ -360,6 +362,10 @@ def user_info_edit_password(request):
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
 
 
+def note_detail(request,id,note_slug):
+    note_to_show = get_object_or_404(Note, id=id, note_slug=note_slug)
+
+    return render (request, "note/note_detail.html",{"note_to_show":note_to_show})
 
 
 
