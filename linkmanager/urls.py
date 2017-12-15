@@ -12,10 +12,10 @@ urlpatterns =[
 
     url(r'^about', views.about, name='about'),
     url(r'^contact', views.contact, name='contact'),
-    url(r'^terms_and_conditions', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^termsandconditions', views.terms_and_conditions, name='terms_and_conditions'),
 
     url(r'^how_to/use', views.how_to_use, name='how_to_use'),
-    url(r'^pa/list_of_commands', views.pa_list_of_commands, name='pa_list_of_commands'),
+    url(r'^pa/listofcommands', views.pa_list_of_commands, name='pa_list_of_commands'),
 
     url(r'^link/create/', views.LinkCreateView, name='link_create'),
     url(r'^link/update/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkUpdateView, name='link_update'),

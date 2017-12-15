@@ -22,7 +22,7 @@ urlpatterns = [
 
     url(r'^$', views.index,  name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^linkmanager/', include('linkmanager.urls')),
+    url(r'^', include('linkmanager.urls')),
 
 
 ]
