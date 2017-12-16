@@ -144,7 +144,9 @@ def Dashboard(request):
                 return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text[4:]))
 
             else:
-                webbrowser.Error
+                return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text[4:]))
+                #webbrowser.Error
+                
             return redirect('dashboard')
         else:
             queryLink = Link.objects.filter(link_user=request.user)
