@@ -146,7 +146,7 @@ def Dashboard(request):
             else:
                 return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text[4:]))
                 #webbrowser.Error
-                
+
             return redirect('dashboard')
         else:
             queryLink = Link.objects.filter(link_user=request.user)
@@ -268,6 +268,9 @@ def NoteCreateView(request):
                 note = form_note_create.save(commit=False)
                 note.note_user = request.user
                 note.note_slug = note.note_title.replace(" ","-")
+                note.note_slug = note.note_slug.replace(".","_")
+                note.note_slug = note.note_slug.replace("=","_")
+                note.note_slug = note.note_slug.replace('"',"_")
                 note.save()
             return redirect('dashboard')
         else:
