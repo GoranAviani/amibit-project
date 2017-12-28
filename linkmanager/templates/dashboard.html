@@ -10,66 +10,56 @@
 
 </head>
 <body>
+<div id = DashboardBody class="col-sm-12">
 
- <div class="col-sm-12">
+    <label>Type your command:</label>
+    <form method="POST">
+      {% csrf_token %}
+          <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
 
-  <label>Type your command:</label>
-  <form method="POST">
-    {% csrf_token %}
-        <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
+        <div class="col-sm-12">
+          <button type="submit" class="navbar-btn btn-success btn pull-left" name="personal_assistant_btn">Submit</button>
+          <a href="{% url 'pa_list_of_commands' %}" class="navbar-btn btn-default btn pull-right">List of commands</a>
+        </div>
 
-      <div class="col-sm-12">
-        <button type="submit" class="navbar-btn btn-success btn pull-left" name="personal_assistant_btn">Submit</button>
-        <a href="{% url 'pa_list_of_commands' %}" class="navbar-btn btn-default btn pull-right">List of commands</a>
-      </div>
+      </form>
 
-    </form>
-</div>
 
 
 
 
   <div id = NoteContainer class="col-sm-9">
-
     <div class="col-sm-12">
-
       <a href ="{% url 'note_create' %}" class="navbar-btn btn-success btn">
         Create note
       </a>
     </div>
     {% if queryNote %}
     <div class="col-sm-12" >
-    <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
-        <div class="grid">
+      <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+          <div class="grid">
 
-        {% for y in queryNote %}
+          {% for y in queryNote %}
 
-        <div class="grid-item">
+          <div class="grid-item">
 
-          <br>
-          <h3><a href ="{% url 'note_detail' y.id y.note_slug %}"> {{y.note_title}}</a></h3>
-
-
-
-            {{ y.note_text|truncatewords:6|linebreaks }}
-
-          <li>
-            {{ y.note_timestamp }}
-          </li>
-          <br>
-          <a href ="{% url 'note_update' y.id %}" class="btn btn-primary pull-left">
-            Update
-          </a>
-          <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary pull-right">
-            Delete
-          </a>
-
-
+            <br>
+            <h3><a href ="{% url 'note_detail' y.id y.note_slug %}"> {{y.note_title}}</a></h3>
+              {{ y.note_text|truncatewords:6|linebreaks }}
+            <li>
+              {{ y.note_timestamp }}
+            </li>
+            <br>
+            <a href ="{% url 'note_update' y.id %}" class="btn btn-default pull-left">
+              Update
+            </a>
+            <a href ="{% url 'note_delete' y.id %}" class="btn btn-default pull-right">
+              Delete
+            </a>
+          </div>
+          {% endfor %}
         </div>
-
-        {% endfor %}
       </div>
-    </div>
   </div>
     {% else %}
       <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
@@ -78,7 +68,6 @@
 
 
   <div id = LinkContainer class="col-sm-3">
-
     <a href ="{% url 'link_create' %}" class="navbar-btn btn-success btn" >
         Create link
     </a>
@@ -86,24 +75,26 @@
       <ul>
         {% for x in queryLink %}
       <div> <!-- must be div-->
-            <a href="{{x.link_url}}" target="_self" class="list-group-item">
-              <h3> <div>{{ x.link_name }}</div></h3>
+        <div id = SingleLinkContainer class="col-sm-12">
+          <div id = SingleLink>
+            <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-lg btn-block ">
+             <span class="pull-left">{{ x.link_name }}</span>&nbsp;
             </a>
-            <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
+          </div>
+            <a href ="{% url 'link_update' x.id %}" class="btn btn-default pull-left">
               Update
             </a>
-            <a href ="{% url 'link_delete' x.id %}" class='btn btn-primary'>
+            <a href ="{% url 'link_delete' x.id %}" class="btn btn-default pull-right">
               Delete
             </a>
+        </div>
       </div>
         {% endfor %}
       </ul>
       {% else %}
         <p>There are no links available. Click <a href="{% url 'link_create' %}">here</a> to add links</p>
       {% endif %}
-    </div>
-
-
-
+  </div>
+</div>
 </body>
 {% endblock %}
