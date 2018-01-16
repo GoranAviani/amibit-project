@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Write new note</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form_note_create %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+      
+      </p>
+    {% endfor %}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load staticfiles %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/main.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+ <div class="col-sm-12">
+
+  <label>say</label>
+  <form method="POST">
+    {% csrf_token %}
+        <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
+
+
+      <button type="submit" class="btn btn-primary" name="personal_assistant_btn">say</button>
+    
+    </form>
+</div>
+
+<div class="col-sm-9">
+
+  <div class="col-sm-12" >
+  
+      NOTES
+  
+      <a href ="{% url 'note_create' %}" class='list-group-item' style="background-color:lightblue;">
+        Create note
+      </a>
+  
+  </div>
+
+    {% if notes %}
+
+      <ul>
+        {% for y in notes %}
+      ________________________
+        <li>
+          {{ y.id }}
+        </li>
+        <li>
+          {{ y.note_user }}
+        </li>
+          <li>
+            {{ y.note_title }}
+          </li>
+          <li>
+            {{ y.note_text }}
+          </li>
+          <li>
+            {{ y.note_timestamp }}
+          </li>
+          <a href ="{% url 'note_update' y.id %}" class="btn btn-primary">
+            Update
+          </a>
+          <a href ="{% url 'note_delete' y.id %}" class="btn btn-primary">
+            Delete
+          </a>
+
+            <li>___________________________</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no notes available. Click <a href="{% url 'note_create' %}">here</a> to add note</p>
+      {% endif %}
+</div>
+
+
+<div class="col-sm-3" style="background-color:lightgrey;">
+LINKS
+
+  {% if links %}
+  <a href ="{% url 'link_create' %}" class="list-group-item" style="background-color:lightblue;">
+    Create link
+  </a>
+    <ul>
+      {% for x in links %}
+      <div>
+          <a href="{{x.link_url}}" target="_blank" class="list-group-item">
+            <div>{{ x.link_name }}</div>
+          </a>
+          <a href ="{% url 'link_update' x.id %}" class='btn btn-primary'>
+            Update
+          </a>
+          <a href ="{% url 'link_delete' x.id %}" class='btn btn-primary'>
+            Delete
+          </a>
+        </div>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no links available. Click <a href="{% url 'link_create' %}">here</a> to add links</p>
+    {% endif %}
+  </div>
+
+
+
+</body>
+{% endblock %}

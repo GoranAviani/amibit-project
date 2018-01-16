@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}{{post_to_show.note_title}}{% endblock %}
+{% block content %}
+  <h1>{{note_to_show.note_title}}</h1>
+  <p class="date"> Published {{note_to_show.note_timestamp}} by {{note_to_show.note_user}}</p>
+  {{note_to_show.note_text|linebreaks}}
+
+  <a href ="{% url 'note_update' note_to_show.id %}" class="btn btn-primary pull-left">
+    Update
+  </a>
+  <a href ="{% url 'note_delete' note_to_show.id %}" class="btn btn-primary pull-right">
+    Delete
+  </a>
+
+
+{% endblock %}
