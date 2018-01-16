@@ -1,4 +1,20 @@
 {% extends "base_generic.html" %}
+
+
+{% block headextra %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+             window.onload = function() {
+             $("#personal_assistant_textbox").focus();
+             // alert('test') if I add this line its works
+             //  setting focus to a textbox which added to template page direcltly using html tag the focus() method works well
+            };
+        });
+        </script>
+    {% endblock %}
+
+
+
 {% block content %}
 {% load staticfiles %}
 {% load static %}

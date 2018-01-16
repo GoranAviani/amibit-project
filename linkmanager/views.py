@@ -271,6 +271,7 @@ def NoteCreateView(request):
                 note.note_slug = note.note_slug.replace(".","_")
                 note.note_slug = note.note_slug.replace("=","_")
                 note.note_slug = note.note_slug.replace('"',"_")
+                note.note_slug = note.note_slug.replace('@',"_")
                 note.save()
             return redirect('dashboard')
         else:
@@ -291,6 +292,10 @@ def NoteUpdateView(request,id):
                     note.note_timestamp = datetime.datetime.now()
                     note.note_user = request.user
                     note.note_slug = note.note_title.replace(" ","-")
+                    note.note_slug = note.note_slug.replace(".","_")
+                    note.note_slug = note.note_slug.replace("=","_")
+                    note.note_slug = note.note_slug.replace('"',"_")
+                    note.note_slug = note.note_slug.replace('@',"_")
                     note.save()
                     return redirect('dashboard')
             else:
