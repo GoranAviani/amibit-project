@@ -1,18 +1,16 @@
-html *
-{
-     font-family: Helvetica ;
-     margin:0px;
-     padding:0px;
+html,
+body {
+    height: 100%;
+    margin:0px;
+    padding:0px;
 }
 
-
 h1{font-size:45px;font-weight:300;line-height:68px}
-h2{font-size:36px;font-weight:300;color:#fff}
+
 h3{font-size:20px;line-height:32px;margin-bottom:20px}
 h4{font-size:15px;font-weight:600;margin:7px 0 65px 60px;text-transform:uppercase}
 h4:after{display:block;width:30px;height:2px;margin-top:15px;content:'';background-color:#7AE2DE}
 h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;color:#414A52}
-
 
 .has-25-0-25-0-padding{padding:25px 0px 25px 0px}
 .has_0_20_0_0_padding{padding:0px 20px 0px 0px}
@@ -21,32 +19,6 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 .has-80padding{padding:80px 0}
 .has-50padding{padding:50px 0}
 .has-30padding{padding:30px 0}
-
-p1 {
-  /* 16 * 0.0625 = 1px */
-  letter-spacing: 0.0525em;
-}
-
-#footer {
-
-  background-color: #f2f2f2;
-
-}
-
-/******************FROM STYLES*/
-
-
-.nomargine {
-  margin-left:0;
-  margin-right:0
- }
-
-
-
-
-
-
-
 
 
 
@@ -99,10 +71,29 @@ margin: 5px 5px 5px 5px;
 
 }
 
+.navbar{
+  margin-bottom: 0px;
+}
 
 
-body {
+.navbar.navbar-default{
+    height: 5%;
+}
 
-
-
+.landing_page {
+    padding-top: 180px;
+    background-color: red;
+    height: 95%;
+    background-position: center;
+    background-size: cover;
+}
+.btn.btn-huge {
+    background-color:#3399FF;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 15px 20px 16px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+    padding-left: 20px;
 }
