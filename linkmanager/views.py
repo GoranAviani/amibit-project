@@ -54,7 +54,6 @@ HTTP_URL="http://"
 #basic views:
 
 def index(request):
-
     if request.user.is_authenticated():
         return redirect('dashboard')
     else:
@@ -348,7 +347,7 @@ def signup_view(request):
             return redirect('dashboard')
     else:
         form_signup = UserRegisterForm()
-    return render(request, 'user/registration.html', {'form_signup': form_signup})
+    return render(request, 'registration/registration.html', {'form_signup': form_signup})
 
 #edit user info:
 def user_info_edit_profile(request):

@@ -1,33 +1,19 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
-{% load staticfiles %}
 {% load static %}
-<head>
-<link rel="stylesheet" href="{% static 'css/styles.css' %} ">
-</head>
-<div class="container">
+<div class="login-page">
+  <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="{% static "pics/carousel/nopic.png" %}" alt="Amibit logo" class="img-rounded img-responsive"/>
+      <div class="col-md-4 col-md-offset-4">
+        <div class="well well-lg">
+          <h2 class="text-center">About</h2><br />
+            <i class="glyphicon glyphicon-map-marker"></i><cite t>  World Wide Web</cite>
+            <br />
+            <i class="glyphicon glyphicon-envelope"></i>  info@amibit.org
+            <br />
+            <i class="glyphicon glyphicon-globe"></i><a href="http://www.amibit.org">  www.amibit.org</a>
+            <br /><br />
 
-                    </div>
-                    <div class="col-sm-6 col-md-8  "  >
-
-                        <h1>
-                            Amibit</h4>
-                        <small><cite title="San Francisco, USA"> World Wide Web <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
-                        <p>
-                          <h4>
-                            <i class="glyphicon glyphicon-envelope"></i> info@amibit.org
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.amibit.org"> www.amibit.org</a>
-                            <br />
-                          
 
                       </div>
                     </div>

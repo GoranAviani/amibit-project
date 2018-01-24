@@ -80,9 +80,9 @@ margin: 5px 5px 5px 5px;
     height: 5%;
 }
 
-.landing_page {
+.login-page {
     padding-top: 180px;
-    background-color: red;
+    background-color: #d1d1e0;
     height: 95%;
     background-position: center;
     background-size: cover;
