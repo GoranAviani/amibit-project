@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.conf.urls import include
-from . import views
+from linkmanager import views
 from django.contrib.auth import views as auth_views
 
 

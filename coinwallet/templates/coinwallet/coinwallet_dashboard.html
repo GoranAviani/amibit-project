@@ -1,0 +1,38 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+
+<h3>Cryptocoin wallet Settings</h3>
+<h4><p>Welcome {{ user.username }} to your personal coinwallet panel.</p></h4>
+<p>Here you can see your crypto currency status and you can choose to edit your wallet info.</p>
+
+
+  <a href ="{% url 'coinwallet_create' %}" class="navbar-btn btn-success btn" >
+      coinwallet_create
+  </a>
+  {% if queryWallet %}
+    <ul>
+      {% for x in queryWallet %}
+    <div> <!-- must be div-->
+      <div id = SingleLinkContainer class="col-sm-12">
+        <div id = SingleLink>
+          <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-lg btn-block ">
+           <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_coin }}</span>&nbsp;
+          </a>
+        </div>
+          <a href ="{% url 'coinwallet_update' x.id %}" class="btn btn-default pull-left">
+            Update
+          </a>
+          <a href ="{% url 'coinwallet_delete' x.id %}" class="btn btn-default pull-right">
+            Delete
+          </a>
+      </div>
+    </div>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no coin in your coin wallet. Click <a href="{% url 'coinwallet_create' %}">here</a> to add coin</p>
+    {% endif %}
+</div>
+
+{% endblock %}

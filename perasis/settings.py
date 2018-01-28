@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #my_apps
     'linkmanager',
+    'coinwallet',
     #added_apps
     'rest_framework',
 ]

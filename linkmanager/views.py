@@ -1,4 +1,4 @@
-from .models import Link, Note
+from linkmanager.models import Link, Note
 from django.contrib.auth.models import User
 
 
@@ -30,12 +30,12 @@ from django.contrib.auth import (
     update_session_auth_hash,
 )
 
-from .serializers import (
+from linkmanager.serializers import (
     LinkUpdateSerializer,
     )
 from django.contrib.auth.forms import PasswordChangeForm
 
-from .forms import (
+from linkmanager.forms import (
 LinkCreateForm,
 LinkUpdateForm,
 LinkDeleteForm,
@@ -57,10 +57,7 @@ def index(request):
     if request.user.is_authenticated():
         return redirect('dashboard')
     else:
-
-        # Generate counts of some of the main objects
         num_note=Note.objects.all().count()
-        # The 'all()' is implied by default.
         num_user=User.objects.count()
         num_link=Link.objects.count()
 
@@ -380,40 +377,6 @@ def note_detail(request,id,note_slug):
     return render (request, "note/note_detail.html",{"note_to_show":note_to_show})
 
 
-
-import os
-import json
-import time
-def read_prices_for_my_wallet(self):
-    #code here
-    coin_wallet={'XLM':41.958,'MIOTA':26.973,'COSS':49,'APPC':11.98}
-    os.system("curl -X GET https://api.coinmarketcap.com/v1/ticker/?limit=0 > prices.txt")
-
-    wallet_sum=0
-    with open('prices.txt', 'r') as content_file:
-        content = content_file.read()
-        sve = json.loads(content)
-        #print(sve)
-        print(coin_wallet)
-        for x in coin_wallet:
-        #    print([x])
-        #    print(coin_wallet[x])
-            for valuta in sve:
-                if valuta['symbol'] == x:
-                    print("currency: "+valuta['symbol']+ " cijena: " + valuta['price_usd'])
-                    #vrijednost = ((valuta['price_usd']) )
-                #    print( (coin_wallet[x]))
-                    #print(vrijednost)
-                    vrijednost = (float(valuta['price_usd']) * float(coin_wallet[x]))
-                    wallet_sum += vrijednost
-                    #print("Imas: "+str([x])+ " i to je: " + str(vrijednost))
-                    print(vrijednost)
-        print("sve skupa: "+ "%.2f" % round(wallet_sum,2) )
-
-    time.sleep(60)
-
-while True:
-    read_prices_for_my_wallet(coin_wallet)
 
 
 
