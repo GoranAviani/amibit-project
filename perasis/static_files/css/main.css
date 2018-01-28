@@ -47,9 +47,7 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 
 
 #NoteContainer{
-
 margin-top: 20px;
-
 }
 #DashboardBody {
   background-color: #;
@@ -75,10 +73,7 @@ margin: 5px 5px 5px 5px;
   margin-bottom: 0px;
 }
 
-
-.navbar.navbar-default{
-    height: 5%;
-}
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
 .login-page {
     padding-top: 180px;
@@ -87,6 +82,22 @@ margin: 5px 5px 5px 5px;
     background-position: center;
     background-size: cover;
 }
+
+.about-page {
+    padding-top: 180px;
+    background-color: #d1d1e0;
+    height: 95%;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.btn.btn-list-of-commands {
+    padding-left: 0px;
+}
+
+
+
 .btn.btn-huge {
     background-color:#3399FF;
     font-size: 22px;

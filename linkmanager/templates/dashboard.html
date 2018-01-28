@@ -2,42 +2,34 @@
 
 
 {% block headextra %}
-    <script type="text/javascript">
-        $(document).ready(function() {
-             window.onload = function() {
-             $("#personal_assistant_textbox").focus();
-             // alert('test') if I add this line its works
-             //  setting focus to a textbox which added to template page direcltly using html tag the focus() method works well
-            };
-        });
-        </script>
-    {% endblock %}
-
-
+<script type="text/javascript">
+    $(document).ready(function() {
+         window.onload = function() {
+         $("#personal_assistant_textbox").focus();
+         // alert('test') if I add this line its works
+         //  setting focus to a textbox which added to template page direcltly using html tag the focus() method works well
+        };
+    });
+</script>
+{% endblock %}
 
 {% block content %}
-{% load staticfiles %}
 {% load static %}
-<head>
-  <link rel="stylesheet" href="{% static 'css/main.css' %} ">
-  <link rel="stylesheet" href="{% static 'css/multimedia.css' %} ">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
 
-</head>
-<body>
-<div id = DashboardBody class="col-sm-12">
 
-    <label>Type your command:</label>
+
+<div id = DashboardBody class="col-md-12">
     <form method="POST">
       {% csrf_token %}
-          <input type="text"  class="form-control" id="" value="" name="personal_assistant_textbox">
-
-        <div class="col-sm-12">
-          <button type="submit" class="navbar-btn btn-success btn pull-left" name="personal_assistant_btn">Submit</button>
-          <a href="{% url 'pa_list_of_commands' %}" class="navbar-btn btn-default btn pull-right">List of commands</a>
+      <div id = DashboardBody class="col-md-10">
+          <input type="text"  class="form-control" name="personal_assistant_textbox" placeholder=" Type your command...">
+      </div>
+      <div id = DashboardBody class="col-md-2">
+          <a href="{% url 'pa_list_of_commands' %}" class="btn btn-list-of-commands btn-default btn-block mbl">List of commands</a>
+      </div>
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-huge btn-primary btn-block mbl" name="personal_assistant_btn">Command</button>
         </div>
-
       </form>
 
 
@@ -112,5 +104,4 @@
       {% endif %}
   </div>
 </div>
-</body>
 {% endblock %}
