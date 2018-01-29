@@ -7,6 +7,20 @@
 <p>Here you can see your crypto currency status and you can choose to edit your wallet info.</p>
 
 
+your wallet worth: {{wallet_sum}}
+
+{% if wallet_sum_per_coin %}
+
+      {% for key, value in wallet_sum_per_coin.items %}
+        currency {{ key }}  is worth {{ value }}
+      {% endfor %}
+
+    
+      {% endif %}
+
+
+
+
   <a href ="{% url 'coinwallet_create' %}" class="navbar-btn btn-success btn" >
       coinwallet_create
   </a>
@@ -17,7 +31,7 @@
       <div id = SingleLinkContainer class="col-sm-12">
         <div id = SingleLink>
           <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-lg btn-block ">
-           <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_coin }}</span>&nbsp;
+           <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_amount }}</span>&nbsp;
           </a>
         </div>
           <a href ="{% url 'coinwallet_update' x.id %}" class="btn btn-default pull-left">
