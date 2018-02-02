@@ -2,12 +2,10 @@
 {% block content %}
 
 
-<h3>Cryptocoin wallet Settings</h3>
-<h4><p>Welcome {{ user.username }} to your personal coinwallet panel.</p></h4>
-<p>Here you can see your crypto currency status and you can choose to edit your wallet info.</p>
+<h4><p>Welcome {{ user.username }} to your personal cryptocoin wallet dashboard.</p></h4>
 
 
-your wallet worth: {{wallet_sum}}
+<h4><p>Your cryptocoin wallet worth: {{wallet_sum}} </p></h4>
 
 {% if wallet_sum_per_coin %}
 
@@ -15,7 +13,7 @@ your wallet worth: {{wallet_sum}}
         currency {{ key }}  is worth {{ value }}
       {% endfor %}
 
-    
+
       {% endif %}
 
 

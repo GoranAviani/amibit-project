@@ -23,7 +23,7 @@ def CoinWalletDashboardView(request):
                 sve = json.loads(content)
                 queryCoinWallet_model = CoinWallet.objects.all()
                 for x in queryCoinWallet_model:
-                    print(x)
+                #    print(x)
                     for valuta in sve:
                         #print(valuta['symbol'])
                         if valuta['symbol'] == x.wallet_coin:
