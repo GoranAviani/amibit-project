@@ -16,17 +16,17 @@
 {% block content %}
 {% load static %}
 
-
+<div id = DashboardBody class="col-md-12">
 
 <div id = PAContainer class="col-md-12">
     <form method="POST">
       {% csrf_token %}
-      <div id = DashboardBody class="col-md-8">
-          <input type="text" style="color: #213123;" class="form-control pa-command-input" name="personal_assistant_textbox" placeholder=" Type your command...">
+      <div class="col-md-8">
+          <input type="text" style="color: #213123;" class="form-control pa-command-input " name="personal_assistant_textbox" placeholder=" Type your command...">
 
       </div>
-      <div id = DashboardBody class="col-md-4">
-          <a href="{% url 'pa_list_of_commands' %}" class="btn btn-primary btn-pa-list-of-commands pull-right">List of commands</a>
+      <div class="col-md-4">
+          <a href="{% url 'pa_list_of_commands' %}" class="btn btn-primary btn-pa-list-of-commands pull-right ">List of commands</a>
       </div>
         <div class="col-md-8">
           <button type="submit" class="btn btn-primary btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>

@@ -6,7 +6,7 @@ body {
 }
 
 h1{font-size:45px;font-weight:300;line-height:68px}
-
+h2{font-size:30px;font-weight:600;text-transform:uppercase}
 
 h4{font-size:15px;font-weight:600;margin:7px 0 65px 60px;text-transform:uppercase}
 h4:after{display:block;width:30px;height:2px;margin-top:15px;content:'';background-color:#7AE2DE}
@@ -21,24 +21,34 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 .has-30padding{padding:30px 0}
 
 
-#DashboardBody {
-  background-color: #;
-}
+
 
 .navbar{
   margin-bottom: 0px;
 }
+.navbar.navbar-default{
+    height: 5%;
+}
+.navbar.container-fluid{
+    padding-bottom: 0px;
+}
 
-.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+.glyphicon {margin-bottom: 10px;margin-right: 10px;}
 
 .login-page {
     padding-top: 180px;
-    background-color: #d1d1e0;
+    background: url('/static_files/pics/background/bckg1.jpeg');
     height: 95%;
     background-position: center;
     background-size: cover;
 }
 
+.login-registration-container{
+opacity: 1;
+background-color: #ffffff;
+border-radius: 0px;
+
+}
 .about-page {
     padding-top: 180px;
     background-color: #d1d1e0;
@@ -57,149 +67,146 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
     padding-right: 20px;
     padding-bottom: 16px;
     padding-left: 20px;
+    border-radius: 0px;
 }
 
 
 .btn.btn-orange {
     background-color:#f6891f;
 }
-
-/**personal_assistant START**/
-#PAContainer{
-  margin-top: 15px;
-  margin-bottom: 10px;
-  width: 100%;
+/**DASHBOARD START*/
+#DashboardBody{
+background: url('/static_files/pics/background/bckg2.jpeg');
+background-size: cover;
+height: 95%
 }
 
-.pa-command-input{
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-
-}
-input[type="text"] {
-  border-radius: 0px;
-  font-size: 15px;
-  height: 40px;
-}
-
-.btn.btn-dashboard-pa-submit{
-  background-color:#5696CB;
-  width: 30%;
-  border-radius: 0px;
-  font-size: 15px;
-  line-height: 25px;
-  display: block;
-  margin-top:5px;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.btn.btn-pa-list-of-commands{
-background-color:#5696CB;
-border-radius: 0px;
-font-size: 15px;
-line-height: 25px;
-width: 50%;
-
-
-
-}
-
-/**personal_assistant END**/
-
-
-
-/*** NOTES PART START*/
-#NoteContainer{
-margin-top: 20px;
-}
-.notes-list-container{
-  margin-top: 15px;
-}
-
-.btn.btn-dashboard-note-create-note{
-  background-color:#f6891f;
-  width: 30%;
-  border-radius: 0px;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-/* ---- .grid-item ---- */
-
-.grid-item {
-  float: left;
-  width: 30%;
-  border: 1px solid #888888;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: #;
-}
-
-.btn.btn-dashboard-note-title{
-  background-color:#5696CB;
-  width: 100%;
-  border-radius: 0px;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.dashboard-note-text{
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.btn.btn-dashboard-note-update-delete{
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  border-radius: 0px;
-}
-/*** NOTES PART END*/
-
-/*** LINKS PART END*/
-#LinkContainer{
-  margin-top: 20px;
-}
-
-.links-list-container{
-  margin-top: 15px;
-}
-
-.btn.btn-dashboard-link-create-link{
-  background-color:#f6891f;
-  width: 100%;
-  border-radius: 0px;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.btn.btn-dashboard-link-link-title{
-  background-color:#5696CB;
-  width: 100%;
-  border-radius: 0px;
-  font-size: 20px;
-  line-height: 30px;
-}
+    /**personal_assistant START**/
+    #PAContainer{
+      margin-top: 15px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .pa-command-input{
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+    input[type="text"] {
+      border-radius: 0px;
+      font-size: 15px;
+      height: 40px;
+    }
+    .btn.btn-dashboard-pa-submit{
+      background-color:#5696CB;
+      width: 30%;
+      border-radius: 0px;
+      font-size: 15px;
+      line-height: 25px;
+      display: block;
+      margin-top:5px;
+      margin-left: auto;
+      margin-right: auto
+    }
+    .btn.btn-pa-list-of-commands{
+    background-color:#5696CB;
+    border-radius: 0px;
+    font-size: 15px;
+    line-height: 25px;
+    width: 50%;
+    }
+    /**personal_assistant END**/
 
 
 
-.single-link-container{
-  width: 100%;
-  margin-bottom: 5px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 5px;
-  border: 1px solid #888888;
+    /*** NOTES PART START*/
+    #NoteContainer{
+    margin-top: 20px;
+    }
+    .notes-list-container{
+      margin-top: 15px;
+    }
+
+    .btn.btn-dashboard-note-create-note{
+      background-color:#f6891f;
+      width: 30%;
+      border-radius: 0px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    /* ---- .grid-item ---- */
+
+    .grid-item {
+      float: left;
+      width: 30%;
+      border: 1px solid #888888;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .btn.btn-dashboard-note-title{
+      background-color:#5696CB;
+      width: 100%;
+      border-radius: 0px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .dashboard-note-text{
+      margin-top: 5px;
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+
+    .btn.btn-dashboard-note-update-delete{
+      margin-top: 5px;
+      margin-right: 5px;
+      margin-left: 5px;
+      border-radius: 0px;
+    }
+    /*** NOTES PART END*/
+
+    /*** LINKS PART END*/
+    #LinkContainer{
+      margin-top: 20px;
+    }
+
+    .links-list-container{
+      margin-top: 15px;
+    }
+
+    .btn.btn-dashboard-link-create-link{
+      background-color:#f6891f;
+      width: 100%;
+      border-radius: 0px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .btn.btn-dashboard-link-link-title{
+      background-color:#5696CB;
+      width: 100%;
+      border-radius: 0px;
+      font-size: 20px;
+      line-height: 30px;
+    }
 
 
-}
 
-
-/*** LINKS PART END*/
+    .single-link-container{
+      width: 100%;
+      margin-bottom: 5px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 5px;
+      border: 1px solid #888888;
+      background-color: #ffffff;
+    }
+    /*** LINKS PART END*/
+/**DASHBOARD END*/
