@@ -40,7 +40,7 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
     padding-bottom: 0px;
 }
 
-.glyphicon {margin-bottom: 10px;margin-right: 10px;}
+.glyphicon {margin-bottom: 0px;margin-right: 10px;}
 
 .login-page {
     padding-top: 180px;
@@ -83,7 +83,12 @@ border-radius: 0px;
     border-radius: 0px;
 }
 
-
+.btn-huge:focus, .btn-huge:hover {
+  color: white;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
+}
 .btn.btn-orange {
     background-color:#f6891f;
 }
@@ -100,7 +105,7 @@ height: 95%
     /**personal_assistant START**/
     #PAContainer{
       margin-top: 15px;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
       width: 100%;
     }
     .pa-command-input{
@@ -125,6 +130,14 @@ height: 95%
       margin-left: auto;
       margin-right: auto
     }
+
+    .btn-dashboard-pa-submit:focus, .btn-dashboard-pa-submit:hover {
+      color: white;
+      border: 1px solid #5696CB;
+      outline: none;
+      background-color: #3271a4;
+    }
+
     .btn.btn-pa-list-of-commands{
     background-color:#5696CB;
     border-radius: 0px;
@@ -132,6 +145,14 @@ height: 95%
     line-height: 25px;
     width: 50%;
     }
+
+    .btn-pa-list-of-commands:focus, .btn-pa-list-of-commands:hover {
+      color: white;
+      border: 1px solid #5696CB;
+      outline: none;
+      background-color: #3271a4;
+    }
+
     /**personal_assistant END**/
 
 
@@ -151,7 +172,12 @@ height: 95%
       font-size: 20px;
       line-height: 30px;
     }
-
+    .btn-dashboard-note-create-note:focus, .btn-dashboard-note-create-note:hover {
+      color: white;
+      border: 1px solid #bf6308;
+      outline: none;
+      background-color: #e6780a;
+    }
     /* ---- .grid-item ---- */
 
     .grid-item {
@@ -173,6 +199,14 @@ height: 95%
       font-size: 20px;
       line-height: 30px;
     }
+
+    .btn-dashboard-note-title:focus, .btn-dashboard-note-title:hover {
+      color: white;
+      border: 1px solid #5696CB;
+      outline: none;
+      background-color: #3271a4;
+    }
+
 
     .dashboard-note-text{
       margin-top: 5px;
@@ -205,6 +239,14 @@ height: 95%
       line-height: 30px;
     }
 
+    .btn-dashboard-link-create-link:focus, .btn-dashboard-link-create-link:hover {
+      color: white;
+      border: 1px solid #bf6308;
+      outline: none;
+      background-color: #e6780a;
+    }
+
+
     .btn.btn-dashboard-link-link-title{
       background-color:#5696CB;
       width: 100%;
@@ -213,6 +255,12 @@ height: 95%
       line-height: 30px;
     }
 
+    .btn-dashboard-link-link-title:focus, .btn-dashboard-link-link-title:hover {
+      color: white;
+      border: 1px solid #5696CB;
+      outline: none;
+      background-color: #3271a4;
+    }
 
 
     .single-link-container{
