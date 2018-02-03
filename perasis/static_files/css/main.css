@@ -44,9 +44,12 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 
 .login-page {
     padding-top: 180px;
-    background: url('/static_files/pics/background/bckg1.jpeg');
+    background: url('/static_files/pics/background/bckg1.jpeg')no-repeat bottom center scroll;
     height: 95%;
     background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -61,6 +64,9 @@ border-radius: 0px;
     background-color: #d1d1e0;
     height: 95%;
     background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -83,7 +89,10 @@ border-radius: 0px;
 }
 /**DASHBOARD START*/
 #DashboardBody{
-background: url('/static_files/pics/background/bckg2.jpeg');
+background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
 background-size: cover;
 height: 95%
 }
