@@ -26,7 +26,7 @@
 
       </div>
       <div class="col-md-4">
-          <a href="{% url 'pa_list_of_commands' %}" class="btn btn-primary btn-pa-list-of-commands pull-right ">List of commands</a>
+          <a href="{% url 'pa_list_of_commands' %}" class="btn btn-primary btn-main-blue btn-30-percent pull-right ">List of commands</a>
       </div>
         <div class="col-md-8">
           <button type="submit" class="btn btn-primary btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>
@@ -39,7 +39,7 @@
 
   <div id = NoteContainer class="col-md-9">
     <div class="col-md-12">
-      <a href ="{% url 'note_create' %}" class="btn btn-warning btn-main-orange btn-30percent pull-left">
+      <a href ="{% url 'note_create' %}" class="btn btn-warning btn-main-orange btn-30percent  pull-left">
         Create note
       </a>
     </div>
@@ -50,7 +50,7 @@
             <div class="grid">
               {% for y in queryNote %}
                 <div class="grid-item">
-                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-primary btn-main-blue">{{y.note_title}}</a>
+                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-primary btn-main-blue btn-100percent">{{y.note_title}}</a>
                   <div class="dashboard-note-text">
                     {{ y.note_text|truncatewords:6|linebreaks }}
                   </div>
@@ -76,21 +76,21 @@
 
 
   <div id = LinkContainer class="col-md-3">
-    <a href ="{% url 'link_create' %}" class="btn  btn-warning btn-main-orange" >
+    <a href ="{% url 'link_create' %}" class="btn  btn-warning btn-main-orange btn-100percent" >
         Create link
     </a>
     <div class="links-list-container">
       {% if queryLink %}
         {% for x in queryLink %}
         <div class="col-md-12 single-link-container">
-            <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-main-blue">
+            <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-main-blue btn-100percent">
               <span class="pull-left">{{ x.link_name }}</span>&nbsp;
             </a>
 
-            <a href ="{% url 'link_update' x.id %}" class="btn btn-default btn-dashboard-note-update-delete pull-left">
+            <a href ="{% url 'link_update' x.id %}" class="btn btn-white-blue pull-left">
               Update
             </a>
-            <a href ="{% url 'link_delete' x.id %}" class="btn btn-default btn-dashboard-note-update-delete pull-right">
+            <a href ="{% url 'link_delete' x.id %}" class="btn btn-white-blue pull-right">
               Delete
             </a>
         </div>

@@ -80,26 +80,6 @@ border-radius: 0px;
 
 
 
-.btn.btn-huge {
-    background-color:#5696CB;
-    font-size: 22px;
-    line-height: 22px;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-bottom: 16px;
-    padding-left: 20px;
-    border-radius: 0px;
-}
-
-.btn-huge:focus, .btn-huge:hover {
-  color: white;
-  border: 1px solid #5696CB;
-  outline: none;
-  background-color: #3271a4;
-}
-.btn.btn-orange {
-    background-color:#f6891f;
-}
 /*************************MAIN DASHBOARD START*/
 #DashboardBody{
 background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;
@@ -127,41 +107,7 @@ height: 95%
       font-size: 15px;
       height: 40px;
     }
-    .btn.btn-dashboard-pa-submit{
-      background-color:#5696CB;
-      width: 30%;
-      border-radius: 0px;
-      font-size: 15px;
-      line-height: 25px;
-      display: block;
-      margin-top:5px;
-      margin-left: auto;
-      margin-right: auto
-    }
-
-    .btn-dashboard-pa-submit:focus, .btn-dashboard-pa-submit:hover {
-      color: white;
-      border: 1px solid #5696CB;
-      outline: none;
-      background-color: #3271a4;
-    }
-
-    .btn.btn-pa-list-of-commands{
-    background-color:#5696CB;
-    border-radius: 0px;
-    font-size: 15px;
-    line-height: 25px;
-    width: 50%;
-    }
-
-    .btn-pa-list-of-commands:focus, .btn-pa-list-of-commands:hover {
-      color: white;
-      border: 1px solid #5696CB;
-      outline: none;
-      background-color: #3271a4;
-    }
-
-    /**personal_assistant END**/
+  /**personal_assistant END**/
 
 
 
@@ -173,7 +119,7 @@ height: 95%
       margin-top: 15px;
     }
 
-    
+
     /* ---- .grid-item ---- */
 
     .grid-item {

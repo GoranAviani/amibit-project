@@ -48,12 +48,21 @@ a:focus, a:hover {
   border-radius: 0;
 }
 
+.btn.btn-30percent{
+  width: 30%;
+}
 
+.btn.btn-50percent{
+  width: 50%;
+}
+
+.btn.btn-100percent{
+  width: 100%;
+}
 
 /**/
 .btn.btn-main-blue{
   background-color:#5696CB;
-  width: 100%;
   border-radius: 0px;
   font-size: 20px;
   line-height: 30px;
@@ -64,6 +73,17 @@ a:focus, a:hover {
   border: 1px solid #5696CB;
   outline: none;
   background-color: #3271a4;
+}
+
+
+.btn-big {
+    font-size: 22px;
+    line-height: 22px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    border-radius: 0px;
 }
 
 
@@ -85,19 +105,36 @@ a:focus, a:hover {
 }
 .btn.btn-main-orange{
   background-color:#f6891f;
-  width: 100%;
   border-radius: 0px;
   font-size: 20px;
   line-height: 30px;
 }
 
-.btn.btn-30percent{
-  width: 30%;
-}
+
 
 .btn-main-orange:focus, .btn-main-orange:hover {
   color: white;
   border: 1px solid #bf6308;
   outline: none;
   background-color: #e6780a;
+}
+
+
+.btn.btn-dashboard-pa-submit{
+  background-color:#5696CB;
+  width: 40%;
+  border-radius: 55px;
+  font-size: 18px;
+  line-height: 25px;
+  display: block;
+  margin-top:5px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.btn-dashboard-pa-submit:focus, .btn-dashboard-pa-submit:hover {
+  color: white;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
 }
