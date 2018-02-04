@@ -51,9 +51,10 @@ h6 {
 /*NAVBAR END*/
 
 
-.login-page {
+.normal-center-page {
     padding-top: 180px;
     background: url('/static_files/pics/background/bckg1.jpeg')no-repeat bottom center scroll;
+    background-color: #ffffff;
     height: 95%;
     background-position: center;
     -webkit-background-size: cover;
@@ -62,22 +63,11 @@ h6 {
     background-size: cover;
 }
 
-.login-registration-container{
+.normal-center-container{
 opacity: 1;
 background-color: #ffffff;
 border-radius: 0px;
 }
-.about-page {
-    padding-top: 180px;
-    background-color: #d1d1e0;
-    height: 95%;
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 
 
 /*************************MAIN DASHBOARD START*/
