@@ -6,12 +6,18 @@ body {
 
 }
 
-h1{font-size:45px;font-weight:300;line-height:68px}
-h2{font-size:30px;font-weight:600;text-transform:uppercase}
-
-h4{font-size:15px;font-weight:600;margin:7px 0 65px 60px;text-transform:uppercase}
-h4:after{display:block;width:30px;height:2px;margin-top:15px;content:'';background-color:#7AE2DE}
-h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;color:#414A52}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  margin: 0 0 35px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
 .has-25-0-25-0-padding{padding:25px 0px 25px 0px}
 .has_0_20_0_0_padding{padding:0px 20px 0px 0px}
@@ -21,7 +27,7 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 .has-50padding{padding:50px 0}
 .has-30padding{padding:30px 0}
 
-
+/*NAV BAR START*/
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -39,8 +45,11 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 .navbar.container-fluid{
     padding-bottom: 0px;
 }
-
 .glyphicon {margin-bottom: 0px;margin-right: 10px;}
+
+
+/*NAVBAR END*/
+
 
 .login-page {
     padding-top: 180px;
@@ -57,7 +66,6 @@ h5{font-size:13px;font-weight:600;display:inline-block;text-transform:uppercase;
 opacity: 1;
 background-color: #ffffff;
 border-radius: 0px;
-
 }
 .about-page {
     padding-top: 180px;
@@ -92,7 +100,7 @@ border-radius: 0px;
 .btn.btn-orange {
     background-color:#f6891f;
 }
-/**DASHBOARD START*/
+/*************************MAIN DASHBOARD START*/
 #DashboardBody{
 background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;
 -webkit-background-size: cover;
@@ -165,19 +173,7 @@ height: 95%
       margin-top: 15px;
     }
 
-    .btn.btn-dashboard-note-create-note{
-      background-color:#f6891f;
-      width: 30%;
-      border-radius: 0px;
-      font-size: 20px;
-      line-height: 30px;
-    }
-    .btn-dashboard-note-create-note:focus, .btn-dashboard-note-create-note:hover {
-      color: white;
-      border: 1px solid #bf6308;
-      outline: none;
-      background-color: #e6780a;
-    }
+    
     /* ---- .grid-item ---- */
 
     .grid-item {
@@ -192,20 +188,7 @@ height: 95%
       background-color: #ffffff;
     }
 
-    .btn.btn-dashboard-note-title{
-      background-color:#5696CB;
-      width: 100%;
-      border-radius: 0px;
-      font-size: 20px;
-      line-height: 30px;
-    }
 
-    .btn-dashboard-note-title:focus, .btn-dashboard-note-title:hover {
-      color: white;
-      border: 1px solid #5696CB;
-      outline: none;
-      background-color: #3271a4;
-    }
 
 
     .dashboard-note-text{
@@ -214,12 +197,7 @@ height: 95%
       margin-left: 5px;
     }
 
-    .btn.btn-dashboard-note-update-delete{
-      margin-top: 5px;
-      margin-right: 5px;
-      margin-left: 5px;
-      border-radius: 0px;
-    }
+
     /*** NOTES PART END*/
 
     /*** LINKS PART END*/
@@ -229,37 +207,6 @@ height: 95%
 
     .links-list-container{
       margin-top: 15px;
-    }
-
-    .btn.btn-dashboard-link-create-link{
-      background-color:#f6891f;
-      width: 100%;
-      border-radius: 0px;
-      font-size: 20px;
-      line-height: 30px;
-    }
-
-    .btn-dashboard-link-create-link:focus, .btn-dashboard-link-create-link:hover {
-      color: white;
-      border: 1px solid #bf6308;
-      outline: none;
-      background-color: #e6780a;
-    }
-
-
-    .btn.btn-dashboard-link-link-title{
-      background-color:#5696CB;
-      width: 100%;
-      border-radius: 0px;
-      font-size: 20px;
-      line-height: 30px;
-    }
-
-    .btn-dashboard-link-link-title:focus, .btn-dashboard-link-link-title:hover {
-      color: white;
-      border: 1px solid #5696CB;
-      outline: none;
-      background-color: #3271a4;
     }
 
 
