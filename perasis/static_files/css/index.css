@@ -1,17 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  margin: 0 0 35px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-
 
 @media (min-width: 768px) {
   p {
@@ -21,19 +7,9 @@ h6 {
   }
 }
 
-a {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  color: #5696CB;
-}
-
-a:focus, a:hover {
-  text-decoration: none;
-  color: #f6891f;
-}
 
 
+/**INDEX.HTML START*/
 .masthead {
   display: table;
   width: 100%;
@@ -72,33 +48,14 @@ a:focus, a:hover {
   }
 }
 
-.btn-circle {
-  font-size: 26px;
-  width: 55px;
-  height: 55px;
-  margin-top: 15px;
-  line-height: 45px;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
-  color: black;
-  border: 3px solid black;
-  border-radius: 100% !important;
-  background: transparent;
-}
 
-.btn-circle:focus, .btn-circle:hover {
-  color: #5696CB;
-  border: 3px solid #5696CB;
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
-}
+/**INDEX.HTML END*/
 
 .content-section {
   padding-top: 150px;
   padding-bottom: 150px;
 }
-
+/** START USING AMIBIT START*/
 .start-using-section {
   color: white;
   background: url('/static_files/pics/background/header.jpg')no-repeat bottom center scroll;
@@ -108,54 +65,26 @@ a:focus, a:hover {
   -o-background-size: cover;
   background-size: cover;
 }
+/*START USING AMIBIT END*/
 
 
 
-.btn {
-  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /*INDEX ABOUT START*/
+  .about{
+
+    padding-top: 15px;
+  }
+  .about .about-text {
+    font-size: 22px;
+  }
+  }
+  .contact {
+  padding-top: 5px;
+
+  }
+  .contact .contact-text{
   font-weight: 400;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  border-radius: 0;
-}
+  font-size: 24px;
 
-.btn-default {
-  color: #5696CB;
-  border: 1px solid #5696CB;
-  background-color: transparent;
-}
-
-.btn-default:focus, .btn-default:hover {
-  color: white;
-  border: 1px solid #5696CB;
-  outline: none;
-  background-color: #5696CB;
-}
-
-
-
-
-
-
-
-/*INDEX ABOUT START*/
-.about{
-
-  padding-top: 15px;
-}
-.about .about-text {
-  font-size: 22px;
-}
-}
-.contact {
-padding-top: 5px;
-
-}
-.contact .contact-text{
-font-weight: 400;
-font-size: 24px;
-
-}
-/*INDEX ABOUT END*/
+  }
+  /*INDEX ABOUT END*/

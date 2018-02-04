@@ -1,0 +1,103 @@
+
+  /*URL LINKS START*/
+a {
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  color: #5696CB;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: #f6891f;
+}
+/*URL LINKS END*/
+
+
+.btn-circle {
+  font-size: 26px;
+  width: 55px;
+  height: 55px;
+  margin-top: 15px;
+  line-height: 45px;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+  color: black;
+  border: 3px solid black;
+  border-radius: 100% !important;
+  background: transparent;
+}
+
+.btn-circle:focus, .btn-circle:hover {
+  color: #5696CB;
+  border: 3px solid #5696CB;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+.btn {
+  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+
+
+/**/
+.btn.btn-main-blue{
+  background-color:#5696CB;
+  width: 100%;
+  border-radius: 0px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.btn-main-blue:focus, .btn-main-blue:hover {
+  color: white;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
+}
+
+
+.btn.btn-white-blue{
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 0px;
+  color: #5696CB;
+  border: 1px solid #5696CB;
+  background-color: transparent;
+}
+
+.btn-white-blue:focus, .btn-white-blue:hover {
+  color: white;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #5696CB;
+}
+.btn.btn-main-orange{
+  background-color:#f6891f;
+  width: 100%;
+  border-radius: 0px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.btn.btn-30percent{
+  width: 30%;
+}
+
+.btn-main-orange:focus, .btn-main-orange:hover {
+  color: white;
+  border: 1px solid #bf6308;
+  outline: none;
+  background-color: #e6780a;
+}
