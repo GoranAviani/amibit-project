@@ -1,17 +1,41 @@
-{% extends 'base_generic.html' %}
-
+{% extends "base_generic.html" %}
 {% block content %}
+{% load static %}
 
+<head>
 
-<h3>User Settings</h3>
-<h4><p>{{ user.username }} welcome to your personal Information panel.</p></h4>
-<p>Here you can choose to edit your account info, change your e-mail address or apply for our free "your_choice@amibit.org" e-mail address</p>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<li><a href="{% url 'user_info' %}">User information</a></li>
-<li><a href="#">Cryptocoin wallet dashboard - <b>Due to issues this feature is disabled for time being.</b></a></li>
-<li><a href="">@amibit.org email</a> Soon. If you want a @amibit.org email address contact us on: info@amibit.org </li>
-
-
-
-
+  <title>Amibit User Settings</title>
+</head>
+<body>
+  <div class="normal-center-page ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well normal-center-container">
+            <h2 class="text-center">User Settings</h2><br />
+            <div class="text-center">
+              <h4><p>{{ user.username }} welcome to your personal Information panel.</p></h4>
+              <br />
+              <br/><br/>
+                    <a href="{% url 'user_info' %}" class="btn btn-main-blue btn-100percent">User information</a>
+                    <br/><br/><br/>
+                    <a href="#" class="btn btn-main-blue btn-100percent">Cryptocoin wallet dashboard</a>
+                    <br/>
+                    Due to issues this feature is disabled for time being.
+                    <br/><br/>
+                    <a href="#" class="btn btn-main-blue btn-100percent">Personal @amibit.org email</a>
+                    <br/>
+                    Soon. If you want a @amibit.org email address contact us on: info@amibit.org
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 {% endblock %}

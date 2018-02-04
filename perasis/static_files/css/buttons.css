@@ -66,6 +66,7 @@ a:focus, a:hover {
   border-radius: 0px;
   font-size: 20px;
   line-height: 30px;
+  color: white;
 }
 
 .btn-main-blue:focus, .btn-main-blue:hover {
