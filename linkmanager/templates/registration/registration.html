@@ -1,0 +1,53 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<div class="login-page">
+  <div class="container">
+    <div class="well login-registration-container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2 class="text-left">Registration</h2>
+          <form method="post">
+          {% csrf_token %}
+            <div class="form-group">
+              <label>Username</label>
+              <input type="" name="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" name="password1" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label>Repeat Password</label>
+              <input type="password" name="password2" class="form-control" placeholder="Repeat password">
+            </div>
+            <div class="form-group">
+              <label>E-mail Address</label>
+              <input type="" name="email" class="form-control" placeholder="E-mail address">
+              <small style="color: green">{{ email.help_text }}</small>
+            </div>
+            <button type="submit" class="btn btn-huge btn-primary btn-block mbl">Register</button>
+          </form>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <h2 class="text-left">Terms and Conditions</h2>
+          <p>
+            By clicking on "Register" you agree to our Terms and Conditions.
+          </p>
+          <br/>
+            <div class="well login-registration-container">
+              <b>Your password must:</b><br/><br/>
+            <ul style="list-style-type:disc">
+              <b>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can't be a commonly used password.</li>
+                <li>Your password can't be entirely numeric.</li>
+                <li>Your password must contain letters, digits and @/./+/-/_ only.</li>
+              </b>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

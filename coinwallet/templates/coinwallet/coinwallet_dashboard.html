@@ -1,0 +1,50 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+
+<h4><p>Welcome {{ user.username }} to your personal cryptocoin wallet dashboard.</p></h4>
+
+
+<h4><p>Your cryptocoin wallet worth: {{wallet_sum}} </p></h4>
+
+{% if wallet_sum_per_coin %}
+
+      {% for key, value in wallet_sum_per_coin.items %}
+        currency {{ key }}  is worth {{ value }}
+      {% endfor %}
+
+
+      {% endif %}
+
+
+
+
+  <a href ="{% url 'coinwallet_create' %}" class="navbar-btn btn-success btn" >
+      coinwallet_create
+  </a>
+  {% if queryWallet %}
+    <ul>
+      {% for x in queryWallet %}
+    <div> <!-- must be div-->
+      <div id = SingleLinkContainer class="col-sm-12">
+        <div id = SingleLink>
+          <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-lg btn-block ">
+           <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_amount }}</span>&nbsp;
+          </a>
+        </div>
+          <a href ="{% url 'coinwallet_update' x.id %}" class="btn btn-default pull-left">
+            Update
+          </a>
+          <a href ="{% url 'coinwallet_delete' x.id %}" class="btn btn-default pull-right">
+            Delete
+          </a>
+      </div>
+    </div>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no coin in your coin wallet. Click <a href="{% url 'coinwallet_create' %}">here</a> to add coin</p>
+    {% endif %}
+</div>
+
+{% endblock %}

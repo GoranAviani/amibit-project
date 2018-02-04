@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = '8z!!$*7#)zkq7aw0^10#ru0nayuo3a0fu2i+gb(@jqb+0q7yl!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #my_apps
     'linkmanager',
+    'coinwallet',
     #added_apps
     'rest_framework',
 ]
@@ -92,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'perasisdb',
         'USER': 'admin',
-        'PASSWORD': 'password',
+        'PASSWORD': '224466integer',
         'HOST':'localhost',
         #'HOST': '127.0.0.1',
         'PORT': '',
@@ -152,10 +153,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 #added for static files ->
 #for deployment comment for local uncommenr:
 
-#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'static_files'),
-#)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static_files'),
+)
 
 #added for static files
 

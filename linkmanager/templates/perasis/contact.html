@@ -1,33 +1,60 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
-{% load staticfiles %}
 {% load static %}
+
 <head>
-<link rel="stylesheet" href="{% static 'css/styles.css' %} ">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Amibit</title>
 </head>
-<div class="container">
+<body>
+<div class="login-page">
+  <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="well well-sm">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-lg">
+          <h2 class="text-center">Contact</h2><br />
+          <div class="text-center">
+            <i class="glyphicon glyphicon-map-marker"></i><cite t>  World Wide Web</cite>
+            <br />
+            <i class="glyphicon glyphicon-envelope"></i>  info@amibit.org
+            <br />
+            <i class="glyphicon glyphicon-globe"></i><a href="http://www.amibit.org">  www.amibit.org</a>
+            <br /><br />
+
+
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="{% static "pics/carousel/nopic.png" %}" alt="Amibit logo" class="img-rounded img-responsive"/>
 
-                    </div>
-                    <div class="col-sm-6 col-md-8  "  >
 
-                        <h1>
-                            Amibit</h4>
-                        <small><cite title="San Francisco, USA"> World Wide Web <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
-                        <p>
-                          <h4>
-                            <i class="glyphicon glyphicon-envelope"></i> info@amibit.org
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.amibit.org"> www.amibit.org</a>
-                            <br />
-                          
+                      <p class="contact-text">Contact us by email or on some social media pages bellow!</p>
+                    <ul class="list-inline ">
+                      <li class="list-inline-item">
+                        <a href="#" class="btn btn-default btn-lg">
+                          <i class="fa fa-twitter fa-fw"></i>
+                          <span class="network-name">soon: Facebook</span>
+                        </a>
+                      </li
+                      <li class="list-inline-item">
+                        <a href="https://twitter.com/Amibit?lang=en" class="btn btn-default btn-lg">
+                          <i class="fa fa-twitter fa-fw"></i>
+                          <span class="network-name">Twitter</span>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://www.reddit.com/r/Amibit/" class="btn btn-default btn-lg">
+                          <i class="fa fa-github fa-fw"></i>
+                          <span class="network-name">Reddit</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+  </div>
+
+
 
                       </div>
                     </div>
@@ -36,4 +63,5 @@
         </div>
     </div>
 </div>
+</body>
 {% endblock %}

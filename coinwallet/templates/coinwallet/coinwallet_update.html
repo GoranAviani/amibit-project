@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+  <h1>form_coinwallet_update link</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {% for field in form_coinwallet_update %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+
+      </p>
+    {% endfor %}
+    <button type="submit">Update</button>
+</form>
+
+
+{% endblock %}

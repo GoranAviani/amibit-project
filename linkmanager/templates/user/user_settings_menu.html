@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<body>
+
 <h3>User Settings</h3>
-<h4><p>Welcome {{ user.username }} to your personal Information panel.</p></h4>
+<h4><p>{{ user.username }} welcome to your personal Information panel.</p></h4>
 <p>Here you can choose to edit your account info, change your e-mail address or apply for our free "your_choice@amibit.org" e-mail address</p>
 
 <li><a href="{% url 'user_info' %}">User information</a></li>
+<li><a href="{% url 'coinwallet_dashboard' %}">Cryptocoin wallet dashboard</a></li>
 <li><a href="">@amibit.org email</a> Soon </li>
 
 
 
 
-</body>
 {% endblock %}

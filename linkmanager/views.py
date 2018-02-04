@@ -1,4 +1,4 @@
-from .models import Link, Note
+from linkmanager.models import Link, Note
 from django.contrib.auth.models import User
 
 
@@ -30,12 +30,12 @@ from django.contrib.auth import (
     update_session_auth_hash,
 )
 
-from .serializers import (
+from linkmanager.serializers import (
     LinkUpdateSerializer,
     )
 from django.contrib.auth.forms import PasswordChangeForm
 
-from .forms import (
+from linkmanager.forms import (
 LinkCreateForm,
 LinkUpdateForm,
 LinkDeleteForm,
@@ -54,14 +54,10 @@ HTTP_URL="http://"
 #basic views:
 
 def index(request):
-
     if request.user.is_authenticated():
         return redirect('dashboard')
     else:
-
-        # Generate counts of some of the main objects
         num_note=Note.objects.all().count()
-        # The 'all()' is implied by default.
         num_user=User.objects.count()
         num_link=Link.objects.count()
 
@@ -348,7 +344,7 @@ def signup_view(request):
             return redirect('dashboard')
     else:
         form_signup = UserRegisterForm()
-    return render(request, 'user/registration.html', {'form_signup': form_signup})
+    return render(request, 'registration/registration.html', {'form_signup': form_signup})
 
 #edit user info:
 def user_info_edit_profile(request):

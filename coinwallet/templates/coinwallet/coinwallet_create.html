@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Input your coin</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form_coinwallet_create %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+
+      </p>
+    {% endfor %}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
