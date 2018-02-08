@@ -60,12 +60,16 @@ a:focus, a:hover {
   width: 100%;
 }
 
+.btn.btn-height-100percent{
+  height: : 100%;
+}
 /**/
 .btn.btn-main-blue{
   background-color:#5696CB;
   border-radius: 0px;
   font-size: 20px;
   line-height: 30px;
+  color: white;
 }
 
 .btn-main-blue:focus, .btn-main-blue:hover {
@@ -89,6 +93,7 @@ a:focus, a:hover {
 
 .btn.btn-white-blue{
   margin-top: 5px;
+  margin-bottom: 5px;
   margin-right: 5px;
   margin-left: 5px;
   border-radius: 0px;

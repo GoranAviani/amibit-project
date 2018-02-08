@@ -1,24 +1,41 @@
-{% extends 'base_generic.html' %}
-
+{% extends "base_generic.html" %}
 {% block content %}
+{% load static %}
 
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Amibit User Settings</title>
+</head>
 <body>
-<h3>User Information</h3>
-<h4><p>Welcome, {{ user.username }}</p></h4>
-<p>Here you can choose to edit your info or your change your password.</p>
-</br>
-</br>
-	<h4><p>Your profile</p></h4>
-	<li>Username: {{user.username}}</li>
-	<li>First name: {{user.first_name}}</li>
-	<li>Last name: {{user.last_name}}</li>
-	<li>E-mail: {{user.email}}</li>
-	<li><a href="{% url 'user_info_edit_profile' %}">Edit your profile</a></li>
-	</br>
-	<h4><p>Security</p></h4>
-	<li>Password: ******</li>
-	<li><a href="{% url 'user_info_edit_password'%} ">Change your password</a></li>
-
-
+  <div class="normal-center-page ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well normal-center-container">
+            <h2 class="text-center">{{ user.username }}´s User Information</h2><br />
+            <div class="text-center">
+              <h4><p><p>Here you can edit your user info or your change your password.</p></p></h4>
+              <br/><br/>
+							<h4><p>Your profile</p></h4>
+							Username: {{user.username}}<br/><br/>
+							First name: {{user.first_name}}<br/><br/>
+							Last name: {{user.last_name}}<br/><br/>
+							E-mail: {{user.email}}<br/><br/>
+							<a href="{% url 'user_info_edit_profile' %}" class="btn btn-main-blue btn-100percent">Edit your profile</a>
+						</br><br/><br/><br/><br/>
+							<h4><p>Security</p></h4>
+							Password: ******<br/><br/>
+							<a href="{% url 'user_info_edit_password'%}" class="btn btn-main-blue btn-100percent">Change your password</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 {% endblock %}

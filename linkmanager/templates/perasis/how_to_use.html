@@ -1,36 +1,60 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
+{% load static %}
 
-How to change the new tab page to amibit.org.
-<br>
-<br>
-Firefox:
-<br><br>
-History: (skip to how-to if you want it done)<br><br>
-Since Firefox 41 it's no longer possible to customize the
-page shown in a new tab via changing the preference browser.newtab.url in 
-about.config. Because of the fact that hijackers abused the preference in 
-the past, Mozilla decided to remove it. Fortunately, by removing it, Mozilla 
-also introduced a new API to bring this functionality back to life as an add-on. 
-<br><br><br>
-How-to:<br><br>
-Click this link (this is one of many Firefox addons that allows you to place amibit.org on new tab, choosen randomly by us).
-<br><br>
-https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/?src=search
-<br><br>
-Add to firefox<br>
-On top left corner Firefox will ask you do you want to install. Click add.
-<br><br>
-On top right click the icon and you will arrive to Setting page.
-<br><br>
-Option should be "custom URL" already set so don't chane that.
-<br><br>
-For URL type : "www.amibit.org"
-<br><br>
-Focus - We recommend you set focus Amibit so check the box, but its entirely up to you.
-<br><br>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Amibit</title>
+</head>
+<body>
+  <div class="normal-center-page ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well normal-center-container">
+            <h2 class="text-center">How to use</h2><br />
+            <div class="text-center">
+              How to change the new tab page to amibit.org.
+              <br>
+              <br>
+              Firefox:
+              <br><br>
+              History: (skip to how-to if you want it done)<br><br>
+              Since Firefox 41 it's no longer possible to customize the
+              page shown in a new tab via changing the preference browser.newtab.url in
+              about.config. Because of the fact that hijackers abused the preference in
+              the past, Mozilla decided to remove it. Fortunately, by removing it, Mozilla
+              also introduced a new API to bring this functionality back to life as an add-on.
+              <br><br><br>
+              How-to:<br>
+              On this link (this is one of many Firefox addons that allows you to place amibit.org on new tab, I choose this one because it was first to come up in my search).
+              <br><br>
+              When you open the link you will see "New Tab Override" by  Sören Hentzschel.<br>
+              <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/?src=search">Official Firefox Mozilla store: "New Tab Override" by  Sören Hentzschel.</a>
+              <br><br>
+              Then you should clink on "Add to firefox" button.<br>
+              On top left corner Firefox will ask you do you want to install. Click add/yes/install/yaaar.
+              <br><br>
+              On top right click the "New Tab Override" button and you will open "New Tab Override" Settings page.
+              <br><br>
+              First option should be "custom URL" already set so don't change that.
+              <br><br>
+              For URL type : "www.amibit.org"
+              <br><br>
+              Focus - Amibit recommends you set focus, but its entirely up to you.
+              <br><br>
 
 
-
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 {% endblock %}
