@@ -19,6 +19,25 @@ h6 {
   text-transform: uppercase;
 }
 
+
+.col-xs-8{
+padding-left: 0px;
+padding-right: 0px;
+}
+.col-md-12{
+padding-left: 5px;
+padding-right: 5px;
+}
+.col-md-9{
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.col-xs-4{
+padding-left: 0px;
+padding-right: 5px;
+}
+
 .has-25-0-25-0-padding{padding:25px 0px 25px 0px}
 .has_0_20_0_0_padding{padding:0px 20px 0px 0px}
 
@@ -129,7 +148,7 @@ height: 95%
 @media (max-width: 768px) {
     .grid-item {
       float: left;
-      width: 49%;
+      width: 100%;
       border: 1px solid #888888;
       margin-right: 2px;
       margin-bottom: 2px;
