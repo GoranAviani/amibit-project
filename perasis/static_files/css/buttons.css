@@ -63,17 +63,18 @@ a:focus, a:hover {
 .btn.btn-height-100percent{
   height: : 100%;
 }
+
 /**/
 .btn.btn-main-blue{
   background-color:#5696CB;
   border-radius: 0px;
   font-size: 20px;
   line-height: 30px;
-  color: white;
+  color: #ffffff;
 }
 
 .btn-main-blue:focus, .btn-main-blue:hover {
-  color: white;
+  color: #ffffff;
   border: 1px solid #5696CB;
   outline: none;
   background-color: #3271a4;
@@ -91,6 +92,18 @@ a:focus, a:hover {
 }
 
 
+@media (max-width: 768px) {
+  .btn.btn-white-blue{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 0px;
+    color: #5696CB;
+    border: 1px solid #5696CB;
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 768px) {
 .btn.btn-white-blue{
   margin-top: 5px;
   margin-bottom: 5px;
@@ -101,23 +114,46 @@ a:focus, a:hover {
   border: 1px solid #5696CB;
   background-color: transparent;
 }
-
+}
 .btn-white-blue:focus, .btn-white-blue:hover {
-  color: white;
+  color: #ffffff;
   border: 1px solid #5696CB;
   outline: none;
   background-color: #5696CB;
 }
-.btn.btn-main-orange{
-  background-color:#f6891f;
-  border-radius: 0px;
-  font-size: 20px;
-  line-height: 30px;
+
+@media (min-width: 768px) {
+  .btn.btn-main-orange-note{
+    color: #ffffff;
+    background-color:#f6891f;
+    border-radius: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 30%;
+  }
+
+  .btn.btn-main-orange-link{
+    color: #ffffff;
+    background-color:#f6891f;
+    border-radius: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 100%;
+  }
+
+}
+@media (max-width: 768px) {
+  .btn.btn-main-orange-mob{
+    color: #ffffff;
+    background-color:#f6891f;
+    border-radius: 0px;
+    line-height: 30px;
+    width: 100%;
+  }
 }
 
 
-
-.btn-main-orange:focus, .btn-main-orange:hover {
+.btn-main-orange-mob:focus, .btn-main-orange-mob:hover {
   color: white;
   border: 1px solid #bf6308;
   outline: none;
@@ -127,18 +163,38 @@ a:focus, a:hover {
 
 .btn.btn-dashboard-pa-submit{
   background-color:#5696CB;
-  width: 40%;
+  color: #ffffff;
+  width: 50%;
   border-radius: 55px;
   font-size: 18px;
   line-height: 25px;
   display: block;
-  margin-top:5px;
   margin-left: auto;
   margin-right: auto
 }
 
 .btn-dashboard-pa-submit:focus, .btn-dashboard-pa-submit:hover {
-  color: white;
+  color: #ffffff;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
+}
+
+.btn.btn-dashboard-pa-list-commands{
+  background-color:#5696CB;
+  color: #ffffff;
+  width: 50%;
+  border-radius: 0px;
+  font-size: 12px;
+  line-height: 18px;
+  display: block;
+  margin-top:10px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.btn-dashboard-pa-list-commands:focus, .btn-dashboard-pa-list-commands:hover {
+  color: #ffffff;
   border: 1px solid #5696CB;
   outline: none;
   background-color: #3271a4;

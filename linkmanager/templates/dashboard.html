@@ -16,37 +16,38 @@
 {% block content %}
 {% load static %}
 
-<div id = DashboardBody class="col-md-12">
-  <div id = PAContainer class="col-md-12">
+<div id = DashboardBody class="col-md-12 col-xs-12">
+  <div id = PAContainer class="col-md-12 col-xs-12">
       <form method="POST">
         {% csrf_token %}
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-12">
             <input type="text" style="color: #213123;" class="form-control pa-command-input " name="personal_assistant_textbox" placeholder="">
 
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'pa_list_of_commands' %}" class="btn btn-primary btn-main-blue btn-30-percent pull-right ">List of commands</a>
-        </div>
-          <div class="col-md-8">
-            <button type="submit" class="btn btn-primary btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>
+
+          <div class="col-md-8 col-xs-12">
+            <button type="submit" class="btn btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>
           </div>
         </form>
+        <div class="col-md-4 col-xs-12">
+            <a href="{% url 'pa_list_of_commands' %}" class="btn btn-dashboard-pa-list-commands">List of commands</a>
+        </div>
   </div>
 
-  <div id = NoteContainer class="col-md-9">
-    <div class="col-md-12">
-      <a href ="{% url 'note_create' %}" class="btn btn-warning btn-main-orange btn-30percent  pull-left">
+  <div id = NoteContainer class="col-md-9 col-xs-8">
+    <div class="col-md-12 col-xs-9">
+      <a href ="{% url 'note_create' %}" class="btn btn-main-orange-note btn-main-orange-mob pull-left col-md-4 col-xs-12">
         Create note
       </a>
     </div>
 
       {% if queryNote %}
-      <div class="col-md-12 notes-list-container">
+      <div class="col-md-12 col-xs-12 notes-list-container">
           <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
             <div class="grid">
               {% for y in queryNote %}
-                <div class="grid-item">
-                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-primary btn-main-blue btn-100percent">{{y.note_title}}</a>
+                <div class="grid-item ">
+                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-main-blue btn-100percent">{{y.note_title}}</a>
                   <div class="dashboard-note-text">
                     {{ y.note_text|truncatewords:6|linebreaks }}
                   </div>
@@ -54,10 +55,10 @@
                     {{ y.note_timestamp }}
                   </li>
                   <br>
-                  <a href ="{% url 'note_update' y.id %}" class="btn btn-default btn-white-blue pull-left">
+                  <a href ="{% url 'note_update' y.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
                     Update
                   </a>
-                  <a href ="{% url 'note_delete' y.id %}" class="btn btn-default btn-white-blue pull-right">
+                  <a href ="{% url 'note_delete' y.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
                     Delete
                   </a>
                 </div>
@@ -71,22 +72,22 @@
   </div>
 
 
-  <div id = LinkContainer class="col-md-3">
-    <a href ="{% url 'link_create' %}" class="btn  btn-warning btn-main-orange btn-100percent" >
+  <div id = LinkContainer class="col-md-3 col-xs-4">
+    <a href ="{% url 'link_create' %}" class="btn btn-main-orange-link btn-main-orange-mob col-md-12 col-xs-12" >
         Create link
     </a>
     <div class="links-list-container">
       {% if queryLink %}
         {% for x in queryLink %}
-        <div class="col-md-12 single-link-container">
-            <a href="{{x.link_url}}" target="_self" class="btn btn-primary btn-main-blue btn-100percent">
+        <div class="col-md-12 col-xs-12 single-link-container">
+            <a href="{{x.link_url}}" target="_self" class="btn btn-main-blue btn-100percent">
               <span class="pull-left">{{ x.link_name }}</span>&nbsp;
             </a>
 
-            <a href ="{% url 'link_update' x.id %}" class="btn btn-white-blue pull-left">
+            <a href ="{% url 'link_update' x.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
               Update
             </a>
-            <a href ="{% url 'link_delete' x.id %}" class="btn btn-white-blue pull-right">
+            <a href ="{% url 'link_delete' x.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
               Delete
             </a>
         </div>
