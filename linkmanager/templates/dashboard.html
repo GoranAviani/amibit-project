@@ -47,7 +47,7 @@
             <div class="grid">
               {% for y in queryNote %}
                 <div class="grid-item ">
-                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-main-blue btn-100percent">{{y.note_title}}</a>
+                  <a href ="{% url 'note_detail' y.id y.note_slug %}" class="btn btn-blue-title btn-100percent">{{y.note_title}}</a>
                   <div class="dashboard-note-text">
                     {{ y.note_text|truncatewords:6|linebreaks }}
                   </div>
@@ -80,7 +80,7 @@
       {% if queryLink %}
         {% for x in queryLink %}
         <div class="col-md-12 col-xs-12 single-link-container">
-            <a href="{{x.link_url}}" target="_self" class="btn btn-main-blue btn-100percent">
+            <a href="{{x.link_url}}" target="_self" class="btn btn-blue-title btn-100percent">
               <span class="pull-left">{{ x.link_name }}</span>&nbsp;
             </a>
 

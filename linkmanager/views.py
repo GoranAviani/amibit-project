@@ -145,8 +145,8 @@ def Dashboard(request):
 
             return redirect('dashboard')
         else:
-            queryLink = Link.objects.filter(link_user=request.user)
-            queryNote = Note.objects.filter(note_user=request.user)
+            queryLink = Link.objects.filter(link_user=request.user).order_by('-id')
+            queryNote = Note.objects.filter(note_user=request.user).order_by('-note_timestamp')
             return render(request, 'dashboard.html', {
             'queryLink': queryLink,
             'queryNote': queryNote,
@@ -220,13 +220,6 @@ def LinkUpdateView(request,id):
             return render(request,'perasis/not_owner.html')
     else:
         return render(request,'perasis/not_authenticaded.html')
-
-
-
-
-
-
-
 
 
 ######## Commented because with Rest its harder to add custom code

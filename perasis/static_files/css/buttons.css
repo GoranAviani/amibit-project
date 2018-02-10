@@ -65,6 +65,16 @@ a:focus, a:hover {
 }
 
 /**/
+@media (max-width: 768px) {
+.btn.btn-main-blue{
+  background-color:#5696CB;
+  border-radius: 0px;
+  font-size: 14px;
+  line-height: 25px;
+  color: #ffffff;
+}
+}
+@media (min-width: 768px) {
 .btn.btn-main-blue{
   background-color:#5696CB;
   border-radius: 0px;
@@ -72,8 +82,37 @@ a:focus, a:hover {
   line-height: 30px;
   color: #ffffff;
 }
+}
+
 
 .btn-main-blue:focus, .btn-main-blue:hover {
+  color: #ffffff;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
+}
+
+@media (max-width: 768px) {
+  .btn.btn-blue-title{
+    background-color:#5696CB;
+    border-radius: 0px;
+    font-size: 15px;
+    line-height: 14px;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn.btn-blue-title{
+    background-color:#5696CB;
+    border-radius: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+}
+
+.btn-blue-title:focus, .btn-main-blue-title:hover {
   color: #ffffff;
   border: 1px solid #5696CB;
   outline: none;
@@ -95,8 +134,10 @@ a:focus, a:hover {
 @media (max-width: 768px) {
   .btn.btn-white-blue{
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     border-radius: 0px;
+    font-size: 13px;
+    line-height: 10px;
     color: #5696CB;
     border: 1px solid #5696CB;
     background-color: transparent;
@@ -104,17 +145,19 @@ a:focus, a:hover {
 }
 
 @media (min-width: 768px) {
-.btn.btn-white-blue{
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  border-radius: 0px;
-  color: #5696CB;
-  border: 1px solid #5696CB;
-  background-color: transparent;
-}
-}
+  .btn.btn-white-blue{
+    margin-top: 5px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 0px;
+    color: #5696CB;
+    border: 1px solid #5696CB;
+    background-color: transparent;
+  }
+  }
+
+
 .btn-white-blue:focus, .btn-white-blue:hover {
   color: #ffffff;
   border: 1px solid #5696CB;
@@ -154,7 +197,7 @@ a:focus, a:hover {
 
 
 .btn-main-orange-mob:focus, .btn-main-orange-mob:hover {
-  color: white;
+  color: #ffffff;
   border: 1px solid #bf6308;
   outline: none;
   background-color: #e6780a;

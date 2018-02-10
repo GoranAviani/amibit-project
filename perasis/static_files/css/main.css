@@ -91,7 +91,7 @@ border-radius: 0px;
 
 /*************************MAIN DASHBOARD START*/
 #DashboardBody{
-background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;
+/**background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;**/
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
