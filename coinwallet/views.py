@@ -11,10 +11,13 @@ CoinWalletCreateForm,
 )
 # Create your views here.
 class CryptoProtfolioValue():
-    def __init__(self, prices_json,wallet_sum,wallet_sum_per_coin):
+    def __init__(self, prices_json,wallet_sum,wallet_sum_per_coin,percent_change_1h,percent_change_24h):
         self.prices_json=prices_json
         self.wallet_sum=wallet_sum
         self.wallet_sum_per_coin=wallet_sum_per_coin
+        self.percent_change_1h = percent_change_1h
+        self.percent_change_24h = percent_change_24h
+
     def get_prices(self,):
         prices = os.popen("curl -X GET https://api.coinmarketcap.com/v1/ticker/?limit=0").read()
         self.prices_json = json.loads(prices)
@@ -29,11 +32,13 @@ class CryptoProtfolioValue():
                     worth_per_coin = (float(valuta['price_usd']) * float(x.wallet_amount))
                     self.wallet_sum += worth_per_coin
                     self.wallet_sum_per_coin.update({x.wallet_coin:worth_per_coin})
+                    self.percent_change_1h.update({x.wallet_coin:valuta['percent_change_1h']})
+                    self.percent_change_24h.update({x.wallet_coin:valuta['percent_change_24h']})
         self.wallet_sum = round(self.wallet_sum,2)
 
 def CoinWalletDashboardView(request):
     if request.user.is_authenticated():
-        Cryptotask = CryptoProtfolioValue("",0,{})
+        Cryptotask = CryptoProtfolioValue("",0,{},{},{})
         #while True:
         Cryptotask.get_prices()
         Cryptotask.print_my_portfolio_value()
@@ -42,6 +47,8 @@ def CoinWalletDashboardView(request):
         'queryWallet': queryWallet,
         'wallet_sum':Cryptotask.wallet_sum,
         'wallet_sum_per_coin':Cryptotask.wallet_sum_per_coin,
+        'percent_change_1h':Cryptotask.percent_change_1h,
+        'percent_change_24h':Cryptotask.percent_change_24h,
         })
     else:
         return render(request,'perasis/not_authenticaded.html')

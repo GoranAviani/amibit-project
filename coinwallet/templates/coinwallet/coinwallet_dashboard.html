@@ -8,19 +8,23 @@
 <h4><p>Your cryptocoin wallet worth: {{wallet_sum}} </p></h4>
 
 {% if wallet_sum_per_coin %}
+  {% for key, value in wallet_sum_per_coin.items %}
+    currency {{ key }}  is worth {{ value }}
+  {% endfor %}
 
-      {% for key, value in wallet_sum_per_coin.items %}
-        currency {{ key }}  is worth {{ value }}
-      {% endfor %}
+  {% for key, value in percent_change_1h.items %}
+    currency {{ key }}  had a change of  {{ value }} % 1 h <br/>
+  {% endfor %}
+  {% for key, value in percent_change_24h.items %}
+    currency {{ key }}  had a change of  {{ value }} % 24 h <br/>
+  {% endfor %}
+{% endif %}
 
 
-      {% endif %}
 
 
-
-
-  <a href ="{% url 'coinwallet_create' %}" class="navbar-btn btn-success btn" >
-      coinwallet_create
+  <a href ="{% url 'coinportfolio_create' %}" class="navbar-btn btn-success btn" >
+    Add currency
   </a>
   {% if queryWallet %}
     <ul>
@@ -32,18 +36,18 @@
            <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_amount }}</span>&nbsp;
           </a>
         </div>
-          <a href ="{% url 'coinwallet_update' x.id %}" class="btn btn-default pull-left">
-            Update
+          <a href ="{% url 'coinportfolio_update' x.id %}" class="btn btn-default pull-left">
+            Change amount
           </a>
-          <a href ="{% url 'coinwallet_delete' x.id %}" class="btn btn-default pull-right">
-            Delete
+          <a href ="{% url 'coinportfolio_delete' x.id %}" class="btn btn-default pull-right">
+            Delete currency
           </a>
       </div>
     </div>
       {% endfor %}
     </ul>
     {% else %}
-      <p>There are no coin in your coin wallet. Click <a href="{% url 'coinwallet_create' %}">here</a> to add coin</p>
+      <p>There are no coin in your coin wallet. Click <a href="{% url 'coinportfolio_create' %}">here</a> to add coin</p>
     {% endif %}
 </div>
 
