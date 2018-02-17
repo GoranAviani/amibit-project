@@ -100,6 +100,8 @@ a:focus, a:hover {
     line-height: 14px;
     color: #ffffff;
     overflow: hidden;
+    text-transform: initial;
+
     }
 }
 
@@ -111,6 +113,8 @@ a:focus, a:hover {
     line-height: 30px;
     color: #ffffff;
     overflow: hidden;
+    text-transform: initial;
+
   }
 }
 
