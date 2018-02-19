@@ -98,7 +98,7 @@ def CoinWalletCreateView(request):
                 form = form_coinwallet_create.save(commit=False)
                 form.wallet_user = request.user
                 form.save()
-            return redirect('coinwallet_dashboard')
+            return redirect('coinportfolio_dashboard')
         else:
             form_coinwallet_create = CoinWalletCreateForm()
             return render(request, 'coinwallet/coinwallet_create.html', {'form_coinwallet_create': form_coinwallet_create})
@@ -117,7 +117,7 @@ def CoinWalletUpdateView(request,id):
                     form.id = id
                     form.wallet_user = request.user
                     form.save()
-                    return redirect('coinwallet_dashboard')
+                    return redirect('coinportfolio_dashboard')
             else:
                 form_coinwallet_update = CoinWalletCreateForm(instance = coin_to_update)
                 return render(request, 'coinwallet/coinwallet_update.html', {'form_coinwallet_update': form_coinwallet_update})
@@ -134,7 +134,7 @@ def CoinWalletDeleteView(request,id):
                 form_coinwallet_delete = CoinWalletCreateForm(request.POST)
                 if form_coinwallet_delete.is_valid():
                     coin_to_delete.delete()
-                    return redirect('coinwallet_dashboard')
+                    return redirect('coinportfolio_dashboard')
             else:
                 form_coinwallet_delete = CoinWalletCreateForm(instance=coin_to_delete)
                 return render(request, 'coinwallet/coinwallet_delete.html', {'form_coinwallet_delete': form_coinwallet_delete})

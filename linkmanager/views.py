@@ -109,6 +109,7 @@ def user_settings_menu(request):
     )
 
 def user_info(request):
+    import pdb; pdb.set_trace()
     #current_user ={'user': request.user}
     return render(request,'user/user_info.html')
 
