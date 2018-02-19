@@ -22,10 +22,10 @@ class CryptoProtfolioValue():
         prices = os.popen("curl -X GET https://api.coinmarketcap.com/v1/ticker/?limit=0").read()
         self.prices_json = json.loads(prices)
         #time.sleep(5)
-    def print_my_portfolio_value(self,):
+    def print_my_portfolio_value(self,user):
         wallet_sum_per_coin={}
-        #queryCoinWallet_model=CoinWallet.objects.filter(wallet_user=request.user)
-        queryCoinWallet_model = CoinWallet.objects.all() # ovde dohvaca sve , treba dohvacat samo od usera
+        queryCoinWallet_model=CoinWallet.objects.filter(wallet_user=user)
+        #queryCoinWallet_model = CoinWallet.objects.all() # ovde dohvaca sve , treba dohvacat samo od usera
         for x in queryCoinWallet_model:
             for valuta in self.prices_json:
                 if valuta['symbol'] == x.wallet_coin:
@@ -41,7 +41,7 @@ def CoinWalletDashboardView(request):
         Cryptotask = CryptoProtfolioValue("",0,{},{},{})
         #while True:
         Cryptotask.get_prices()
-        Cryptotask.print_my_portfolio_value()
+        Cryptotask.print_my_portfolio_value(request.user)
         queryWallet = CoinWallet.objects.filter(wallet_user=request.user)
         return render(request, 'coinwallet/coinwallet_dashboard.html', {
         'queryWallet': queryWallet,
