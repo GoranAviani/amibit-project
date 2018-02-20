@@ -9,14 +9,15 @@
 
 {% if wallet_sum_per_coin %}
   {% for key, value in wallet_sum_per_coin.items %}
-    currency {{ key }}  is worth {{ value }}
+    Currency {{ key }}  is worth {{ value }}
   {% endfor %}
-
+<br/>
+<br/>
   {% for key, value in percent_change_1h.items %}
-    currency {{ key }}  had a change of  {{ value }} % 1 h <br/>
+    Currency {{ key }}  had a change of  {{ value }} % 1 h <br/>
   {% endfor %}
   {% for key, value in percent_change_24h.items %}
-    currency {{ key }}  had a change of  {{ value }} % 24 h <br/>
+    Currency {{ key }}  had a change of  {{ value }} % 24 h <br/>
   {% endfor %}
 {% endif %}
 

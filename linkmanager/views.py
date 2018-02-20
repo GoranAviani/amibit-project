@@ -365,6 +365,9 @@ def user_info_edit_password(request):
             change_password_form.save()
             update_session_auth_hash(request, change_password_form.user)
             return redirect('user_info')
+        else:
+            change_password_form=PasswordChangeForm(user = request.user)
+            return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
     else:
         change_password_form=PasswordChangeForm(user = request.user)
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
