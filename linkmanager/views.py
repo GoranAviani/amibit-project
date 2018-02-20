@@ -348,6 +348,10 @@ def user_info_edit_profile(request):
         if user_info_form.is_valid():
             user_info_form.save()
             return redirect('user_info')
+        else:
+            user_info_form = UserInfo(instance=request.user)
+            return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
+
     else:
         user_info_form = UserInfo(instance=request.user)
         return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
