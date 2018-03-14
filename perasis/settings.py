@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from .settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,15 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8z!!$*7#)zkq7tit0!#rsn!yuga4191+i+gb(@jqb+0q7yl!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.amibit.org','amibit.org','78.46.164.210','127.0.0.1']
 
-#'78.46.164.210',
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,17 +78,7 @@ WSGI_APPLICATION = 'perasis.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 ##################
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perasisdb',
-        'USER': 'admin',
-        'PASSWORD': '2008perasis',
-        'HOST':'localhost',
-        #'HOST': '127.0.0.1',
-        'PORT': '',
-    }
- }
+
 ##################
 #import dj_database_url
 # UN COMMENT THIS FOR DEPLOYED HEROKU --->
@@ -141,7 +129,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 ####STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static_files"), )
 
 
-
 #added for static files ->
 #for deployment comment for local uncommenr:
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -149,8 +136,6 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static_files'),
 )
 #added for static files
-
-
 
 
 LOGIN_REDIRECT_URL = 'dashboard' #redirects on succesfull login
