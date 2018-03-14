@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'perasisdb',
         'USER': 'admin',
-        'PASSWORD': '224466integer',
+        'PASSWORD': '2008perasis',
         'HOST':'localhost',
         #'HOST': '127.0.0.1',
         'PORT': '',
