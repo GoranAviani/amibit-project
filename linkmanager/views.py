@@ -109,10 +109,7 @@ def user_settings_menu(request):
     )
 
 def user_info(request):
-<<<<<<< HEAD
     #import pdb; pdb.set_trace()
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     #current_user ={'user': request.user}
     return render(request,'user/user_info.html')
 
@@ -149,13 +146,8 @@ def Dashboard(request):
 
             return redirect('dashboard')
         else:
-<<<<<<< HEAD
             queryLink = Link.objects.filter(link_user=request.user).order_by('-id')
             queryNote = Note.objects.filter(note_user=request.user).order_by('-note_timestamp')
-=======
-            queryLink = Link.objects.filter(link_user=request.user)
-            queryNote = Note.objects.filter(note_user=request.user)
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
             return render(request, 'dashboard.html', {
             'queryLink': queryLink,
             'queryNote': queryNote,
@@ -231,16 +223,6 @@ def LinkUpdateView(request,id):
         return render(request,'perasis/not_authenticaded.html')
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 ######## Commented because with Rest its harder to add custom code
 #class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
 #    permission_classes= (IsAuthenticated,IsLinkOwner)
@@ -264,7 +246,6 @@ def LinkDeleteView(request,id):
         return render(request,'perasis/not_authenticaded.html')
 
 
-<<<<<<< HEAD
 def check_for_unusual_characters(note_title):
     note_slug = ""
     url_allowed_characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
@@ -276,10 +257,6 @@ def check_for_unusual_characters(note_title):
         if letter not in url_allowed_characters:
             note_slug=note_slug.replace(letter,"-")
     return note_slug
-=======
-
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 #form views:
 def NoteCreateView(request):
     if request.user.is_authenticated():
@@ -289,15 +266,7 @@ def NoteCreateView(request):
                 #note_timestamp = datetime.datetime.now()
                 note = form_note_create.save(commit=False)
                 note.note_user = request.user
-<<<<<<< HEAD
                 note.note_slug = check_for_unusual_characters(note.note_title)
-=======
-                note.note_slug = note.note_title.replace(" ","-")
-                note.note_slug = note.note_slug.replace(".","_")
-                note.note_slug = note.note_slug.replace("=","_")
-                note.note_slug = note.note_slug.replace('"',"_")
-                note.note_slug = note.note_slug.replace('@',"_")
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
                 note.save()
             return redirect('dashboard')
         else:
@@ -317,15 +286,7 @@ def NoteUpdateView(request,id):
                     note.id = id
                     note.note_timestamp = datetime.datetime.now()
                     note.note_user = request.user
-<<<<<<< HEAD
                     note.note_slug = check_for_unusual_characters(note.note_title)
-=======
-                    note.note_slug = note.note_title.replace(" ","-")
-                    note.note_slug = note.note_slug.replace(".","_")
-                    note.note_slug = note.note_slug.replace("=","_")
-                    note.note_slug = note.note_slug.replace('"',"_")
-                    note.note_slug = note.note_slug.replace('@',"_")
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
                     note.save()
                     return redirect('dashboard')
             else:
@@ -387,13 +348,10 @@ def user_info_edit_profile(request):
         if user_info_form.is_valid():
             user_info_form.save()
             return redirect('user_info')
-<<<<<<< HEAD
         else:
             user_info_form = UserInfo(instance=request.user)
             return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
 
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     else:
         user_info_form = UserInfo(instance=request.user)
         return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
@@ -407,12 +365,9 @@ def user_info_edit_password(request):
             change_password_form.save()
             update_session_auth_hash(request, change_password_form.user)
             return redirect('user_info')
-<<<<<<< HEAD
         else:
             change_password_form=PasswordChangeForm(user = request.user)
             return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     else:
         change_password_form=PasswordChangeForm(user = request.user)
         return render (request, 'user/user_change_password.html', {'change_password_form' : change_password_form})

@@ -11,15 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-<<<<<<< HEAD
 #from .local_settings import *
 
 
-
-
-
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-<<<<<<< HEAD
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -36,17 +29,6 @@ DEBUG = False
 
 
 
-=======
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8z!!$*7#)zkq7aw0^10#ru0nayuo3a0fu2i+gb(@jqb+0q7yl!'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['www.amibit.org','amibit.org','78.46.164.210','127.0.0.1']
-
-#'78.46.164.210',
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 # Application definition
 
 INSTALLED_APPS = [
@@ -61,11 +43,7 @@ INSTALLED_APPS = [
     'linkmanager',
     'coinwallet',
     #added_apps
-<<<<<<< HEAD
     #'rest_framework',
-=======
-    'rest_framework',
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 ]
 
 MIDDLEWARE = [
@@ -102,39 +80,12 @@ WSGI_APPLICATION = 'perasis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-<<<<<<< HEAD
 ##################
 
 ##################
 #import dj_database_url
 # UN COMMENT THIS FOR DEPLOYED HEROKU --->
     #DATABASES['default'] =  dj_database_url.config()
-=======
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-##############
-##################
-#DONT TOUCH FOR DEPLOY HEROKU OR ANYTHING! IT OK --->
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'perasisdb',
-        'USER': 'admin',
-        'PASSWORD': '224466integer',
-        'HOST':'localhost',
-        #'HOST': '127.0.0.1',
-        'PORT': '',
-    }
- }
-##################
-#import dj_database_url
-# UN COMMENT THIS FOR DEPLOYED HEROKU --->
-#DATABASES['default'] =  dj_database_url.config()
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 #######################
 
 
@@ -181,29 +132,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 ####STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static_files"), )
 
 
-<<<<<<< HEAD
 #added for static files ->
 #for deployment comment for local uncommenr:
-=======
-
-#added for static files ->
-#for deployment comment for local uncommenr:
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static_files'),
 )
-<<<<<<< HEAD
 #added for static files
 
 
-=======
-
-#added for static files
-
-
-
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 LOGIN_REDIRECT_URL = 'dashboard' #redirects on succesfull login

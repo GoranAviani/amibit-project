@@ -8,7 +8,6 @@
 <h4><p>Your cryptocoin wallet worth: {{wallet_sum}} </p></h4>
 
 {% if wallet_sum_per_coin %}
-<<<<<<< HEAD
   {% for key, value in wallet_sum_per_coin.items %}
     Currency {{ key }}  is worth {{ value }}
   {% endfor %}
@@ -21,26 +20,12 @@
     Currency {{ key }}  had a change of  {{ value }} % 24 h <br/>
   {% endfor %}
 {% endif %}
-=======
-
-      {% for key, value in wallet_sum_per_coin.items %}
-        currency {{ key }}  is worth {{ value }}
-      {% endfor %}
-
-
-      {% endif %}
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 
 
 
 
-<<<<<<< HEAD
   <a href ="{% url 'coinportfolio_create' %}" class="navbar-btn btn-success btn" >
     Add currency
-=======
-  <a href ="{% url 'coinwallet_create' %}" class="navbar-btn btn-success btn" >
-      coinwallet_create
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
   </a>
   {% if queryWallet %}
     <ul>
@@ -52,30 +37,18 @@
            <span class="pull-left">Coin: {{ x.wallet_coin }}, Number: {{ x.wallet_amount }}</span>&nbsp;
           </a>
         </div>
-<<<<<<< HEAD
           <a href ="{% url 'coinportfolio_update' x.id %}" class="btn btn-default pull-left">
             Change amount
           </a>
           <a href ="{% url 'coinportfolio_delete' x.id %}" class="btn btn-default pull-right">
             Delete currency
-=======
-          <a href ="{% url 'coinwallet_update' x.id %}" class="btn btn-default pull-left">
-            Update
-          </a>
-          <a href ="{% url 'coinwallet_delete' x.id %}" class="btn btn-default pull-right">
-            Delete
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
           </a>
       </div>
     </div>
       {% endfor %}
     </ul>
     {% else %}
-<<<<<<< HEAD
       <p>There are no coin in your coin wallet. Click <a href="{% url 'coinportfolio_create' %}">here</a> to add coin</p>
-=======
-      <p>There are no coin in your coin wallet. Click <a href="{% url 'coinwallet_create' %}">here</a> to add coin</p>
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     {% endif %}
 </div>
 

@@ -19,7 +19,6 @@ h6 {
   text-transform: uppercase;
 }
 
-<<<<<<< HEAD
 
 .col-xs-8{
 padding-left: 0px;
@@ -39,8 +38,6 @@ padding-left: 0px;
 padding-right: 5px;
 }
 
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 .has-25-0-25-0-padding{padding:25px 0px 25px 0px}
 .has_0_20_0_0_padding{padding:0px 20px 0px 0px}
 
@@ -94,11 +91,7 @@ border-radius: 0px;
 
 /*************************MAIN DASHBOARD START*/
 #DashboardBody{
-<<<<<<< HEAD
 /**background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;**/
-=======
-background: url('/static_files/pics/background/bckg2.jpeg')no-repeat bottom center scroll;
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -118,10 +111,7 @@ height: 95%
       margin-left: auto;
       margin-right: auto
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     input[type="text"] {
       border-radius: 0px;
       font-size: 15px;
@@ -136,20 +126,12 @@ height: 95%
     margin-top: 20px;
     }
     .notes-list-container{
-<<<<<<< HEAD
 
-=======
-      margin-top: 15px;
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     }
 
 
     /* ---- .grid-item ---- */
-<<<<<<< HEAD
 @media (min-width: 768px) {
-=======
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     .grid-item {
       float: left;
       width: 30%;
@@ -162,7 +144,6 @@ height: 95%
       background-color: #ffffff;
     }
 
-<<<<<<< HEAD
 }
 @media (max-width: 768px) {
     .grid-item {
@@ -177,10 +158,6 @@ height: 95%
     }
 
 }
-=======
-
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 
     .dashboard-note-text{
       margin-top: 5px;
@@ -197,25 +174,14 @@ height: 95%
     }
 
     .links-list-container{
-<<<<<<< HEAD
 
     }
 
-=======
-      margin-top: 15px;
-    }
-
-
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
     .single-link-container{
       width: 100%;
       margin-bottom: 5px;
       padding-left: 0px;
       padding-right: 0px;
-<<<<<<< HEAD
-=======
-      padding-bottom: 5px;
->>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
       border: 1px solid #888888;
       background-color: #ffffff;
     }
