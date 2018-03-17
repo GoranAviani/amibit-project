@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#from .settings_secret import *
+#from .local_settings import *
 
 SECRET_KEY = '8z!!$*7#)zkq7tit0!#rsn!yuga4191+i+gb(@jqb+0q7yl!'
 
@@ -23,7 +23,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'perasisdb',
         'USER': 'admin',
-        'PASSWORD': '2008perasis',
+        'PASSWORD': '',
         'HOST':'localhost',
         #'HOST': '127.0.0.1',
         'PORT': '',
