@@ -22,8 +22,13 @@ urlpatterns =[
     url(r'^link/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.LinkDeleteView, name='link_delete'),
 
     url(r'^note/create/', views.NoteCreateView, name='note_create'),
+<<<<<<< HEAD
     url(r'^note/update/(?P<id>.*)', views.NoteUpdateView, name='note_update'),
     url(r'^note/delete/(?P<id>.*)', views.NoteDeleteView, name='note_delete'),
+=======
+    url(r'^note/update/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteUpdateView, name='note_update'),
+    url(r'^note/delete/(?P<id>[0-9A-Za-z_\-]+)/', views.NoteDeleteView, name='note_delete'),
+>>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 
     url(r'^user/login/', auth_views.login,  name='login'),
     url(r'^user/registration/', views.signup_view, name='register'),
@@ -34,6 +39,10 @@ urlpatterns =[
 	url(r'^user/infoedit/profile/', views.user_info_edit_profile, name='user_info_edit_profile'),
     url(r'^user/infoedit/password/', views.user_info_edit_password, name='user_info_edit_password'),
 
+<<<<<<< HEAD
     url(r'^note/show/(?P<id>.*)/(?P<note_slug>.*)', views.note_detail, name='note_detail'),
+=======
+    url(r'^note/show/(?P<id>[0-9A-Za-z_\-]+)/(?P<note_slug>[0-9A-Za-z_\-]+)$', views.note_detail, name='note_detail'),
+>>>>>>> 7d03cc46e1a67a27a63185adefd36d85f060e19e
 
         ]
