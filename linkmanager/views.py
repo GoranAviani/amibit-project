@@ -49,7 +49,7 @@ UserInfo,
 
 import webbrowser
 HTTP_URL="http://"
-
+HTTPS_URL="https://"
 
 #basic views:
 
@@ -156,9 +156,6 @@ def Dashboard(request):
         return render(request,'perasis/not_authenticaded.html')
 
 
-
-
-
 ######## Commented because with Rest its harder to add custom code
 #class LinkCreateView(CreateAPIView):
 #    queryset = Link.objects.all()
@@ -186,7 +183,8 @@ def LinkCreateView(request):
 
 def add_HTTP_to_linkurl(link_url):
     if link_url[0:7] != HTTP_URL:
-        link_url=HTTP_URL + link_url
+        if link_url[0:8] != HTTPS_URL:
+            link_url=HTTP_URL + link_url
     return link_url
 
 
