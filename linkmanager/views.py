@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
 from .permissions import *
+from django.contrib import messages
 
 from django.utils import timezone
 import datetime
@@ -173,6 +174,7 @@ def LinkCreateView(request):
                 form.link_user = request.user
                 form.link_url = add_HTTP_to_linkurl(form.link_url)
                 form.save()
+                messages.success(request, 'Link saved!',extra_tags='link_create')
             return redirect('dashboard')
         else:
             form_link_create = LinkCreateForm()
@@ -261,15 +263,19 @@ def NoteCreateView(request):
         if request.method == 'POST':
             form_note_create = NoteCreateForm(request.POST)
             if form_note_create.is_valid():
-                #note_timestamp = datetime.datetime.now()
                 note = form_note_create.save(commit=False)
                 note.note_user = request.user
                 note.note_slug = check_for_unusual_characters(note.note_title)
                 note.save()
-            return redirect('dashboard')
+                messages.success(request, 'Note saved!',extra_tags='note_create')
+                return redirect('dashboard')
+            else:
+                messages.success(request, 'It seems you forgot to fill both title and note text. Youll have to do if again for now until its fixed, sorry for that.',extra_tags='fail_input')
+                return redirect('note_create')
         else:
-            form_note_create = NoteCreateForm()
-            return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
+            #form_note_create = NoteCreateForm()
+            #return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
+            return render(request, 'note/note_create.html')
     else:
         return render(request,'perasis/not_authenticaded.html')
 

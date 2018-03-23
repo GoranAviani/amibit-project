@@ -22,24 +22,49 @@
         {% csrf_token %}
         <div class="col-md-8 col-xs-12">
             <input type="text" style="color: #213123;" class="form-control pa-command-input " name="personal_assistant_textbox" placeholder="">
-
         </div>
-
-          <div class="col-md-8 col-xs-12">
-            <button type="submit" class="btn btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>
-          </div>
-        </form>
+        <div class="col-md-8 col-xs-12">
+          <button type="submit" class="btn btn-dashboard-pa-submit" name="personal_assistant_btn">Command</button>
+        </div>
+      </form>
         <div class="col-md-4 col-xs-12">
             <a href="{% url 'pa_list_of_commands' %}" class="btn btn-dashboard-pa-list-commands">List of commands</a>
         </div>
   </div>
 
+  <div class="col-md-12 col-xs-12">
+    {% if messages %}
+      {% for message in messages %}
+        {%if "note_create" in message.tags %}
+          <div class="alert alert-success">
+            <center>
+              <strong>
+                {{message}}
+              </strong>
+            </center>
+          </div>
+        {% elif "link_create" in message.tags %}
+          <div class="alert alert-success">
+            <center>
+              <strong>
+                {{message}}
+              </strong>
+            </center>
+          </div>
+        {%endif%}
+      {% endfor %}
+    {% endif %}
+  </div>
+
   <div id = NoteContainer class="col-md-9 col-xs-8">
+
     <div class="col-md-12 col-xs-9">
       <a href ="{% url 'note_create' %}" class="btn btn-main-orange-note btn-main-orange-mob pull-left col-md-4 col-xs-12">
         Create note
       </a>
     </div>
+
+
 
       {% if queryNote %}
       <div class="col-md-12 col-xs-12 notes-list-container">

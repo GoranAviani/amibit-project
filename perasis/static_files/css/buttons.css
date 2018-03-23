@@ -118,7 +118,7 @@ a:focus, a:hover {
   }
 }
 
-.btn-blue-title:focus, .btn-main-blue-title:hover {
+.btn-blue-title:focus, .btn-blue-title:hover {
   color: #ffffff;
   border: 1px solid #5696CB;
   outline: none;
