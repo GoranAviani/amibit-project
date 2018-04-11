@@ -57,9 +57,9 @@
 }
 /** START USING AMIBIT START*/
 .start-using-section {
-  color: white;
+  color: #ffffff;
   background: url('/static_files/pics/background/header.jpg')no-repeat bottom center scroll;
-  background-color: black;
+  background-color: #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -40,8 +40,7 @@ from linkmanager.forms import (
 LinkCreateForm,
 LinkUpdateForm,
 LinkDeleteForm,
-NoteCreateForm,
-NoteUpdateForm,
+NoteCreateUpdateForm,
 NoteDeleteForm,
 UserRegisterForm,
 UserInfo,
@@ -257,11 +256,22 @@ def check_for_unusual_characters(note_title):
         if letter not in url_allowed_characters:
             note_slug=note_slug.replace(letter,"-")
     return note_slug
+
+def check_note_input(form_data):
+    if form_data.get('note_title') == "":
+        form_data.update({'note_title': (form_data.get('note_text')[0:200:])})
+    elif form_data.get('note_text') == "":
+        form_data.update({'note_text': form_data.get('note_title')})
+    return(form_data)    
+
+
 #form views:
 def NoteCreateView(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
-            form_note_create = NoteCreateForm(request.POST)
+            #form_data = check_note_input(request.POST.copy())
+            #form_note_create = NoteCreateUpdateForm(data = form_data)
+            form_note_create = NoteCreateUpdateForm(request.POST)
             if form_note_create.is_valid():
                 note = form_note_create.save(commit=False)
                 note.note_user = request.user
@@ -269,13 +279,12 @@ def NoteCreateView(request):
                 note.save()
                 messages.success(request, 'Note saved!',extra_tags='note_create')
                 return redirect('dashboard')
-            else:
-                messages.success(request, 'It seems you forgot to fill both title and note text. Youll have to do if again for now until its fixed, sorry for that.',extra_tags='fail_input')
-                return redirect('note_create')
+            #else:
+             #   messages.success(request, 'It looks like you forgot some text!',extra_tags='fail_input')
+             #   return redirect('note_create')
         else:
-            #form_note_create = NoteCreateForm()
-            #return render(request, 'note/note_create.html', {'form_note_create': form_note_create})
-            return render(request, 'note/note_create.html')
+            form_note_create_update = NoteCreateUpdateForm()
+            return render(request, 'note/note_create.html', {'form_note_create_update': form_note_create_update})
     else:
         return render(request,'perasis/not_authenticaded.html')
 
@@ -284,9 +293,9 @@ def NoteUpdateView(request,id):
     if request.user.is_authenticated():
         if note_to_update.note_user == request.user:
             if request.method == 'POST':
-                form_note_update = NoteUpdateForm(request.POST)
-                if form_note_update.is_valid():
-                    note = form_note_update.save(commit=False)
+                form_note_create_update = NoteCreateUpdateForm(request.POST)
+                if form_note_create_update.is_valid():
+                    note = form_note_create_update.save(commit=False)
                     note.id = id
                     note.note_timestamp = datetime.datetime.now()
                     note.note_user = request.user
@@ -294,8 +303,10 @@ def NoteUpdateView(request,id):
                     note.save()
                     return redirect('dashboard')
             else:
-                form_note_update = NoteUpdateForm(instance = note_to_update)
-                return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
+                form_note_create_update = NoteCreateUpdateForm(instance = note_to_update)
+                #return render(request, 'note/note_update.html', {'form_note_update': form_note_update})
+                return render(request, 'note/note_update.html', {'form_note_create_update': form_note_create_update})
+                
         else:
             return render(request,'perasis/not_owner.html')
     else:
@@ -312,7 +323,7 @@ def NoteDeleteView(request,id):
                     note_to_delete.delete()
                     return redirect('dashboard')
             else:
-                form_note_delete = NoteUpdateForm(instance=note_to_delete)
+                form_note_delete = NoteDeleteForm(instance=note_to_delete)
                 return render(request, 'note/note_delete.html', {'form_note_delete': form_note_delete})
         else:
             return render(request,'perasis/not_owner.html')

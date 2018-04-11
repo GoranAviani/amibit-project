@@ -2,59 +2,49 @@
 {% block content %}
 {% load static %}
 
-<head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Amibit</title>
-</head>
-<body>
-  <div class="normal-center-page ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="well normal-center-container">
-            <h2 class="text-center">How to use</h2><br />
-            <div class="text-center">
-              How to change the new tab page to amibit.org.
-              <br>
-              <br>
-              Firefox:
-              <br><br>
-              History: (skip to how-to if you want it done)<br><br>
-              Since Firefox 41 it's no longer possible to customize the
-              page shown in a new tab via changing the preference browser.newtab.url in
-              about.config. Because of the fact that hijackers abused the preference in
-              the past, Mozilla decided to remove it. Fortunately, by removing it, Mozilla
-              also introduced a new API to bring this functionality back to life as an add-on.
-              <br><br><br>
-              How-to:<br>
-              On this link (this is one of many Firefox addons that allows you to place amibit.org on new tab, I choose this one because it was first to come up in my search).
-              <br><br>
-              This link will take you to Mozilla Firefox page of "New Tab Override" by Sören Hentzschel.<br>
-              <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/?src=search">Official Firefox Mozilla store: "New Tab Override" by  Sören Hentzschel.</a>
-              <br><br>
-              Then you should clink on "Add to firefox" button.<br>
-              On top left corner Firefox will ask you do you want to add this addon to your browser. Click add.
-              <br><br>
-              On top right click the "New Tab Settings" button and you will open "New Tab Override" Settings page.
-              <br><br>
-              First option should be "custom URL" already set so don't change that.
-              <br><br>
-              For URL type : "www.amibit.org" ( without apostrophe).
-              <br><br>
-              Focus - Amibit recommends you set focus, but its entirely up to you.
-              <br><br>
-
-
-            </div>
-          </div>
-        </div>
+<div  class="how-to-use how-to-use-background1 content-section text-center">
+  <div class="container">
+    <div class="col-md-12 col-xs-12">
+      <h2>Set Amibit on Firefox</h2> 
+      <p><h4>Install "New Tab Override" from Firefox Add-ons</h4></p>
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/?src=search" class="btn btn-primary btn-main-blue">Download</a></br>   
+      <div class=" how-to-list text-left">
+        <p>
+          <ul>
+            <li><h4>Select "New tab settings" in the top right corner of your Firefox window to open settings.</h4></li>
+            <li><h4>In the settings window select "custom URl" and type in "www.amibit.org".</h4></li>
+            <li><h4>In the setting window select Focus which will set focus to Amibit instead of the address bar.</h4></li>
+          </ul>
+        </p> 
       </div>
     </div>
   </div>
-</body>
+</div>
+
+<div  class="how-to-use how-to-use-background2 content-section text-center">
+  <div class="container">
+    <div class="col-md-12 col-xs-12">
+      <h2>Set Amibit on Firefox Mobile</h2> 
+      <p>
+        <div class="how-to-list text-left">
+          <ul>
+            <li><h4>Select three dots in the top right corner of your Firefox window to open Firefox menu.</h4></li>
+            <li><h4>In the Firefox menu select "Settings" and then select "General".</h4></li>
+            <li><h4>In the General window select "Home" and then select "Set a Homepage".</h4></li>
+            <li><h4>In the new window select "custom" and type "www.amibit.org" as a address.</h4></li>
+          </ul>
+        </div>
+      </p> 
+    </div>
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
 {% endblock %}

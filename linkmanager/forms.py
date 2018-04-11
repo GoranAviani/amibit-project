@@ -7,8 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class LinkCreateForm(forms.ModelForm):
-    link_name = forms.CharField()
-    link_url = forms.CharField()
+    link_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
+    link_url = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
     class Meta:
         model = Link
         fields = (
@@ -17,8 +17,8 @@ class LinkCreateForm(forms.ModelForm):
             )
 
 class LinkUpdateForm(forms.ModelForm):
-    link_name = forms.CharField()
-    link_url = forms.CharField()
+    link_name = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
+    link_url = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
     class Meta:
         model = Link
         fields = (
@@ -27,8 +27,8 @@ class LinkUpdateForm(forms.ModelForm):
             )
 
 class LinkDeleteForm(forms.ModelForm):
-    link_name = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    link_url = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    link_name = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly','class':'note-title-input'}))
+    link_url = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly','class':'note-title-input'}))
 
     class Meta:
         model = Link
@@ -38,43 +38,27 @@ class LinkDeleteForm(forms.ModelForm):
             )
 
 
-class NoteCreateForm(forms.ModelForm):
-    #your_name = forms.CharField(label='Your name', max_length=100)
-    note_title = forms.CharField()
-    note_text = forms.CharField(widget=forms.Textarea)
+class NoteCreateUpdateForm(forms.ModelForm):
+    note_title = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
+    note_text = forms.CharField(label='', widget=forms.Textarea(attrs={'class':'note-text-input'}))
 
     class Meta:
         model = Note
         fields = (
-            #'note_user',
             'note_title',
             'note_text',
-            #'note_timestamp',
             )
 
 
-class NoteUpdateForm(forms.ModelForm):
-    note_title = forms.CharField()
-    note_text = forms.CharField(widget=forms.Textarea)
 
-    class Meta:
-        model = Note
-        fields = (
-            #'note_user',
-            'note_title',
-            'note_text',
-        #    'note_timestamp',
-            )
 class NoteDeleteForm(forms.ModelForm):
-    note_title = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
-    note_text = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
+    note_title = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly','class':'note-title-input'}))
+    note_text = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly','class':'note-text-input'}))
     class Meta:
         model = Note
         fields = (
-            #'note_user',
             'note_title',
             'note_text',
-            #'note_timestamp',
             )
 
 class UserRegisterForm(UserCreationForm):

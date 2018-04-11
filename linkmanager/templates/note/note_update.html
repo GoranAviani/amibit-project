@@ -1,20 +1,27 @@
 {% extends 'base_generic.html' %}
-
 {% block content %}
-
-  <h1>Update note</h1>
-
-<form method="post">
-    {% csrf_token %}
-    {% for field in form_note_update %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-
-      </p>
-    {% endfor %}
-    <button type="submit">Save</button>
-</form>
-
-
+<div class="normal-center-page ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="well  normal-center-container">
+          <h2 class="text-center">Edit note</h2>
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Title</label>
+              {{ form_note_create_update.note_title }}
+              
+            </div>
+            <div class="form-group">
+              <label>Note</label>
+              {{ form_note_create_update.note_text }}
+            </div>
+              <button type="submit" class="btn  btn-primary btn-main-blue btn-big btn-100percent">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

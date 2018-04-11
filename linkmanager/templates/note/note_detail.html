@@ -1,19 +1,26 @@
-{% extends "base_generic.html" %}
-{% load staticfiles %}
-{% load static %}
-
-{% block title %}{{post_to_show.note_title}}{% endblock %}
+{% extends 'base_generic.html' %}
 {% block content %}
-  <h1>{{note_to_show.note_title}}</h1>
-  <p class="date"> Published {{note_to_show.note_timestamp}} by {{note_to_show.note_user}}</p>
-  {{note_to_show.note_text|linebreaks}}
-
-  <a href ="{% url 'note_update' note_to_show.id %}" class="btn btn-primary pull-left">
-    Update
-  </a>
-  <a href ="{% url 'note_delete' note_to_show.id %}" class="btn btn-primary pull-right">
-    Delete
-  </a>
-
-
+<div class="normal-center-page ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+        <div class="well normal-center-container">
+          <h2 class="text-center"><h1>{{note_to_show.note_title}}</h1></h2>
+          <p class="date"> Created {{note_to_show.note_timestamp}}</p>
+            <div class="form-group">
+                {{note_to_show.note_text|linebreaks}}
+                   
+            </div>
+            <a href ="{% url 'note_update' note_to_show.id %}" class="btn btn-primary btn-main-blue btn-big ">
+                Update
+              </a>
+              <a href ="{% url 'note_delete' note_to_show.id %}" class="btn btn-primary btn-main-blue btn-big  pull-right">
+                Delete
+              </a>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

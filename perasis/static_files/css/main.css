@@ -73,7 +73,7 @@ padding-right: 5px;
 
 
 .normal-center-page {
-    padding-top: 180px;
+    padding-top: 80px;
     background: url('/static_files/pics/background/bckg1.jpeg')no-repeat bottom center scroll;
     background-color: #ffffff;
     height: 95%;
@@ -188,3 +188,67 @@ height: 95%
     }
     /*** LINKS PART END*/
 /**DASHBOARD END*/
+
+.note-text-input{
+  width: 100%;
+  height: 250px;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+.note-title-input{
+  width: 100%;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+  /** HOW TO USE AMIBIT */
+  .how-to-use {
+    color: #ffffff;
+    background-color: #000000;
+
+  }
+
+  .how-to-use-background1 {
+    background: url('/static_files/pics/background/computer1.jpg')no-repeat bottom center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .how-to-use-background2 {
+    /*background: url('/static_files/pics/background/mobile2.jpg')no-repeat   scroll;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .how-to-list {
+    padding-top: 20px;
+     }
+   /** HOW TO USE AMIBIT */
+
+   .pic-background3 {
+    /*background: url('/static_files/pics/background/computer1.jpg')no-repeat bottom center scroll;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

@@ -171,6 +171,45 @@ a:focus, a:hover {
   background-color: #5696CB;
 }
 
+
+@media (max-width: 768px) {
+  .btn.btn-white-blue-special{
+    background-color:#ffffff;
+    border-radius: 0px;
+    font-size: 15px;
+    line-height: 14px;
+    color: #5696CB;
+    border: 1px solid #5696CB;
+    overflow: hidden;
+    text-transform: initial;
+
+    }
+}
+
+@media (min-width: 768px) {
+  .btn.btn-white-blue-special{
+    background-color:#ffffff;
+    border-radius: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #5696CB;
+    border: 1px solid #5696CB;
+    overflow: hidden;
+    text-transform: initial;
+
+  }
+}
+
+.btn-white-blue-special:focus, .btn-white-blue-special:hover {
+  color: #ffffff;
+  border: 1px solid #5696CB;
+  outline: none;
+  background-color: #3271a4;
+}
+
+
+
+
 @media (max-width: 767px) {
   .btn.btn-main-orange-note{
     color: #ffffff;

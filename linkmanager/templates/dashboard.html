@@ -63,12 +63,11 @@
                     {{ y.note_timestamp }}
                   </li>
                   <br>
-                  <a href ="{% url 'note_update' y.id %}" class="btn btn-white-blue pull-left col-md-5 col-xs-12">
+                  <div class="col-md-12 col-xs-12">
+                  <a href ="{% url 'note_update' y.id %}" class="btn btn-white-blue-special btn-100percent">
                     Update
                   </a>
-                  <a href ="{% url 'note_delete' y.id %}" class="btn btn-white-blue pull-right col-md-5 col-xs-12">
-                    Delete
-                  </a>
+                </div>
                 </div>
             {% endfor %}
           </div>
