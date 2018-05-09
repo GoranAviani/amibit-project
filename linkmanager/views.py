@@ -1,7 +1,6 @@
 from linkmanager.models import Link, Note
 from django.contrib.auth.models import User
 
-
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -125,7 +124,9 @@ def user_info(request):
  #       queryNote = Note.objects.filter(note_user=self.request.user)
  #       return Response({'links': queryLink, 'notes':queryNote})
         #return Response()
-#new dashboard:
+
+
+
 def Dashboard(request):
     if request.user.is_authenticated():
         if(request.POST.get('personal_assistant_textbox')):
@@ -141,7 +142,7 @@ def Dashboard(request):
                 return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text[4:]))
 
             else:
-                return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text[4:]))
+                return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text))
                 #webbrowser.Error
 
             return redirect('dashboard')
@@ -156,13 +157,6 @@ def Dashboard(request):
         return render(request,'perasis/not_authenticaded.html')
 
 
-######## Commented because with Rest its harder to add custom code
-#class LinkCreateView(CreateAPIView):
-#    queryset = Link.objects.all()
-#    serializer_class = LinkUpdateSerializer
-#    permission_classes=(IsAuthenticated,)
-#    def perform_create(self, serializer):
-#        serializer.save(link_user = self.request.user)
 
 def LinkCreateView(request):
     if request.user.is_authenticated():
@@ -189,17 +183,6 @@ def add_HTTP_to_linkurl(link_url):
     return link_url
 
 
-
-
-######## Commented because with Rest its harder to add custom code
-#class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
-#    queryset = Link.objects.all()
-#    serializer_class = LinkUpdateSerializer
-#    lookup_field = 'id'
-#    permission_classes= (IsAuthenticated,IsLinkOwner,)
-#
-#    def perform_update(self, serializer):
-#            serializer.save(link_user = self.request.user)
 def LinkUpdateView(request,id):
     link_to_update = get_object_or_404(Link, id=id)
     if request.user.is_authenticated():
@@ -222,11 +205,7 @@ def LinkUpdateView(request,id):
         return render(request,'perasis/not_authenticaded.html')
 
 
-######## Commented because with Rest its harder to add custom code
-#class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
-#    permission_classes= (IsAuthenticated,IsLinkOwner)
- #   queryset = Link.objects.all()
- #   lookup_field = 'id'
+
 def LinkDeleteView(request,id):
     link_to_delete = get_object_or_404(Link, id=id)
     if request.user.is_authenticated():
@@ -396,6 +375,20 @@ def note_detail(request,id,note_slug):
 
 
 
+######## Commented because with Rest its harder to add custom code
+#class LinkCreateView(CreateAPIView):
+#    queryset = Link.objects.all()
+#    serializer_class = LinkUpdateSerializer
+#    permission_classes=(IsAuthenticated,)
+#    def perform_create(self, serializer):
+#        serializer.save(link_user = self.request.user)
+
+######## Commented because with Rest its harder to add custom code
+#class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
+#    permission_classes= (IsAuthenticated,IsLinkOwner)
+ #   queryset = Link.objects.all()
+ #   lookup_field = 'id'
+
 
 #checkforHTTP()#########################
 #def checkforHTTP(text):
@@ -407,5 +400,16 @@ def note_detail(request,id,note_slug):
 
 
 
+
+
+######## Commented because with Rest its harder to add custom code
+#class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
+#    queryset = Link.objects.all()
+#    serializer_class = LinkUpdateSerializer
+#    lookup_field = 'id'
+#    permission_classes= (IsAuthenticated,IsLinkOwner,)
+#
+#    def perform_update(self, serializer):
+#            serializer.save(link_user = self.request.user)
 
 #checkforHTTP()

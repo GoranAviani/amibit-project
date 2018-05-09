@@ -66,8 +66,8 @@ class UserRegisterForm(UserCreationForm):
     #first_name = forms.CharField(help_text='Required')
     #last_name = forms.CharField(help_text='Required')
     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
-    password1 = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
-    password2 = forms.CharField(label='', widget=forms.TextInput(attrs={'class':'note-title-input'}))
+    password1 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class':'password-input'}))
+    password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class':'password-input'}))
     class Meta:
         model = User
         fields = (
