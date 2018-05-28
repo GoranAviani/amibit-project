@@ -1,7 +1,16 @@
 # Amibit
 
 An online perosnal bookmark and notes manager. 
-Live on https://amibit.org
+Amibit is built as a replacement for Firefox or Chrome most visited page and new tab page.
+
+After registration users are redirected to their personal dashboards where they manage their notes and links.
+
+Users have an option of using cryptocurrency portfolio that tracks and displays users portfolio value and currency changes based on a hourly and daily intervals.
+
+
+```
+https://amibit.org
+```
 
 
 ## Prerequisites
@@ -15,14 +24,13 @@ psycopg2==2.7.3
 pytz==2017.2
 
 
-
-Make sure to create your virtualenv before installing requirements.
+Install prerequisites:
 ```
 pip3 install -r requirements.txt
 ```
 
 ### Installing
-
+Make sure to create your virtualenv before installing requirements.
 Create your own virtualenv, preferably using virtualenvwrapper.
 
 ```

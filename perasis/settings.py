@@ -26,8 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-# Applic2ation definition
-# SECURITY WARNING: keep the secret key used in production secret!
+
 
 
 INSTALLED_APPS = [
@@ -95,13 +94,11 @@ WSGI_APPLICATION = 'perasis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-##################
 
-##################
+
 #import dj_database_url
 # UN COMMENT THIS FOR DEPLOYED HEROKU --->
     #DATABASES['default'] =  dj_database_url.config()
-#######################
 
 
 # Password validation
@@ -143,12 +140,10 @@ STATIC_URL = '/static_files/'
 
 #for deployment uncomment or for local comment:
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
-###PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
-####STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static_files"), )
 
 
 #added for static files ->
-#for deployment comment for local uncommenr:
+#for deployment comment for local uncomment:
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static_files'),

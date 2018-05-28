@@ -26,5 +26,3 @@ urlpatterns = [
     url(r'^', include('coinwallet.urls')),
 
 ]
-
-#django updte model

@@ -50,7 +50,6 @@ import webbrowser
 HTTP_URL="http://"
 HTTPS_URL="https://"
 
-#basic views:
 
 def index(request):
     if request.user.is_authenticated():
@@ -60,7 +59,6 @@ def index(request):
         num_user=User.objects.count()
         num_link=Link.objects.count()
 
-    # Render the HTML template index.html with the data in the context variable
         return render(
             request,
             'index.html',
@@ -101,38 +99,19 @@ def pa_list_of_commands(request):
     )
 
 def user_settings_menu(request):
-
      return render(
          request,
         'user/user_settings_menu.html',
     )
 
 def user_info(request):
-    #import pdb; pdb.set_trace()
-    #current_user ={'user': request.user}
     return render(request,'user/user_info.html')
-
-#Api views:
-
-#class Dashboard(APIView):
-#    permission_classes=(IsAuthenticated,)
-#    renderer_classes = [TemplateHTMLRenderer]
-#    template_name = 'dashboard.html'
-#
- #   def get(self, request):
- #       queryLink = Link.objects.filter(link_user=self.request.user)
- #       queryNote = Note.objects.filter(note_user=self.request.user)
- #       return Response({'links': queryLink, 'notes':queryNote})
-        #return Response()
-
-
 
 def Dashboard(request):
     if request.user.is_authenticated():
         if(request.POST.get('personal_assistant_textbox')):
             text = request.POST.get('personal_assistant_textbox')
 
-           #browser
             if text[0:2+1] == "go ":
                 return redirect(HTTP_URL+text[3:])
 
@@ -143,7 +122,6 @@ def Dashboard(request):
 
             else:
                 return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text))
-                #webbrowser.Error
 
             return redirect('dashboard')
         else:
@@ -244,12 +222,9 @@ def check_note_input(form_data):
     return(form_data)    
 
 
-#form views:
 def NoteCreateView(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
-            #form_data = check_note_input(request.POST.copy())
-            #form_note_create = NoteCreateUpdateForm(data = form_data)
             form_note_create = NoteCreateUpdateForm(request.POST)
             if form_note_create.is_valid():
                 note = form_note_create.save(commit=False)
@@ -258,9 +233,6 @@ def NoteCreateView(request):
                 note.save()
                 messages.success(request, 'Note saved!',extra_tags='note_create')
                 return redirect('dashboard')
-            #else:
-             #   messages.success(request, 'It looks like you forgot some text!',extra_tags='fail_input')
-             #   return redirect('note_create')
         else:
             form_note_create_update = NoteCreateUpdateForm()
             return render(request, 'note/note_create.html', {'form_note_create_update': form_note_create_update})
@@ -308,18 +280,11 @@ def NoteDeleteView(request,id):
             return render(request,'perasis/not_owner.html')
     else:
         return render(request,'perasis/not_authenticaded.html')
-# kad se klikne na delete da izbaci pop up.
-#alert()
-#tk inter library za heroje
-#if noute-user == request.user
-#slik
-
 
 def logout_view(request):
     logout(request)
     return render(request,"index.html",{})
 
-#registration user:
 def signup_view(request):
     if request.method == 'POST':
        form_signup = UserRegisterForm(request.POST)
@@ -335,7 +300,6 @@ def signup_view(request):
         form_signup = UserRegisterForm()
     return render(request, 'registration/registration.html', {'form_signup': form_signup})
 
-#edit user info:
 def user_info_edit_profile(request):
     if request.method == 'POST':
         user_info_form = UserInfo(request.POST, instance = request.user)
@@ -350,7 +314,6 @@ def user_info_edit_profile(request):
         user_info_form = UserInfo(instance=request.user)
         return render (request, 'user/user_info_edit_profile.html', {'user_info_form' : user_info_form})
 
-#change user password:
 def user_info_edit_password(request):
     if request.method == 'POST':
         change_password_form = PasswordChangeForm(data = request.POST, user = request.user)
@@ -371,45 +334,3 @@ def note_detail(request,id,note_slug):
     note_to_show = get_object_or_404(Note, id=id, note_slug=note_slug)
 
     return render (request, "note/note_detail.html",{"note_to_show":note_to_show})
-
-
-
-
-######## Commented because with Rest its harder to add custom code
-#class LinkCreateView(CreateAPIView):
-#    queryset = Link.objects.all()
-#    serializer_class = LinkUpdateSerializer
-#    permission_classes=(IsAuthenticated,)
-#    def perform_create(self, serializer):
-#        serializer.save(link_user = self.request.user)
-
-######## Commented because with Rest its harder to add custom code
-#class LinkDestroyView(DestroyAPIView): #retrieve is for detail view
-#    permission_classes= (IsAuthenticated,IsLinkOwner)
- #   queryset = Link.objects.all()
- #   lookup_field = 'id'
-
-
-#checkforHTTP()#########################
-#def checkforHTTP(text):
-#    pass
-   # if text[0:2+1] == "go ":
-   #     if text[4:10] == "http://":
-   #         fixtext= text[11:0]
-    #    return text
-
-
-
-
-
-######## Commented because with Rest its harder to add custom code
-#class LinkUpdateView(RetrieveUpdateAPIView): #retrieve is for detail view
-#    queryset = Link.objects.all()
-#    serializer_class = LinkUpdateSerializer
-#    lookup_field = 'id'
-#    permission_classes= (IsAuthenticated,IsLinkOwner,)
-#
-#    def perform_update(self, serializer):
-#            serializer.save(link_user = self.request.user)
-
-#checkforHTTP()

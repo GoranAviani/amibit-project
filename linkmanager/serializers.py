@@ -9,11 +9,6 @@ class UserSerializer(serializers.ModelSerializer):
             'username',
         )
 
-#class LinkSerializer(serializers.Serializer):
-#    class Meta:
-#        model = Link
-#        fields = '__all__'
-
 class LinkUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Link

@@ -5,9 +5,6 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns =[
-
-
-   # url(r'^dashboard/', views.Dashboard.as_view(template_name="dashboard.html"),  name='dashboard'),
     url(r'^dashboard/', views.Dashboard,  name='dashboard'),
 
     url(r'^about', views.about, name='about'),

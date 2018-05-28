@@ -9,5 +9,4 @@ urlpatterns =[
     url(r'^coinportfolio/dashboard/', views.CoinWalletDashboardView, name='coinportfolio_dashboard'),
     url(r'^coinportfolio/update/(?P<id>[0-9A-Za-z_\-]+)/', views.CoinWalletUpdateView, name='coinportfolio_update'),
     url(r'^coinportfolio/delete/(?P<id>[0-9A-Za-z_\-]+)/$', views.CoinWalletDeleteView, name='coinportfolio_delete'),
-
-        ]
+    ]
