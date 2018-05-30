@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      #added_apps
     'rest_framework',
-    'corsheaders',
+    #'corsheaders',
 
     #my_apps
     'linkmanager',
@@ -68,6 +68,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 #CORS_ORIGIN_WHITELIST = ('localhost:3000',)
+
 CORS_ALLOW_CREDENTIALS = False
 
 ROOT_URLCONF = 'perasis.urls'
@@ -91,10 +92,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'perasis.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-
+#
 
 #import dj_database_url
 # UN COMMENT THIS FOR DEPLOYED HEROKU --->

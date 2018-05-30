@@ -1,26 +1,11 @@
 from linkmanager.models import Link, Note
 from django.contrib.auth.models import User
 
-from rest_framework.renderers import TemplateHTMLRenderer
-from rest_framework.response import Response
-from rest_framework.views import APIView
+
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-from .permissions import *
 from django.contrib import messages
-
-from django.utils import timezone
 import datetime
-
-from rest_framework.generics import (
-    CreateAPIView,
-    RetrieveUpdateAPIView,
-    DestroyAPIView,
-    )
-from rest_framework.permissions import (
-    IsAuthenticated,
-    IsAuthenticatedOrReadOnly,
-)
 
 
 from django.contrib.auth import (
@@ -30,9 +15,7 @@ from django.contrib.auth import (
     update_session_auth_hash,
 )
 
-from linkmanager.serializers import (
-    LinkUpdateSerializer,
-    )
+
 from django.contrib.auth.forms import PasswordChangeForm
 
 from linkmanager.forms import (
@@ -46,7 +29,7 @@ UserInfo,
 )
 
 
-import webbrowser
+
 HTTP_URL="http://"
 HTTPS_URL="https://"
 
@@ -204,14 +187,10 @@ def LinkDeleteView(request,id):
 
 def check_for_unusual_characters(note_title):
     note_slug = ""
-    url_allowed_characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
-    "Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k",
-    "l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",0,1,2,3,4,5,6,7,8,9
-    ,"-",".","_","~",":","/","?","#","[","]","@","!","$","&","'","(",")","*","+",",",";","=","`","."]
     note_slug=note_title
     for letter in note_title:
-        if letter not in url_allowed_characters:
-            note_slug=note_slug.replace(letter,"-")
+        if not letter.isalpha():
+            note_slug=note_slug.replace(letter, "-")
     return note_slug
 
 def check_note_input(form_data):
