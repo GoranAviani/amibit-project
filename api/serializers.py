@@ -6,5 +6,5 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         num_users=User.objects.all().count()
-        fields = ('username',) 
+        fields = ('id', 'username',)
         
