@@ -29,26 +29,27 @@ UserInfo,
 )
 
 
-
-HTTP_URL="http://"
-HTTPS_URL="https://"
+# Used for check does the link have http or https in the beginning
+#In function add_HTTP_to_linkurl
+HTTP_URL = "http://"
+HTTPS_URL = "https://"
 
 
 def index(request):
     if request.user.is_authenticated():
         return redirect('dashboard')
     else:
-        num_note=Note.objects.all().count()
-        num_user=User.objects.count()
-        num_link=Link.objects.count()
+        #Show how many users,notes,links there are on Amibit
+        num_note = Note.objects.all().count()
+        num_user = User.objects.count()
+        num_link = Link.objects.count()
 
         return render(
             request,
             'index.html',
-            context={'num_note':num_note,'num_user':num_user,'num_link':num_link},
+            context={'num_note': num_note, 'num_user':num_user, 'num_link': num_link},
             )
 def about(request):
-    #To show about page
     return render(
     request,
     'perasis/about.html'
@@ -92,9 +93,11 @@ def user_info(request):
 
 def Dashboard(request):
     if request.user.is_authenticated():
+        #if PAbox has post
         if(request.POST.get('personal_assistant_textbox')):
             text = request.POST.get('personal_assistant_textbox')
 
+            #According to first part of text in PAbox open second part of the PAbox
             if text[0:2+1] == "go ":
                 return redirect(HTTP_URL+text[3:])
 
@@ -107,6 +110,8 @@ def Dashboard(request):
                 return redirect(HTTP_URL+"www.duckduckgo.com/?q="+(text))
 
             return redirect('dashboard')
+
+        #If PAbox has not been posted display notes, links
         else:
             queryLink = Link.objects.filter(link_user=request.user).order_by('-id')
             queryNote = Note.objects.filter(note_user=request.user).order_by('-note_timestamp')
@@ -115,7 +120,8 @@ def Dashboard(request):
             'queryNote': queryNote,
             })
     else:
-        return render(request,'perasis/not_authenticaded.html')
+        #if user is not authenticated inform him of that
+        return render(request, 'perasis/not_authenticaded.html')
 
 
 
@@ -126,6 +132,7 @@ def LinkCreateView(request):
             if form_link_create.is_valid():
                 form = form_link_create.save(commit=False)
                 form.link_user = request.user
+                #Check does the link have http or https in the beginning
                 form.link_url = add_HTTP_to_linkurl(form.link_url)
                 form.save()
                 messages.success(request, 'Link saved!',extra_tags='link_create')
@@ -134,13 +141,15 @@ def LinkCreateView(request):
             form_link_create = LinkCreateForm()
             return render(request, 'link/link_create.html', {'form_link_create': form_link_create})
     else:
+        # if user is not authenticated inform him of that
         return render(request,'perasis/not_authenticaded.html')
 
 
+#Check does the link have http or https on the beginning, if it does not add it
 def add_HTTP_to_linkurl(link_url):
     if link_url[0:7] != HTTP_URL:
         if link_url[0:8] != HTTPS_URL:
-            link_url=HTTP_URL + link_url
+            link_url = HTTP_URL + link_url
     return link_url
 
 
@@ -154,6 +163,7 @@ def LinkUpdateView(request,id):
                     link = form_link_update.save(commit=False)
                     link.id = id
                     link.link_user = request.user
+                    # Check does the link have http or https in the beginning
                     link.link_url = add_HTTP_to_linkurl(link.link_url)
                     link.save()
                     return redirect('dashboard')
@@ -161,8 +171,9 @@ def LinkUpdateView(request,id):
                 form_link_update = LinkUpdateForm(instance = link_to_update)
                 return render(request, 'link/link_update.html', {'form_link_update': form_link_update})
         else:
-            return render(request,'perasis/not_owner.html')
+            return render(request, 'perasis/not_owner.html')
     else:
+        # if user is not authenticated inform him of that
         return render(request,'perasis/not_authenticaded.html')
 
 
@@ -182,7 +193,8 @@ def LinkDeleteView(request,id):
         else:
             return render(request,'perasis/not_owner.html')
     else:
-        return render(request,'perasis/not_authenticaded.html')
+        # if user is not authenticated inform him of that
+        return render(request, 'perasis/not_authenticaded.html')
 
 
 def check_for_unusual_characters(note_title):
@@ -216,6 +228,7 @@ def NoteCreateView(request):
             form_note_create_update = NoteCreateUpdateForm()
             return render(request, 'note/note_create.html', {'form_note_create_update': form_note_create_update})
     else:
+        # if user is not authenticated inform him of that
         return render(request,'perasis/not_authenticaded.html')
 
 def NoteUpdateView(request,id):
@@ -240,7 +253,8 @@ def NoteUpdateView(request,id):
         else:
             return render(request,'perasis/not_owner.html')
     else:
-        return render(request,'perasis/not_authenticaded.html')
+        # if user is not authenticated inform him of that
+        return render(request, 'perasis/not_authenticaded.html')
 
 
 def NoteDeleteView(request,id):
@@ -258,7 +272,8 @@ def NoteDeleteView(request,id):
         else:
             return render(request,'perasis/not_owner.html')
     else:
-        return render(request,'perasis/not_authenticaded.html')
+        # if user is not authenticated inform him of that
+        return render(request, 'perasis/not_authenticaded.html')
 
 def logout_view(request):
     logout(request)
@@ -312,4 +327,4 @@ def user_info_edit_password(request):
 def note_detail(request,id,note_slug):
     note_to_show = get_object_or_404(Note, id=id, note_slug=note_slug)
 
-    return render (request, "note/note_detail.html",{"note_to_show":note_to_show})
+    return render (request, "note/note_detail.html", {"note_to_show":note_to_show})
