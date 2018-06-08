@@ -38,6 +38,13 @@ mkvirtualenv your_env_name
 
 ```
 
+## Documentation
+
+Project documentation is build using Sphinx tool.
+
+Documentation is built following my tutorial: [Sphinx for Django Documentation](https://medium.com/@goranaviani/sphinx-for-django-documentation-2454e924b3bc)
+
+
 
 
 ## Authors
