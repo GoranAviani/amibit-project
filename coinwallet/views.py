@@ -13,7 +13,7 @@ CoinWalletCreateForm,
 # Create your views here.
 
 class CryptoProtfolioValue():
-    def __init__(self, prices_json,wallet_sum,wallet_sum_per_coin,percent_change_1h,percent_change_24h):
+    def __init__(self, prices_json, wallet_sum, wallet_sum_per_coin, percent_change_1h, percent_change_24h):
         self.prices_json=prices_json
         self.wallet_sum=wallet_sum
         self.wallet_sum_per_coin=wallet_sum_per_coin
@@ -22,6 +22,7 @@ class CryptoProtfolioValue():
 
     def get_prices(self,):
         prices = os.popen("curl -X GET https://api.coinmarketcap.com/v1/ticker/?limit=0").read()
+        print(prices)
         self.prices_json = json.loads(prices)
     def print_my_portfolio_value(self,user):
         wallet_sum_per_coin={}
