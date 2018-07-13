@@ -22,20 +22,23 @@ class CryptoProtfolioValue():
 
     def get_prices(self,):
         prices = os.popen("curl -X GET https://api.coinmarketcap.com/v1/ticker/?limit=0").read()
-        print(prices)
         self.prices_json = json.loads(prices)
-    def print_my_portfolio_value(self,user):
+
+    def print_my_portfolio_value(self, user):
         wallet_sum_per_coin={}
         queryCoinWallet_model=CoinWallet.objects.filter(wallet_user=user)
+        #print("teeeeeest {}".format(queryCoinWallet_model))
         for x in queryCoinWallet_model:
             for valuta in self.prices_json:
-                if valuta['symbol'] == x.wallet_coin:
+                #print(valuta)
+                #print(x.wallet_coin)
+                if valuta['symbol'].upper() == x.wallet_coin.upper():
                     worth_per_coin = (float(valuta['price_usd']) * float(x.wallet_amount))
                     self.wallet_sum += worth_per_coin
-                    self.wallet_sum_per_coin.update({x.wallet_coin:worth_per_coin})
-                    self.percent_change_1h.update({x.wallet_coin:valuta['percent_change_1h']})
-                    self.percent_change_24h.update({x.wallet_coin:valuta['percent_change_24h']})
-        self.wallet_sum = round(self.wallet_sum,2)
+                    self.wallet_sum_per_coin.update({x.wallet_coin: worth_per_coin})
+                    self.percent_change_1h.update({x.wallet_coin: valuta['percent_change_1h']})
+                    self.percent_change_24h.update({x.wallet_coin: valuta['percent_change_24h']})
+        self.wallet_sum = round(self.wallet_sum, 2)
 
 def CoinWalletDashboardView(request):
     if request.user.is_authenticated():
