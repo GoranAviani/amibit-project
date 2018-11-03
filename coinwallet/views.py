@@ -42,7 +42,7 @@ class CryptoProtfolioValue():
 
 def CoinWalletDashboardView(request):
     if request.user.is_authenticated():
-        Cryptotask = CryptoProtfolioValue("",0,{},{},{})
+        Cryptotask = CryptoProtfolioValue("", 0, {}, {}, {})
         #while True:
         Cryptotask.get_prices()
         Cryptotask.print_my_portfolio_value(request.user)
