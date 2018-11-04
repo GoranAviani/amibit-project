@@ -22,7 +22,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'amibitdb',
         'USER': 'amibitadmin',
-        'PASSWORD': '224466amibit',
+        'PASSWORD': '224466integer',
         'HOST':'localhost',
         #'HOST': '127.0.0.1',
         'PORT': '',
