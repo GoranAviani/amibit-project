@@ -32,5 +32,5 @@ urlpatterns =[
     url(r'^user/infoedit/password/', views.user_info_edit_password, name='user_info_edit_password'),
 
     url(r'^note/show/(?P<id>.*)/(?P<note_slug>.*)', views.note_detail, name='note_detail'),
-  
+
         ]

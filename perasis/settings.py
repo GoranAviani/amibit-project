@@ -11,11 +11,23 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from .local_settings import *
+#from .local_settings import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-
+SECRET_KEY = '8z!!$*7#)zkq7tit0!#rsn!yuga4191+i+gb(@jqb+0q7yl!'
+ALLOWED_HOSTS = ['www.amibit.org','amibit.org','35.242.221.169','127.0.0.1','localhost']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'amibitdb',
+        'USER': 'amibitadmin',
+        'PASSWORD': '224466amibit',
+        'HOST':'localhost',
+        #'HOST': '127.0.0.1',
+        'PORT': '',
+    }
+ } 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
