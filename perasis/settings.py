@@ -16,7 +16,7 @@ import os
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = '8z!!$*7#)zkq7tit0!#rsn!yuga4191+i+gb(@jqb+0q7yl!'
-ALLOWED_HOSTS = ['www.amibit.org','amibit.org','35.204.157.80','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['www.amibit.org','amibit.org','35.204.157.80','10.164.0.2','127.0.0.1','localhost']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
