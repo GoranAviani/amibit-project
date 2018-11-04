@@ -23,8 +23,8 @@ DATABASES = {
         'NAME': 'amibitdb',
         'USER': 'amibitadmin',
         'PASSWORD': '224466integer',
-        #'HOST':'localhost',
-        'HOST': '127.0.0.1',
+        'HOST':'localhost',
+        #'HOST': '127.0.0.1',
         'PORT': '',
     }
  } 
