@@ -25,7 +25,8 @@ DATABASES = {
         'PASSWORD': '224466integer',
         'HOST':'localhost',
         #'HOST': '127.0.0.1',
-        'PORT': '',
+        'PORT': '5432',
+        #'PORT': '',
     }
  } 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
