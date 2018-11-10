@@ -16,7 +16,7 @@ import os
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = '8z!!$*7#)zkq7tit0!#rsn!yuga4191+i+gb(@jqb+0q7yl!'
-ALLOWED_HOSTS = ['www.amibit.org','amibit.org','68.183.73.78','localhost']
+ALLOWED_HOSTS = ['www.amibit.org','amibit.org','68.183.73.78','127.0.0.1','localhost']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -38,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -150,15 +150,15 @@ USE_TZ = True
 STATIC_URL = '/static_files/'
 
 #for deployment uncomment or for local comment:
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 
 
 #added for static files ->
 #for deployment comment for local uncomment:
-#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'static_files'),
-#)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static_files'),
+)
 #added for static files
 
 
