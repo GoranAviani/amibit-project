@@ -38,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -150,7 +150,7 @@ USE_TZ = True
 STATIC_URL = '/static_files/'
 
 #for deployment uncomment or for local comment:
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/') #ovo izgleda da je zlo za local i online ?
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/') #ovo izgleda da je zlo za local i online ?
 
 
 #added for static files ->
