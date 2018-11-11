@@ -30,7 +30,8 @@ DATABASES = {
     }
  } 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -150,7 +151,7 @@ USE_TZ = True
 STATIC_URL = '/static_files/'
 
 #for deployment uncomment or for local comment:
-STATIC_ROOT = os.path.join(BASE_DIR, 'perasis/static_files/') #ovo izgleda da je zlo za local i online ?
+STATIC_ROOT = os.path.join(BASE_DIR, '/static_files/') #ovo izgleda da je zlo za local i online ?
 
 
 #added for static files ->
