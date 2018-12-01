@@ -38,7 +38,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="amibit-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li><a href="{% url 'how_to_use' %}">How to use?</a></li>
+          <li><a href="{% url 'how_to_use' %}">How to use</a></li>
       </ul>
       <!-- Search-->
 <!--
@@ -60,7 +60,7 @@
          <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
         {% else %}
           <li><a href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>  Log in</b></a></li>
-          <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i>    Register</b></a></li>
+          <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i>    Sign up</b></a></li>
         {% endif %}
    <!-- DROPDOwN-->
         <li class="dropdown">
@@ -78,7 +78,7 @@
             {% else %}
               <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log in</a><li>
               <li role="separator" class="divider"></li>
-              <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a><li>
+              <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign up</a><li>
             {% endif %}
           </ul>
         </li>
