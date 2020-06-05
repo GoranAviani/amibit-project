@@ -3,7 +3,7 @@ argh==0.26.2
 Babel==2.6.0
 certifi==2018.4.16
 chardet==3.0.4
-Django==1.11.28
+Django==1.11.29
 django-cors-headers==2.2.0
 django-filter==1.0.4
 djangorestframework==3.9.1
